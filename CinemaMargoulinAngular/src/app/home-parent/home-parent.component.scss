@@ -1,0 +1,67 @@
+/*
+*   MAIN
+*/
+h2 {
+    color:darkolivegreen;
+    font-size: 4em;
+
+}
+
+main {
+    width: 100%;
+    height: 500vh;
+    position:relative;
+    background-color: black;
+}
+
+.app-wraper-1 {
+    width: 100%;
+    height: 100vh;
+    position:relative;
+    margin: auto;
+}
+
+.app-wraper-2 {
+    width: 150%;
+    height: 100vh;
+    position:relative;
+    margin: auto;
+}
+
+.app-wraper__affiche {
+    position:absolute;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(7,1fr);
+    width: 75%;
+    height: 100%;
+
+}
+
+.app-wraper__title {
+    position: absolute;
+    width: 75%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.app-wraper__image{
+    width :180px;
+    height: 240px;
+    opacity: 0.5;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.app-main__event {
+    height : 50vh;
+    background-color: white;
+    text-align: center;
+    position: relative;
+}
+
+.app-main__event p {
+    color: black;
+    font-size: 2em;
+}

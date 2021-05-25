@@ -7,6 +7,7 @@ import { Film } from '../shared/models/film.model';
   templateUrl: './account-parent.component.html',
   styleUrls: ['./account-parent.component.scss']
 })
+
 export class AccountParentComponent implements OnInit {
   filmList: any[] = [];
 
@@ -18,7 +19,7 @@ export class AccountParentComponent implements OnInit {
   ngOnInit() {
 
     //Films
-    this.getAllFilms();
+    this.getAllFilms(); 
   }
 
   getAllFilms() {

@@ -26,8 +26,8 @@ import { FilmServiceService } from './shared/services/film-service.service'
     ContactsParentComponent,
     QuizzParentComponent,
     AccountParentComponent,
-    FilmServiceService,
-    FilmWebService
+    //FilmServiceService,
+   //FilmWebService
   ],
   imports: [
     BrowserModule,

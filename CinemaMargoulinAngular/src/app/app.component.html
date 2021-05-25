@@ -1,37 +1,49 @@
-
 <header>
-    
-  <div class="app-header__image">
-      <img class="app-header__logo" src="image/logo.jpeg" alt="logo">
-  </div>
+    <div class="app-header"> 
+        <div class="app-header__logo">
+          <a [routerLink]="['/home']"><i class="fa fa-film"></i> MARGOULIN</a>
+        </div>
+
+        <!-- CONNEXIONS -->
+        <div class="app-header__compte">
+            <a  [routerLink]="['/account']">Mon compte</a>
+            <a>Espace Pro</a>
+        </div>
+    </div>  
 
   <!-- MENU -->
   <div class="app-header__menu">
       <nav>
-          <a [routerLink]="['/home']">Accueil</a> 
-          <a [routerLink]="['/ondisplay']">A l'affiche</a> 
-          <a [routerLink]="['/practicalInfos']">Infos Pratiques</a>
-          <a [routerLink]="['/quizz']">Quizz</a>
-          <a [routerLink]="['/contacts']">Contacts</a>
+          <ul>
+            <li><a [routerLink]="['/home']">Accueil</a></li>
+            <li><a [routerLink]="['/ondisplay']">A l'affiche</a></li>
+            <li><a [routerLink]="['/practicalInfos']">Infos Pratiques</a></li>
+            <li><a [routerLink]="['/quizz']">Quizz</a></li>
+            <li><a [routerLink]="['/contacts']">Contacts</a></li>
+          </ul>
       </nav>
-  </div>
-
-  <!-- CONNEXIONS -->
-  <div class="app-header__compte">
-      <a  [routerLink]="['/account']">Mon compte </a>
-      <a>Espace Pro </a>
   </div>
 
 </header>
 
-
 <router-outlet></router-outlet>
 
 <footer>
-  <div>
-      <p>Copyright : Projet "Fil rouge", tous droits réservés</p>
-  </div>
-  <div>
+  
+    <div>
+      <ul>
+        <li><a [routerLink]="['/home']">Accueil</a> </li>
+        <li><a [routerLink]="['/ondisplay']">A l'affiche</a> </li>
+        <li><a [routerLink]="['/practicalInfos']">Infos Pratiques</a></li>
+        <li><a [routerLink]="['/quizz']">Quizz</a></li>
+        <li><a [routerLink]="['/contacts']">Contacts</a></li>
+        <li><a>Conditions générales</a></li>
+        <li><a>Politique de confidentialité</a></li>
+        <li><a>Chartes des spectateurs</a></li>
+      </ul>
+    </div>
 
-  </div>
+    <div>
+        <p>Copyright : Projet "Fil rouge", tous droits réservés</p>
+    </div>
 </footer>

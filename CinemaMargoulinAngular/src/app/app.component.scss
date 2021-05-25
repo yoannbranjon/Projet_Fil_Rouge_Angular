@@ -2,47 +2,83 @@
 *   HEADER
 */
 
+i{
+    color: white;
+}
+
 header {
-    display: flex;
-    height: auto;
-    background-color: black;
-    border-bottom: 1px solid darkgoldenrod;
+    height: 20vh;
+    border-bottom: 2px solid darkgoldenrod;
     margin-bottom: 10px;
 }
 
+.app-header {
+    display: flex;
+    height: 50%;
+}
+
+.app-header__logo{
+    width: 50%;
+    font-size: 2em;
+    margin: auto 2%;
+
+    & a {
+        color: darkgoldenrod;
+        text-decoration: none;
+        transition: color 500ms ease;
+        font-family: 'Stint Ultra Condensed', cursive;
+    }
+
+    & a:hover {
+        color: white;
+    }
+}
+
 .app-header__menu {
-    margin: auto;
-}
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    height: 50%;
+    text-align: center;
+    background-color: rgba(245, 245, 245, 0.932);
 
-.app-header__menu nav {
-    display: inline-block ;
-}
+    & ul {
+        margin: 0;
+    }
 
-.app-header__menu a{
-    text-decoration: none;
-    padding-right: 30px;
-}
+    & li {
+        display: inline-block ;
+    }
 
-.app-header__menu a:hover {
-    color: darkgoldenrod;
-}
+    & a {
+        color: black;
+        text-decoration: none;
+        padding : 1rem;
+        transition: all 500ms ease;
+        font-weight: bold;
+    }
 
-.app-header__logo {
-    height: 70px;
+    & a:hover{
+        color: darkgoldenrod;
+        font-size: 1.2em;
+    }
 }
 
 .app-header__compte {
     display: inline-block;
-    margin : auto 0;
-}
+    margin : auto 0 auto auto;
+    
+    & a {
+        color: white;
+        text-decoration: none;
+        padding: 1rem;
+        transition: all 500ms ease;
+    }
 
-.app-header__compte a{
-    text-decoration: none;
-    padding-right: 10px;
-}
-
-.app-header__compte a:hover {
-    color: darkgoldenrod;
+    & a:hover {
+        color: darkgoldenrod;
+        font-size: 1.2em;
+    }
 }
 
 /*
@@ -50,11 +86,31 @@ header {
 */
 
 footer {
+    width: 100%;
+    height: auto;
     background-color: black;
     position: relative;
     border-top : 1px solid darkgoldenrod;
+    text-align: center;
+
+    & p {
+        font-size: 0.8em;
+    }
+
+    & ul {
+        padding: 2vh auto;
+    }
+
+    & li {
+        display: inline-block ;
+    }
+
+    & a {
+        color: white;
+        text-decoration: none;
+        padding-left: 2rem;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        
+    }
  }
- 
- footer p {
-     text-align: center;
-}

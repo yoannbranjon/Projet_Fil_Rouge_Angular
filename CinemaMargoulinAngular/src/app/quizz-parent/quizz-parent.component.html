@@ -1,1 +1,34 @@
-<p>quizz-parent works!</p>
+    <div class="quiz-wrapper">       
+        <div id="questionBox" class="question">
+            Sample Question
+        </div>
+        <div class="options">
+            <ul id="ul">
+                <li id="opt1" onclick="button(this)"></li>
+                <li id="opt2" onclick="button(this)"></li>
+                <li id="opt3" onclick="button(this)"></li>
+                <li id="opt4" onclick="button(this)"></li>
+            </ul>
+        </div>
+        <div class="score">
+            <div class="next">
+                <button id="btnNext" type="button" onclick="next()">
+                  Next
+                </button>
+            </div>
+            <div class="score-card">
+                SCORE: <span id="scoreCard">0</span>
+            </div>
+        </div>
+        
+        <div class="affichebutton">
+            <div class="replay">
+                <button id="btnreplay" type="button" onclick="onclick()">
+                rejouer
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+

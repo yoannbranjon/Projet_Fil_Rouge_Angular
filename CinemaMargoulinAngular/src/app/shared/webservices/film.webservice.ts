@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Film } from '../models/film.model';
+import { Film } from '../models/film';
 
 import { catchError, map } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs'; 
@@ -10,7 +10,7 @@ import { throwError, Observable } from 'rxjs';
 })
 export class FilmWebService {
 
-  baseUrl = 'https://localhost:8080/'
+  baseUrl = 'http://localhost:8080/'
 
   constructor(private http: HttpClient) { }
 

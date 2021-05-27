@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmWebService } from '../shared/webservices/film.webservice';
-import { Film } from '../shared/models/film';
+import { Film } from '../shared/models/film.model';
 
 @Component({
   selector: 'app-account-parent',

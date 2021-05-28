@@ -1,7 +1,7 @@
-export class Users {
+export class User {
         id: number;
         firstName: string;
-        lastName: number;
+        lastName: string;
         birthday: Date;
         address: String;
         idAccount: number;
@@ -9,7 +9,7 @@ export class Users {
         constructor(
             idParam: number,
             firstNameParam: string,
-            lastNameParam: number,
+            lastNameParam: string,
             birthdayParam: Date,
             addressParam: String,
             idAccountParam: number

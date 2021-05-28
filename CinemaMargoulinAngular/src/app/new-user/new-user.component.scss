@@ -1,0 +1,76 @@
+.app-wrapper {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3% auto;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+
+#inscription {
+    margin-bottom: 2%;
+    font-size: 2em;
+    font-weight:700;
+}
+/**/
+#firstName {
+    width: 300px;
+}
+
+#lastName {
+    width: 300px;
+}
+
+#email {
+    width: 400px;
+}
+
+#password {
+    width : 300px;
+}
+
+#confirmPassword {
+    width : 300px;
+}
+
+form {
+   width: 90%;
+   margin-top: 2%;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app-button {
+    margin-bottom: 2%;
+    display: flex;
+
+    & .btn {
+        width: 200px;
+        margin: auto;
+        transition: background-color 500ms ease;
+    }
+    & .btn:hover {
+        background-color: darkgoldenrod;
+    }
+}
+
+input {
+    border: solid 1px darkgoldenrod;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+p {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+

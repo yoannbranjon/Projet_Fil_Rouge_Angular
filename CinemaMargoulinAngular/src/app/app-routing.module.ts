@@ -6,6 +6,7 @@ import { HomeParentComponent } from './home-parent/home-parent.component';
 import { OnDisplayParentComponent } from './on-display-parent/on-display-parent.component';
 import { PracticalInfosParentComponent } from './practical-infos-parent/practical-infos-parent.component';
 import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeParentComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'practicalInfos', component: PracticalInfosParentComponent },
   { path: 'quizz', component: QuizzParentComponent },
   { path: 'contacts', component: ContactsParentComponent },
-  { path: 'account',component: AccountParentComponent}
+  { path: 'account',component: AccountParentComponent},
+  { path: 'new-user',component: NewUserComponent}
 ];
 
 @NgModule({

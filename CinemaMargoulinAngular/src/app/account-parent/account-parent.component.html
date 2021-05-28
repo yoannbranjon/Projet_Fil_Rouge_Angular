@@ -1,23 +1,31 @@
 <div class="app-wrapper">
 
+    <div class="app-wrapper-connexion">
+        <div class="welcome-back">
+            <label id="bienvenue">Bienvenue !</label>
+            <p>Pour ouvrir votre compte utilisateur, veuillez rentrer vos informations personnelles</p>
+        </div>
+        <div class="new-user">
+            <a [routerLink]="['/new-user']">Nouvel utilisateur ?</a>
+        </div>
+    </div>
+
     <div class="app-wrapper-form">
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Adresse email</label>
-                <input type="email" [(ngModel)]="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="email" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                <input type="password" [(ngModel)]="password" class="form-control" id="exampleInputPassword1">
+                <label for="mdp" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="mdp">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    
+            <div class="app-button">
+                <button type="submit" class="btn btn-dark">Valider</button>
             </div>
-            <button type="submit" class="btn btn-dark" (click)="addAccount()">Valider</button>
+            
         </form>
     </div>
+
 </div>
-
-
-<p><button (click)="getAllFilms()">Get all Films</button></p>

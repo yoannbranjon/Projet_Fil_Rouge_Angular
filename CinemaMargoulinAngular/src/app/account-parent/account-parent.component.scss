@@ -1,26 +1,83 @@
+p {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15%;
+}
+
 .app-wrapper {
-   
-    margin-top: 3%;
+    width: 60%;
+    height: 60vh;
+    margin: 3% auto;
     display: flex;
     justify-content: center;
-    
-    &-form{
-        width: 40%;
-        background-color: whitesmoke;
-        border-radius: 1%;
+    font-family: 'Roboto', sans-serif;
+}
+ 
+.app-wrapper-connexion {
+    display: flex;
+    width: 50%;
+    background-color: darkgoldenrod;
+    align-items: center;
+    flex-direction: column;
+
+    & .welcome-back {
+        text-align: center;
+        width: 80%;
     }
 }
 
-.mb-3 {
-    width: 50%;
-    margin: 5% auto;
-}
-
-.btn {
-    margin : 0 40% 5% 40%;
-}
-
-label {
+#bienvenue {
+    font-size: 2em;
+    margin-top : 15%;
     color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.new-user {
+
+    margin-top: 10%;
+
+    & a{
+        
+        font-family: 'Roboto', sans-serif;
+        color: whitesmoke;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 500ms ease;
+    }
+    & a:hover {
+        color: black;
+    }
     
+}
+
+.app-wrapper-form{
+    width: 50%;
+    background-color: whitesmoke;
+        
+    & .mb-3 {
+        width: 80%;
+        margin: 15% auto;
+    }
+
+    & label {
+        color: black;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }
+    & input {
+        border-color: darkgoldenrod;
+    }
+}
+
+.app-button {
+    display: flex;
+
+    & .btn {
+        margin: 2% auto;
+    }
+    & .btn:hover {
+        background-color: darkgoldenrod;
+    }
 }

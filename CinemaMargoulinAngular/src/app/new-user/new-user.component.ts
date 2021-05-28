@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private usersWebService: UsersWebService
+    ) { }
 
   ngOnInit(): void {
+
+    //Films
+    this.addUser(); 
   }
 
 }

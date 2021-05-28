@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 /******* ROUTES *******/
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +18,11 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
 import { AccountService} from './shared/webservices/account.webservice';
-import { UsersService} from './shared/webservices/users.webservice'
-import { FormsModule } from '@angular/forms';
+import { UsersService} from './shared/webservices/users.webservice';
+import { RoomService} from './shared/webservices/room.webservice';
+import { ReservationService} from './shared/webservices/reservation.webservice';
+
+
 
 
 @NgModule({

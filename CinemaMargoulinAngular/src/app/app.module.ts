@@ -16,8 +16,8 @@ import { NewUserComponent } from './new-user/new-user.component';
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
-import { AccountService} from './shared/webservices/account.webservice'
-import { Account } from './shared/models/account.model'
+import { AccountService} from './shared/webservices/account.webservice';
+import { UsersService} from './shared/webservices/users.webservice'
 import { FormsModule } from '@angular/forms';
 
 

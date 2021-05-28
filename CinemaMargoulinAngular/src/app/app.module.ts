@@ -16,7 +16,9 @@ import { NewUserComponent } from './new-user/new-user.component';
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
-
+import { AccountService} from './shared/webservices/account.webservice'
+import { Account } from './shared/models/account.model'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { FilmServiceService } from './shared/services/film-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

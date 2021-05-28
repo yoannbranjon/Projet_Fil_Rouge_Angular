@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmWebService } from '../shared/webservices/film.webservice';
+import { AccountService } from '../shared/webservices/account.webservice';
 import { Film } from '../shared/models/film.model';
+import { Account } from '../shared/models/account.model';
 
 @Component({
   selector: 'app-account-parent',
@@ -10,9 +12,13 @@ import { Film } from '../shared/models/film.model';
 
 export class AccountParentComponent implements OnInit {
   filmList: any[] = [];
+  email: string = '';
+  password: string = '';
 
   constructor(
-    private filmWebService: FilmWebService
+    private filmWebService: FilmWebService,
+    private accountWebService: AccountService,
+
 
   ) { }
 
@@ -20,6 +26,9 @@ export class AccountParentComponent implements OnInit {
 
     //Films
     this.getAllFilms(); 
+
+    // Posts
+    this.addAccount();
   }
 
   getAllFilms() {
@@ -35,6 +44,20 @@ export class AccountParentComponent implements OnInit {
         }
     );
       }
+
+  addAccount() {
+    const accountToAdd = new Account(1, this.email, this.password);
+    this.accountWebService.addAccount(accountToAdd).subscribe(
+      (data) => {
+        // getAccount Next
+         console.log('TestWebServiceComponent addAccount', data);
+          }, (error) => {
+            console.error(error);
+          }
+        );
+      }
+
+
 
 
 }

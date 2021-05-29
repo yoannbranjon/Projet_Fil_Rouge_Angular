@@ -1,49 +1,51 @@
 <div class="app-wrapper">
 
-<form>
-    <label id="inscription">Inscription :</label>
-    <div class="form-group">
-        <div class="mb-3">
-            <label for="firstName" class="form-label" id="firstname">Nom :</label>
-            <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
-        </div>
-    
-        <div class="mb-3">
-            <label for="lastName" class="form-label" id="lastname">Prénom :</label>
-            <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
-        </div>
-    </div>
-    
-    <div class="form-group">
+    <form>
+        <label id="inscription">Inscription :</label>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="firstName" class="form-label" id="firstname">Nom :</label>
+                <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
+            </div>
         
-        <div class="mb-3">
-            <label for="email" class="form-label" id="email">Adresse mail :</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div class="mb-3">
+                <label for="lastName" class="form-label" id="lastname">Prénom :</label>
+                <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label for="birthday" class="form-label" id="birthday">Date de naissance :</label>
-            <input type="date" class="form-control" id="birthday">
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <div class="mb-3">
-            <label for="password" class="form-label">Mot de passe :</label>
-            <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+        
+        <div class="form-group">
+            
+            <div class="mb-3">
+                <label for="email" class="form-label" id="email">Adresse mail :</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            </div>
+    
+            <div class="mb-3">
+                <label for="birthday" class="form-label" id="birthday">Date de naissance :</label>
+                <input type="date" class="form-control" id="birthday">
+            </div>
+    
         </div>
     
-        <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirmer le mot de passe :</label>
-            <input type="password" class="form-control" id="confirmPassword" aria-describedby="confirmPasswordHelp">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+            </div>
+        
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirmer le mot de passe :</label>
+                <input type="password" class="form-control" id="confirmPassword" aria-describedby="confirmPasswordHelp">
+            </div>
         </div>
-    </div>
 
     <div class="app-button">
         <button type="submit" class="btn btn-dark" (click)="addUser()">Valider</button>
     </div>
+        
+        <p>* Tous les champs sont obligatoires</p>
     
-    <p>* Tous les champs sont obligatoires</p>
-  </form>
+        
+      </form>
 </div>

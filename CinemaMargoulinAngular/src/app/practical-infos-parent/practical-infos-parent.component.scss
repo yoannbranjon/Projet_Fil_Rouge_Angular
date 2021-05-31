@@ -1,149 +1,36 @@
-body {
-    margin: 0;
-    background-color: black;
+.app-wrapper {
+    width: 94%;
+    height: 100vh;
+    margin: 3%;
 }
+.description {
+        display: flex;
 
-/* Containers et Flexbox */
+    &__item {
+        margin: auto 1%;
+        width :30%;
+        justify-content: center;
+        align-items: center;
+    }
 
-
-.app-containerGrid {
-    display: grid;
-    grid-template-columns: repeat(10,10%);
-    grid-template-rows: repeat(10, 10%);
-}
-
-.app-containerFlexParDefaut {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-}
-
-.app-containerFlexParDefaut {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-}
-
-/* Items */
-
-.app-itemsTarifsHoraires {
-
-    margin-top: 2%;
-    width: 25%;
-
-}
-
-/* Mise en forme des textes */
-.app-infosPratiquesText {
-
-    margin-top: 10%;
-    color: white;
-    text-align: center;
-    font-size: 5em;
-    margin-bottom: 10%;
+    & .align-center {
+        text-align: center;
+    }
     
 }
 
-.app-aPropos {
-    margin-top: 17%;
-    grid-column: 6 / 8;
-    grid-row:  1 / 7;
-
-}
-
-.app-aProposTitre {
-    color: white;
-    /*border: 1px solid white;*/
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-.app-aProposText {
-    color: white;
-    /*border: 1px solid white;*/
-
-}
-
-.app-nbSallesPlaces {
-
-    color: white;
-    font-size: 2.5em;
-    padding-right: 5%;
-
-}
-
-.app-descriptifSallesPlaces {
-    color: white;
-    font-size: 2em;
-    padding-left: 5%;
-
-}
-
-.app-titreTablePrimary {
-
-
-    font-weight: bold;
-    margin-right: 2%;
-    color: white;
-    font-size: 2em;
-    
-}
-
-.app-titreServices {
-
-    margin-left: 5%;
-    font-weight: bold;
-    margin-right: 2%;
-    color: white;
-    font-size: 2em;
-    margin-bottom: 5%;
-    
-}
-
-
-.app-titreTableComplements {
-    text-align: center;
-    font-size: 2em;
-}
-
-/* Tables */
-.app-tableSallesPlaces {
-    width: 20%;
-    text-align: center;
-    margin-top: 10%;
-   grid-column: 9 / 11 ;
-    grid-row: 5; 
-
-}
-
-.app-tarifsTable{
-    color: white;
-    border-bottom: 1px solid darkgoldenrod;
+img {
     width: 100%;
-
 }
 
-.app-tarifTableLeft {
-    padding-bottom: 1.5%;
-    padding-top: 1.5%;
-}
-
-.app-tarifTableRight {
-    text-align: end;
+h2 {
     color: darkgoldenrod;
-
+    font-size: 4em;
+    text-align: center;
 }
 
-
-/*Photos et images */
-
-.app-photo {
-    border: 1px solid white;
-    width: 130%;
-    grid-column: 1 / 4;
-    grid-row: 2 / 8;
-    
+hr {
+    width: 90%;
+    background-color: darkgoldenrod;
+    height: 2px;
 }

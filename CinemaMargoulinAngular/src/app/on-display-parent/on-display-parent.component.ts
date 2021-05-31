@@ -7,18 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnDisplayParentComponent implements OnInit {
 
-  data: Array<any>;
+  tab: Array<string> = ['premier', 'deuxieme', 'troisieme'];
+  nord = 'Lille';
+  sud = 'Marseille';
+  capitale = 'Paris';
   
-  constructor(){
-    this.data = [
-        { firstName: 'John', lastName: 'Doe', age: '35' },
-        { firstName: 'Michael', lastName: 'Smith', age: '39' },
-        { firstName: 'Michael', lastName: 'Jordan', age: '45' },
-        { firstName: 'Tanya', lastName: 'Blake', age: '47' }
-    ];
+  
+  constructor() { }
+  
+  ngOnInit() { }
 }
 
-  ngOnInit(): void {
-  }
-
-}

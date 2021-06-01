@@ -10,6 +10,13 @@ export class OnDisplayChildComponent implements OnInit {
   @Input() ordre = '';
   @Input() villeNaissance = '';
 
+  /*
+  @Input() Version = '';
+  @Input() réalisateur = '';
+  @Input() image = '';
+  @Input() title = '';
+  @Input() description = '';
+  */
   constructor() { }
 
   ngOnInit() { }

@@ -7,12 +7,16 @@ import { throwError, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UsersWebService {
 
   baseUrl = 'http://localhost:8080/';
 
 
   constructor(private http: HttpClient) {  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'REST/recupreservation');
+  }
 
   addUser(UserToAdd: User): Observable<any> {
     return this.http.post(this.baseUrl + 'REST/addNewUser', UserToAdd);

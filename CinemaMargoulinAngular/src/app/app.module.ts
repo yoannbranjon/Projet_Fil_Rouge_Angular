@@ -16,6 +16,7 @@ import { ContactsParentComponent } from './contacts-parent/contacts-parent.compo
 import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
 import { AccountParentComponent } from './account-parent/account-parent.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { AdminParentComponent } from './admin-parent/admin-parent.component';
 
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
@@ -24,10 +25,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
-import { AccountService} from './shared/webservices/account.webservice';
-import { UsersService} from './shared/webservices/users.webservice';
-import { RoomService} from './shared/webservices/room.webservice';
-import { ReservationService} from './shared/webservices/reservation.webservice';
+import { AccountWebService} from './shared/webservices/account.webservice';
+import { UsersWebService} from './shared/webservices/users.webservice';
+import { RoomWebService} from './shared/webservices/room.webservice';
+import { ReservationWebService} from './shared/webservices/reservation.webservice';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactsParentComponent,
     QuizzParentComponent,
     AccountParentComponent,
-    NewUserComponent
+    NewUserComponent,
+    AdminParentComponent
   ],
   imports: [
     BrowserModule,

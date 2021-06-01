@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../shared/webservices/users.webservice';
+import { UsersWebService } from '../shared/webservices/users.webservice';
 import { User } from '../shared/models/user.model';
 
 
@@ -12,7 +12,7 @@ export class NewUserComponent implements OnInit {
 
   now = new Date();
 
-  constructor(  private usersWebService: UsersService
+  constructor(  private usersWebService: UsersWebService
     ) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class NewUserComponent implements OnInit {
   }
 
   addUser() {
-    const userToAdd = new User(1, "Jean", "Fichtre", this.now, "31 Rue du j'me foutre", 3);
+    const userToAdd = new User(1, "Bébert", "Fichtre", this.now, "31 Rue du j'me foutre", 3);
     this.usersWebService.addUser(userToAdd).subscribe(
       (data) => {
         // getAccount Next

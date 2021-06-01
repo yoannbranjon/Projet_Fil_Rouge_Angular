@@ -1,14 +1,13 @@
+/******** MODULES *******/
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 /******* ROUTES *******/
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
-/******* ROUTES *******/
 import { HomeParentComponent } from './home-parent/home-parent.component';
 import { PracticalInfosParentComponent } from './practical-infos-parent/practical-infos-parent.component';
 import { OnDisplayParentComponent } from './on-display-parent/on-display-parent.component';
@@ -16,10 +15,16 @@ import { ContactsParentComponent } from './contacts-parent/contacts-parent.compo
 import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
 import { AccountParentComponent } from './account-parent/account-parent.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { OnDisplayChildComponent } from './on-display-parent/on-display-child/on-display-child.component';
 
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -30,6 +35,8 @@ import { RoomService} from './shared/webservices/room.webservice';
 import { ReservationService} from './shared/webservices/reservation.webservice';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+
 
 
 
@@ -42,7 +49,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactsParentComponent,
     QuizzParentComponent,
     AccountParentComponent,
-    NewUserComponent
+    NewUserComponent,
+    OnDisplayChildComponent,
+    ButtonReserveComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +59,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
 
     /* ANGULAR MATERIAL */
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatButtonModule,
+    MatCardModule,
+    MatSliderModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

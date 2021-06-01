@@ -6,7 +6,7 @@ p {
 
 .app-wrapper {
     width: 60%;
-    height: 60vh;
+    height: 500px;
     margin: 3% auto;
     display: flex;
     justify-content: center;
@@ -80,4 +80,14 @@ p {
     & .btn:hover {
         background-color: darkgoldenrod;
     }
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
 }

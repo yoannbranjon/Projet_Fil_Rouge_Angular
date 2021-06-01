@@ -1,22 +1,9 @@
-<div>
-    <section class="app-container-article">
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let people of data">
-                    <td>{{people.firstName}}</td>
-                    <td>{{people.lastName}}</td>
-                    <td>{{people.age}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="app-wrapper">
+    <h2>A l'affiche en ce moment :</h2>
 
-    </section>
-
+    <div class="app-component-column">
+        <app-on-display-child [ordre]="tab[0]" [villeNaissance]="sud"></app-on-display-child>
+        <app-on-display-child [ordre]="tab[1]" [villeNaissance]="nord"></app-on-display-child>
+        <app-on-display-child [ordre]="tab[2]" [villeNaissance]="capitale"></app-on-display-child>
+    </div>
 </div>

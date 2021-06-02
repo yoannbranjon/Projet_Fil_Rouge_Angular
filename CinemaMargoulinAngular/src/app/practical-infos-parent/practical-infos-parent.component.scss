@@ -1,3 +1,7 @@
+p {
+    color: black;
+}
+
 .app-wrapper {
     width: 94%;
     margin: 3%;
@@ -6,6 +10,7 @@
 .app-description {
     display: flex;
     width: 100%;
+    margin-bottom: 3%;
 }
 
 .app-description__image {
@@ -36,31 +41,77 @@ h2 {
     color: darkgoldenrod;
     font-size: 4em;
     text-align: center;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 
 h3 {
     font-weight: 700;
     font-size: 1.5em;
+    color: whitesmoke;
+}
+
+#a-propos {
+    color: black;
 }
 
 .numberPlaceRoom {
     display: flex;
     width: 200px;
     height: 75px;
+    color: whitesmoke;
 }
 
 .numberPlaceRoom__item {
     width: 100px;
     border: 1px solid darkgoldenrod;
     text-align: center;
+    display: flex;
+    
+}
+
+.label-center {
+    margin: auto;
+    font-weight: 700;
+}
+
+.app-wrapper-tarif {
+    width: 80%;
+    margin: auto;
+}
+
+mat-tab-group {
+    width: 80%;
+    height: 100%;
+    margin-bottom: 5%;
 }
 
 mat-list {
-    width: 80%;
+    margin-top: 5%;
+}
+
+mat-list-item {
+    width: 100%;
+    height: 100%;
+}
+
+mat-divider {
+    background-color: darkgoldenrod;
 }
 
 .app-justify {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
+.app-horaires {
+    margin-top: 5%;
+}
+
+.app-wrapper-services {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+

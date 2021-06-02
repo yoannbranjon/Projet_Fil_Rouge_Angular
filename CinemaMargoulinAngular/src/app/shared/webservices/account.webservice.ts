@@ -7,15 +7,19 @@ import { throwError, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService {
+export class AccountWebService {
 
   baseUrl = 'http://localhost:8080/';
 
 
   constructor(private http: HttpClient) {  }
 
+  getAllAccounts(): Observable<Account[]> {
+    return this.http.get<Account[]>(this.baseUrl + 'REST/recupaccount');
+  }
+
   addAccount(accountToAdd: Account): Observable<any> {
-    return this.http.post(this.baseUrl + 'REST/insertionaccount', accountToAdd);
+    return this.http.post(this.baseUrl + 'REST/addNewAccount', accountToAdd);
   }
 }
 

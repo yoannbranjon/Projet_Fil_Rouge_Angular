@@ -7,7 +7,17 @@ import { throwError, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService {
+export class RoomWebService {
+
+  baseUrl = 'http://localhost:8080/'
 
   constructor(private http: HttpClient) { }
+
+  getAllRooms(): Observable<Room[]> {
+    return this.http.get<Room[]>(this.baseUrl + 'REST/recuproom');
+  }
+
+  addRoom(roomToAdd: Room): Observable<any> {
+    return this.http.post(this.baseUrl + 'REST/addNewRoom', roomToAdd);
+  }
 }

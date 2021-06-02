@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmWebService } from '../shared/webservices/film.webservice';
-import { AccountService } from '../shared/webservices/account.webservice';
+import { AccountWebService } from '../shared/webservices/account.webservice';
 import { Film } from '../shared/models/film.model';
 import { Account } from '../shared/models/account.model';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -74,7 +74,7 @@ export class AccountParentComponent implements OnInit {
       }
 
   addAccount() {
-    const accountToAdd = new Account(1, this.email, this.password);
+    const accountToAdd = new Account(1, "branjonyoann@hotmail.fr", "hohilf");
     this.accountWebService.addAccount(accountToAdd).subscribe(
       (data) => {
         // getAccount Next

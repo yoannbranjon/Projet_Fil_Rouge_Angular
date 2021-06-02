@@ -18,6 +18,14 @@ export class FilmWebService {
     return this.http.get<Film[]>(this.baseUrl + 'REST/recupfilm');
   }
 
+  addFilm(filmToAdd: Film): Observable<any> {
+    return this.http.post(this.baseUrl + 'REST/addNewFilm', filmToAdd);
+  }
+
+  deleteFilmById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteFilmById?id=' + id);
+  }
+
 
 
 }

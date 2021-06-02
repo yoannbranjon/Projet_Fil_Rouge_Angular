@@ -28,18 +28,21 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
-import { AccountService} from './shared/webservices/account.webservice';
-import { UsersService} from './shared/webservices/users.webservice';
-import { RoomService} from './shared/webservices/room.webservice';
-import { ReservationService} from './shared/webservices/reservation.webservice';
+import { AccountWebService} from './shared/webservices/account.webservice';
+import { UsersWebService} from './shared/webservices/users.webservice';
+import { RoomWebService} from './shared/webservices/room.webservice';
+import { ReservationWebService} from './shared/webservices/reservation.webservice';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
 import { HomeChildComponent } from './home-parent/home-child/home-child.component';
+import { AdminParentComponent } from './admin-parent/admin-parent.component';
 
 
 
@@ -56,7 +59,9 @@ import { HomeChildComponent } from './home-parent/home-child/home-child.componen
     NewUserComponent,
     OnDisplayChildComponent,
     ButtonReserveComponent,
-    HomeChildComponent
+    HomeChildComponent,
+    AdminParentComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,8 @@ import { HomeChildComponent } from './home-parent/home-child/home-child.componen
     MatTabsModule,
     MatButtonToggleModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

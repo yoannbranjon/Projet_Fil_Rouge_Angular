@@ -1,11 +1,17 @@
 .app-wrapper {
     background-color: darkgoldenrod;
     width: 90%;
+    height: 90%;
 }
 
 mat-card-header {
     width: auto;
+    height : 15%;
     display: flex;
+}
+
+mat-card-content {
+    height: 80%;
 }
 
 img {
@@ -13,3 +19,4 @@ img {
     height: 100%;
     width: 100%;
 }
+

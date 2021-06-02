@@ -41,7 +41,7 @@ h2 {
 .app-wrapper-boxoffice__item {
     display: flex;
     justify-content: space-around;
-    height: auto;
+    height: 600px;
     width: auto;
     margin-bottom: 1%;
 }
@@ -52,6 +52,11 @@ h2 {
 
 button {
     margin: auto;
+    transition: background-color 500ms ease;
+}
+
+button:hover {
+    background-color:darkgoldenrod;
 }
 
 i {

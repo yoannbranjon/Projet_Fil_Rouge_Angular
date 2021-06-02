@@ -1,30 +1,18 @@
 @use '~@angular/material' as mat;
-
 @include mat.core();
-
-// Define a dark theme
-$dark-primary: mat.define-palette(mat.$gray-palette,A900);
-$dark-accent: mat.define-palette(mat.$amber-palette,A700);
-
-
-$dark-theme: mat.define-dark-theme((
- color: (
-   primary: $dark-primary,
-   accent: $dark-accent,
- )
-));
-
-// Apply the dark theme by default
-@include mat.core-theme($dark-theme);
-@include mat.button-theme($dark-theme);
-
-
-html, body { 
-  height: 100%; 
-  padding:0;
-  background-color: black;
+$my-primary: mat.define-palette(mat.$gray-palette, 1000);
+$my-accent: mat.define-palette(mat.$amber-palette, 1000);
+$my-warn: mat.define-palette(mat.$red-palette);
+$my-theme: mat.define-dark-theme(( color: ( primary: $my-primary, accent: $my-accent, warn :$my-warn)));
+@include mat.all-component-themes($my-theme);
+html,
+body {
+    height: 100%;
+    padding: 0;
+    background-color: black;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

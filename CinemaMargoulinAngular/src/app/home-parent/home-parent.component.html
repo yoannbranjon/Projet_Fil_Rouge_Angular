@@ -8,5 +8,14 @@
 
     <mat-card class="app-wrapper-boxoffice">
         <h2>Box-Office</h2>
+        <div class="app-wrapper-boxoffice__item">
+            <app-home-child></app-home-child>
+            <app-home-child></app-home-child>
+            <app-home-child></app-home-child>
+        </div>
+
+        <div class="app-button">
+            <button mat-raised-button [routerLink]="['/ondisplay']" color="primary">Voir plus</button>
+        </div>
     </mat-card>
 </main>

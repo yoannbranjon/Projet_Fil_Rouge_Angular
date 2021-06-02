@@ -33,7 +33,23 @@ h2 {
 }
 
 .app-wrapper-boxoffice {
-    height: 50vh;
+    height: auto;
     width: 100%;
     background-color: whitesmoke;
+}
+
+.app-wrapper-boxoffice__item {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: auto;
+    margin-bottom: 1%;
+}
+
+.app-button {
+    display: flex;
+}
+
+button {
+    margin: auto;
 }

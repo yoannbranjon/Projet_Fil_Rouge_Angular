@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table'
 import { FilmWebService } from '../shared/webservices/film.webservice';
 import { AccountWebService } from '../shared/webservices/account.webservice';
 import { UsersWebService } from '../shared/webservices/users.webservice';
@@ -9,6 +10,7 @@ import { Account } from '../shared/models/account.model';
 import { User } from '../shared/models/user.model';
 import { Room } from '../shared/models/room.model';
 import { Reservation } from '../shared/models/reservation.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-parent',
@@ -17,26 +19,43 @@ import { Reservation } from '../shared/models/reservation.model';
 })
 export class AdminParentComponent implements OnInit {
 
+  //initialisation liste de filmms
   filmList: any[] = [];
-  usersList: any[] = [];
-  reservationList: any[] = [];
   roomList: any[] = [];
+  reservationList: any[] = [];
+  usersList: any[] = [];
   sessionList: any[] = [];
+
+  //initialisation d'un film
+  film = new Film("kill Loic",1,"Vo","dispaly");
+
+  //Autre
+  Number1: number = 0;
+  formAddFilm!: NgForm;
+
+  //Angular material table
+  displayedColumnsFilm: string[] = ['name', 'duration', 'filmVersion', 'display', 'deleteAction', 'updateAction'];
+  dataSourceFilm = new MatTableDataSource<Film>(this.filmList);
+
+  displayedColumnsRoom: string[] = ['name', 'sitNumber', 'maxCapacity', 'audioSystem', 'deleteAction', 'updateAction'];
+  dataSourceRoom = new MatTableDataSource<Room>(this.roomList);
+
+  displayedColumnsReservation: string[] = ['name', 'price', 'idSession', 'idSession', 'idUser', 'idAccount', 'deleteAction', 'updateAction'];
+  dataSourceReservation = new MatTableDataSource<Reservation>(this.reservationList);
 
   constructor(
      private filmWebService: FilmWebService,
      private usersWebService: UsersWebService,
      private roomWebService: RoomWebService,
-     private reservationWebService: ReservationWebService,
-
-    
+     private reservationWebService: ReservationWebService
     ) { }
 
   ngOnInit(): void {
 
     //Films
     this.getAllFilms();
-    this.addFilm(); 
+    this.addFilm(this.formAddFilm); 
+    this.deleteFilmById(this.Number1);
 
     //Users
     this.getAllUsers();  
@@ -50,13 +69,17 @@ export class AdminParentComponent implements OnInit {
     this.addReservation(); 
   }
 
+  //getAll()
   getAllFilms() {
 
     this.filmWebService.getAllFilms().subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent getAllFilms', data);
-        this.filmList = data;},
+        this.filmList = data;
+        this.dataSourceFilm = new MatTableDataSource<Film>(data);
+        
+      },
         (error) => {
           console.error(error);
         }
@@ -83,7 +106,8 @@ export class AdminParentComponent implements OnInit {
       (data) => {
 
         console.log('TestWebServiceComponent getAllRooms', data);
-        this.roomList = data;},
+        this.roomList = data;
+      this.dataSourceRoom = new MatTableDataSource<Room>(data);},
         (error) => {
           console.error(error);
         }
@@ -104,17 +128,21 @@ export class AdminParentComponent implements OnInit {
     );
   }
 
-  addFilm() {
-    const filmToAdd = new Film(1, "kill Loic",1,"Vo","dispaly");
-    this.filmWebService.addFilm(filmToAdd).subscribe(
-      (data) => {
-
-         console.log('TestWebServiceComponent addFilm', data);
-          }, (error) => {
-            console.error(error);
-          }
-        );
+  //add()
+  addFilm(formAddFilm : NgForm) {
+    
+    let film : Film = formAddFilm.value;
+    formAddFilm.reset();
+    this.filmWebService.addFilm(film)
+    .subscribe(data => {
+    },
+    error => {
+      console.log(error);
+      alert('Erreur lors de lajout du film');
+    });
       }
+
+
   addRoom() {
     const roomToAdd = new Room(1, "Margou", 100, 50, "Dolby");
     this.roomWebService.addRoom(roomToAdd).subscribe(
@@ -139,6 +167,17 @@ export class AdminParentComponent implements OnInit {
     );
   }
 
+  //Delete()
+  deleteFilmById(Number: number) {
+
+    this.filmWebService.deleteFilmById(Number).subscribe(
+      (data) => {
+
+        console.log('TestWebServiceComponent deleteFilmById()', data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }
-
-

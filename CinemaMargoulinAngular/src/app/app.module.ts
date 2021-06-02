@@ -21,6 +21,8 @@ import { AdminParentComponent } from './admin-parent/admin-parent.component';
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -55,7 +57,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     /* ANGULAR MATERIAL */
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatButtonModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,6 +22,10 @@ export class FilmWebService {
     return this.http.post(this.baseUrl + 'REST/addNewFilm', filmToAdd);
   }
 
+  deleteFilmById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteFilmById?id=' + id);
+  }
+
 
 
 }

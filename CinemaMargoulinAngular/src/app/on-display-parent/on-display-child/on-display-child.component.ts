@@ -11,7 +11,7 @@ export class OnDisplayChildComponent implements OnInit {
   @Input() villeNaissance = '';
 
   /*
-  @Input() Version = '';
+  @Input() pegi = '';
   @Input() réalisateur = '';
   @Input() image = '';
   @Input() title = '';

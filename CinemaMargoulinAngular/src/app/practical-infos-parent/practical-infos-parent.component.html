@@ -1,25 +1,162 @@
-<div>
-    <div class="app-wrapper">
-        <h2>Infos Pratiques</h2>
+<div class="app-wrapper">
+    <h2>Infos Pratiques</h2>
 
-        <div class="description">
-            <div class="description__item">
-                <img src="../../assets/img/photo_du_cinema.jfif" />
-            </div>
-
-            <div class="description__item">
-                <h3>A propos</h3>
-                <p>Situé dans la contrée champêtre de Chepy, à proximité de la Gentilhommière de la Vaubercerie, CinéFilm vous accueille tout au long de l'année pour vous faire profiter de son catalogue fourni et choisi avec soin pour votre plus grand plaisir.
-                    Différents services sont également mis à votre disposition afin que vous puissiez profiter au mieux de votre séances </p>
-            </div>
-
-            <div class="description__item align-center">
-                <div class="numberPlaceRoom">
-                    prout
-                </div>
-            </div>
+    <div class="app-description">
+        <div class="app-description__image">
+            <img src="../../assets/img/photo_du_cinema.jfif" />
         </div>
 
-        <hr>
+        <mat-card class="app-description__paragraphe">
+            <h3>A propos :</h3>
+            <p>Situé dans la contrée champêtre de Chepy, à proximité de la Gentilhommière de la Vaubercerie, le Cinéma Margoulin vous accueille, et ce, depuis 1912, tout au long de l'année pour vous faire profiter de son catalogue fourni et choisi avec soin
+                pour votre plus grand plaisir.<br><br> Vous trouverez <br><br> Différents services tels qu'un Snack, un bar, des machines à pop-corn etc, sont également mis à votre disposition afin que vous puissiez profiter au mieux de votre séances
+            </p>
+        </mat-card>
+
+        <div class="app-description__tab">
+            <div class="numberPlaceRoom">
+                <div class="numberPlaceRoom__item">15</div>
+                <div class="numberPlaceRoom__item">2250</div>
+            </div>
+            <div class="numberPlaceRoom">
+                <div class="numberPlaceRoom__item">Salles</div>
+                <div class="numberPlaceRoom__item">Places</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-wrapper-tarif">
+
+        <mat-tab-group mat-align-tabs="center" color="accent">
+            <mat-tab label="Tarifs">
+                <mat-list>
+                    <mat-list-item>
+                        <div class="app-justify">
+                            <div>Item 1</div>
+                            <div>Item 1</div>
+                        </div>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="app-justify">
+                        <label>Item 1</label>
+                        <label>Item 1</label>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="app-justify">
+                        <label>Item 1</label>
+                        <label>Item 1</label>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="app-justify">
+                        <label>Item 1</label>
+                        <label>Item 1</label>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="app-justify">
+                        <label>Item 1</label>
+                        <label>Item 1</label>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="app-justify">
+                        <label>Item 1</label>
+                        <label>Item 1</label>
+                    </mat-list-item>
+                </mat-list>
+                <td class="app-tarifTableLeft">Plein Tarif</td>
+                <td class="app-tarifTableRight">14 €</td>
+            </mat-tab>
+            <mat-tab label="Séances 3D"> </mat-tab>
+            <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+
+
+
+
+    <div class="app-containerFlexParDefaut">
+        <div class="app-itemsTarifsHoraires">
+            <table style="padding-bottom: 4%; width: 100%;">
+                <tr>
+                    <td>
+                        <span class="app-titreTablePrimary">Tarifs</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="app-tarifsTable">
+                <tr>
+                    <td class="app-tarifTableLeft">Plein Tarif</td>
+                    <td class="app-tarifTableRight">14 €</td>
+                </tr>
+                <tr>
+                    <td class="app-tarifTableLeft">Etudiants Scolaire</td>
+                    <td class="app-tarifTableRight">9 €</td>
+                </tr>
+                <tr>
+                    <td class="app-tarifTableLeft">Moins de 14 ans</td>
+                    <td class="app-tarifTableRight">6 €</td>
+                </tr>
+                <tr>
+                    <td class="app-tarifTableLeft">Moins de 26 ans</td>
+                    <td class="app-tarifTableRight">8 €</td>
+                </tr>
+                <tr>
+                    <td class="app-tarifTableLeft">Plus de 65 ans</td>
+                    <td class="app-tarifTableRight">10 €</td>
+                </tr>
+            </table>
+        </div>
+        <div class="app-itemsTarifsHoraires">
+            <table style="padding-bottom: 4%; width: 100%;">
+                <tr>
+                    <td>
+                        <span class="app-titreTableComplements">Ce texte est caché</span>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="app-tarifTableLeft">Ce texte est caché</td>
+                    <td class="app-tarifTableRight"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="app-tarifTableLeft">Ce texte est caché</td>
+                    <td class="app-tarifTableRight"></td>
+                </tr>
+            </table>
+
+            <table class="app-tarifsTable">
+                <tr>
+                    <td class="app-tarifTableLeft">Seances en 3D</td>
+                    <td class="app-tarifTableRight">+ 2 €</td>
+                </tr>
+            </table>
+            <table class="app-tarifsTable">
+                <tr>
+                    <td class="app-tarifTableLeft">Lunettes en 3D</td>
+                    <td class="app-tarifTableRight">+ 1 €</td>
+                </tr>
+            </table>
+        </div>
+        <div class="app-itemsTarifsHoraires">
+            <p style="color:white; margin-top: 30%; text-align: center">Horaires</p>
+            <p style="color:white; text-align: center">Ouvert 7 jours sur 7 toute l'année</p>
+            <p style="color:white; text-align: center">De 10h30 à 22h30</p>
+        </div>
+    </div>
+
+    <p class="app-titreServices">Services</p>
+
+
+    <div class="app-containerFlexParDefaut">
+        <i class="fa fa-wifi fa-5x" style="color: white"></i>
+        <i class="fa fa-coffee fa-5x" style="color: white"></i>
+        <i class="fa fa-parking fa-5x" style="color: white"></i>
+        <i class="fa fa-cannabis fa-5x" style="color: white"></i>
+        <i class="fa fa-lungs-virus fa-5x" style="color: white"></i>
+        <i class="fa fa-dizzy fa-5x" style="color: white"></i>
     </div>
 </div>

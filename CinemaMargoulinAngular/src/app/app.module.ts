@@ -22,9 +22,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatSliderModule } from '@angular/material/slider';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -36,6 +39,7 @@ import { ReservationService} from './shared/webservices/reservation.webservice';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+import { HomeChildComponent } from './home-parent/home-child/home-child.component';
 
 
 
@@ -51,7 +55,8 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     AccountParentComponent,
     NewUserComponent,
     OnDisplayChildComponent,
-    ButtonReserveComponent
+    ButtonReserveComponent,
+    HomeChildComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,11 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     MatButtonModule,
     MatCardModule,
     MatSliderModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

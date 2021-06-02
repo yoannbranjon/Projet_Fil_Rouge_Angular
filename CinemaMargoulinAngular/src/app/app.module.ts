@@ -24,18 +24,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
 import { FilmServiceService } from './shared/services/film-service.service';
-import { AccountService} from './shared/webservices/account.webservice';
-import { UsersService} from './shared/webservices/users.webservice';
-import { RoomService} from './shared/webservices/room.webservice';
-import { ReservationService} from './shared/webservices/reservation.webservice';
+import { AccountWebService} from './shared/webservices/account.webservice';
+import { UsersWebService} from './shared/webservices/users.webservice';
+import { RoomWebService} from './shared/webservices/room.webservice';
+import { ReservationWebService} from './shared/webservices/reservation.webservice';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+import { AdminParentComponent } from './admin-parent/admin-parent.component';
 
 
 
@@ -51,7 +53,9 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     AccountParentComponent,
     NewUserComponent,
     OnDisplayChildComponent,
-    ButtonReserveComponent
+    ButtonReserveComponent,
+    AdminParentComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,10 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     MatButtonModule,
     MatCardModule,
     MatSliderModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

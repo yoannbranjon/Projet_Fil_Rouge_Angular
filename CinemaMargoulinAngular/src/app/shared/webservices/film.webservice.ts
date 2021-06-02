@@ -30,6 +30,10 @@ export class FilmWebService {
     return this.http.post(this.baseUrl + 'REST/addListFilms', listFilmToAdd);
   }
 
+  getAllNameFilms(): Observable<String[]> {
+    return this.http.get<String[]>(this.baseUrl + 'REST/recupNameFilms');
+  }
+
 
 
 }

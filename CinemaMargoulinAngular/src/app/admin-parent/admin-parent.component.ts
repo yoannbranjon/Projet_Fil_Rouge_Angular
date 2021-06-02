@@ -12,6 +12,7 @@ import { Room } from '../shared/models/room.model';
 import { Reservation } from '../shared/models/reservation.model';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-admin-parent',
   templateUrl: './admin-parent.component.html',
@@ -21,6 +22,7 @@ export class AdminParentComponent implements OnInit {
 
   //initialisation liste de filmms
   filmList: any[] = [];
+  filmNameList: any[] = [];
   roomList: any[] = [];
   reservationList: any[] = [];
   usersList: any[] = [];
@@ -51,8 +53,6 @@ export class AdminParentComponent implements OnInit {
 
   ListFilmSample: Film[] = [this.film1, this.film2, this.film3, this.film4, this.film5, this.film6];
 
-  
-  
   constructor(
      private filmWebService: FilmWebService,
      private usersWebService: UsersWebService,
@@ -67,6 +67,7 @@ export class AdminParentComponent implements OnInit {
     this.addFilm(this.formAddFilm); 
     this.deleteFilmById(this.Number1);
     this.addListFilms();
+    this.getAllNameFilms();
 
     //Users
     this.getAllUsers();  
@@ -139,6 +140,21 @@ export class AdminParentComponent implements OnInit {
     );
   }
 
+  getAllNameFilms() {
+
+    this.filmWebService.getAllNameFilms().subscribe(
+      (data) => {
+  
+        console.log('TestWebServiceComponent getAllFilms', data);
+        this.filmNameList = data;
+        
+      },
+        (error) => {
+          console.error(error);
+        }
+    );
+      }
+
   //add()
   addFilm(formAddFilm : NgForm) {
     
@@ -204,3 +220,4 @@ export class AdminParentComponent implements OnInit {
     );
   }
 }
+

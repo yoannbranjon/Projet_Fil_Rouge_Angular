@@ -83,6 +83,7 @@ import { AdminParentComponent } from './admin-parent/admin-parent.component';
     MatDividerModule,
     MatListModule,
     MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

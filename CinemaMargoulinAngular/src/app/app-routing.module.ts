@@ -8,6 +8,8 @@ import { PracticalInfosParentComponent } from './practical-infos-parent/practica
 import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { AdminParentComponent } from './admin-parent/admin-parent.component';
+import { ReservationParentComponent } from './reservation-parent/reservation-parent.component';
+import { InfoFilmComponent } from './info-film/info-film.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeParentComponent },
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsParentComponent },
   { path: 'account',component: AccountParentComponent},
   { path: 'new-user',component: NewUserComponent},
-  { path: 'admin',component: AdminParentComponent}
+  { path: 'admin',component: AdminParentComponent},
+  { path: 'reservation',component: ReservationParentComponent},
+  { path: 'infofilm', component: InfoFilmComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
-.example-button-row {
-    display: table-cell;
-    width: 490px;
-    margin: 8px 8px 8px 0;
-
+button {
+  margin: auto;
+  transition: background-color 500ms ease;
+  &:hover {
+    background-color: darkgoldenrod;
   }
+
+}

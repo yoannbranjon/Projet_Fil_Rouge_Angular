@@ -1,21 +1,19 @@
-.mat-app-background {
-    border: solid 1px darkgoldenrod;
-    margin-bottom: 1%;
+.app-wrapper {
+    background-color: whitesmoke;
+    margin : 1%;
+    width: auto;
+    border-radius: 2px;
 }
 
 .app-container {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    width: auto;
 }
 
 .app-container-img {
-    width : 15%;
+    width : 50%;
     
-}
-
-.app-container-aside {
-    width : 60%;
 }
 
 img {

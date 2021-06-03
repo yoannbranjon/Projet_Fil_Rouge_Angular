@@ -6,3 +6,15 @@ h2 {
     color: darkgoldenrod;
 }
 
+.app-component {
+    height: auto;
+}
+
+ul {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+li {
+    text-decoration: none;
+}

@@ -14,8 +14,8 @@ export class FilmWebService {
 
   constructor(private http: HttpClient) { }
 
-  getAllFilms(): Observable<Film[]> {
-    return this.http.get<Film[]>(this.baseUrl + 'REST/recupfilm');
+  getAllFilms(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + 'REST/recupfilm');
   }
 
   addFilm(filmToAdd: Film): Observable<any> {

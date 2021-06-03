@@ -7,14 +7,22 @@ h2 {
 }
 
 .app-component {
-    height: auto;
+    height: 100%;
 }
 
 ul {
     display:grid;
     grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: minmax(300px, auto);
+    height: 100%;
 }
 
 li {
-    text-decoration: none;
+    list-style-type: none;
+    height: 100%;
+}
+
+
+img {
+    width: 100%;
 }

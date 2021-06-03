@@ -3,8 +3,8 @@
     <div class="app-container">
         
         <div class="app-container-img">
-            <h3>Mon titre de film</h3>
-            <img src="../../../assets/img/back8.jpg" alt="image film">
+            <ng-content select="h3"></ng-content>
+            <ng-content select="img"></ng-content>
             <app-button-reserve></app-button-reserve>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from '../shared/models/film.model';import { FilmWebService } from '../shared/webservices/film.webservice';
+import { Film } from '../shared/models/film.model';
+import { FilmWebService } from '../shared/webservices/film.webservice';
 
 @Component({
   selector: 'app-on-display-parent',
@@ -8,19 +9,16 @@ import { Film } from '../shared/models/film.model';import { FilmWebService } fro
 })
 export class OnDisplayParentComponent implements OnInit {
 
-  tab: Array<string> = ['premier', 'deuxieme', 'troisieme','quatrieme'];
-  nord = 'Lille';
-  sud = 'Marseille';
-  capitale = 'Paris';
-
   //initialisation liste de filmms
   filmList: any[] = [];
-  
-  
-  constructor(private filmWebService: FilmWebService) {
-   }
+  titleList: string[] = [];
+  displayList : string [] = [];
+  idList : number [] = [];
 
-  ngOnInit() { 
+  constructor(private filmWebService: FilmWebService) {
+  }
+
+  ngOnInit() {
 
     //Films
     this.getAllFilms();
@@ -32,17 +30,20 @@ export class OnDisplayParentComponent implements OnInit {
     this.filmWebService.getAllFilms().subscribe(
       (data) => {
 
-        console.log('TestWebServiceComponent getAllFilms', data);
-        this.filmList = data;
-      },
-        (error) => {
-          console.error(error);
+        for (let i=0; i<data.length;i++){
+          this.filmList[i] = data[i];
+          console.log('TestWebServiceComponent getAllFilms', this.filmList[i]);
+          this.titleList = this.filmList[i].name;
+          this.displayList = this.filmList[i].display;
+          this.idList = this.filmList[i].id;
+          console.log (this.idList, this.titleList, this.displayList);
         }
-    );
+      },
+      (error) => {
+        console.error(error);
       }
-
-
-
+    );
+  }
 }
 
 

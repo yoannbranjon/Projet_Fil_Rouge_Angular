@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class OnDisplayChildComponent implements OnInit {
-  @Input() ordre = '';
-  @Input() villeNaissance = '';
+  @Input() title = '';
+  @Input() display ='';
 
   /*
   @Input() pegi = '';

@@ -1,9 +1,11 @@
 <div class="app-wrapper">
     <h2>A l'affiche en ce moment :</h2>
 
-    <div class="app-component-column">
-        <app-on-display-child [ordre]="tab[0]" [villeNaissance]="sud"></app-on-display-child>
-        <app-on-display-child [ordre]="tab[1]" [villeNaissance]="nord"></app-on-display-child>
-        <app-on-display-child [ordre]="tab[2]" [villeNaissance]="capitale"></app-on-display-child>
+    <div class="app-component">
+        <ul>
+            <li *ngFor="let element of tab">
+                <app-on-display-child [ordre]="element" [villeNaissance]="sud"></app-on-display-child>
+            </li>
+        </ul>
     </div>
 </div>

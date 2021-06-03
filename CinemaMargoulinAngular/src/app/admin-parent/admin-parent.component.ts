@@ -26,12 +26,16 @@ export class AdminParentComponent implements OnInit {
   usersList: any[] = [];
   sessionList: any[] = [];
 
+  //récupération de l'objet film d'une ligne
+  element = new Film("", 0, "", "", "", "", "", 0);
+
   //Autre
   Number1: number = 0;
   formAddFilm!: NgForm;
+  formUpdateFilm!: NgForm;
 
   //Angular material table
-  displayedColumnsFilm: string[] = ['name', 'duration', 'filmVersion', 'display', 'typeFilm', 'comment', 'director', 'pegi', 'deleteAction', 'updateAction'];
+  displayedColumnsFilm: string[] = ['id', 'name', 'duration', 'filmVersion', 'display', 'typeFilm', 'comment', 'director', 'pegi', 'deleteAction', 'updateAction'];
   dataSourceFilm = new MatTableDataSource<Film>(this.filmList);
 
   displayedColumnsRoom: string[] = ['name', 'sitNumber', 'maxCapacity', 'audioSystem', 'deleteAction', 'updateAction'];
@@ -64,8 +68,10 @@ export class AdminParentComponent implements OnInit {
 
     //Films
     this.getAllFilms();
-    this.addFilm(this.formAddFilm); 
+    this.addFilm(this.formAddFilm);
+    this.updateFilm(this.formUpdateFilm);
     this.deleteFilmById(this.Number1);
+    this.retrieveFilm(this.element);
     this.addListFilms();
 
     //Users
@@ -78,6 +84,14 @@ export class AdminParentComponent implements OnInit {
     //Reservation
     this.getAllReservations(); 
     this.addReservation(); 
+  }
+
+  //récupération de l'objet film d'une ligne d'une liste affichée sous forme de tableau
+  retrieveFilm(element: Film) {
+
+    this.element = element;
+    console.log(this.element, element);
+    
   }
 
   //getAll()
@@ -143,6 +157,7 @@ export class AdminParentComponent implements OnInit {
   addFilm(formAddFilm : NgForm) {
     
     let film : Film = formAddFilm.value;
+    console.log('Contenu du film à add : ' + film);
     formAddFilm.reset();
     this.filmWebService.addFilm(film)
     .subscribe(data => {
@@ -152,6 +167,22 @@ export class AdminParentComponent implements OnInit {
       alert('Erreur lors de lajout du film');
     });
       }
+
+  //update()
+  updateFilm(formUpdateFilm: NgForm) {
+
+
+    let film: Film = formUpdateFilm.value;
+    // formUpdateFilm.reset();
+    console.log('Contenu du film à update : ' + film.display);
+    this.filmWebService.updateFilm(film)
+      .subscribe(data => {
+      },
+        error => {
+          console.log(error);
+          alert('Erreur lors de lajout du film');
+        });
+  }
     
       //add()
   addListFilms() {

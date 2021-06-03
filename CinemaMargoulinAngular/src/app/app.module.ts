@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /******* ROUTES *******/
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,10 @@ import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
 import { AccountParentComponent } from './account-parent/account-parent.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { OnDisplayChildComponent } from './on-display-parent/on-display-child/on-display-child.component';
+import { HomeChildComponent } from './home-parent/home-child/home-child.component';
+import { AdminParentComponent } from './admin-parent/admin-parent.component';
+import { ReservationParentComponent } from './reservation-parent/reservation-parent.component';
+import { InfoFilmComponent } from './info-film/info-film.component';
 
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
@@ -29,6 +34,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 /******* SERVICES *******/
@@ -39,10 +46,9 @@ import { UsersWebService} from './shared/webservices/users.webservice';
 import { RoomWebService} from './shared/webservices/room.webservice';
 import { ReservationWebService} from './shared/webservices/reservation.webservice';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
-import { HomeChildComponent } from './home-parent/home-child/home-child.component';
-import { AdminParentComponent } from './admin-parent/admin-parent.component';
+
 
 
 
@@ -58,9 +64,11 @@ import { AdminParentComponent } from './admin-parent/admin-parent.component';
     AccountParentComponent,
     NewUserComponent,
     OnDisplayChildComponent,
-    ButtonReserveComponent,
     HomeChildComponent,
-    AdminParentComponent
+    AdminParentComponent,
+    ReservationParentComponent,
+    InfoFilmComponent,
+    ButtonReserveComponent
     
   ],
   imports: [
@@ -82,7 +90,9 @@ import { AdminParentComponent } from './admin-parent/admin-parent.component';
     MatButtonToggleModule,
     MatDividerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

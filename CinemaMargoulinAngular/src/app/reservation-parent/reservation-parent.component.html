@@ -1,0 +1,82 @@
+<div class="app-wrapper">
+    <mat-stepper class="app-form" [orientation]="(stepperOrientation | async)!" color="accent">
+        <mat-step [stepControl]="firstFormGroup" label="Informations personnelles">
+            <form [formGroup]="firstFormGroup">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput placeholder="Nom" formControlFirstName="firstNameControl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput placeholder="Prénom" formControlLastName="lastNameControl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Adresse mail</mat-label>
+                    <input matInput placeholder="mail" formControlLastName="emailNameControl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput placeholder="Prénom" formControlLastName="firstCtrl" required color="accent">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput placeholder="Prénom" formControlLastName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput placeholder="Prénom" formControlLastName="firstCtrl" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext color="accent">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Votre film">
+            <form [formGroup]="secondFormGroup">
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup" label="Réservation ">
+            <form [formGroup]="thirdFormGroup">
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Validation</ng-template>
+
+            <mat-form-field>
+                <mat-label>Message</mat-label>
+                <input matInput value="Disco party!" #message>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Action</mat-label>
+                <input matInput value="Dance" #action>
+            </mat-form-field>
+
+
+            <div>
+                <button mat-button matStepperPrevious color="accent">Retour</button>
+                <button mat-stroked-button (click)="openSnackBar(message.value, action.value)" color="accent">Valider
+                </button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+
+
+
+</div>

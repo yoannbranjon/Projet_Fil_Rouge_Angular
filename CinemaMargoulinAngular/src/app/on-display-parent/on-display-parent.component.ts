@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnDisplayParentComponent implements OnInit {
 
-  tab: Array<string> = ['premier', 'deuxieme', 'troisieme'];
+  tab: Array<string> = ['premier', 'deuxieme', 'troisieme','quatrieme'];
   nord = 'Lille';
   sud = 'Marseille';
   capitale = 'Paris';

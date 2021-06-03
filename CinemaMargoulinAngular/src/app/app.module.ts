@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 /******* ROUTES *******/
 import { AppRoutingModule } from './app-routing.module';
@@ -68,7 +69,7 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     AdminParentComponent,
     ReservationParentComponent,
     InfoFilmComponent,
-    ButtonReserveComponent
+    ButtonReserveComponent,
     
   ],
   imports: [
@@ -78,6 +79,7 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgxChartsModule,
 
     /* ANGULAR MATERIAL */
     MatInputModule,

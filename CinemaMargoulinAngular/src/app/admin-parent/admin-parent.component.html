@@ -1,3 +1,4 @@
+<div class="app-wrapper">
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSourceFilm">
   
@@ -38,9 +39,15 @@
       </ng-container>
 
       <!-- Comment Column -->
-      <ng-container matColumnDef="comment">
-        <th mat-header-cell *matHeaderCellDef> Comment </th>
-        <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+      <ng-container matColumnDef="synopsis">
+        <th mat-header-cell *matHeaderCellDef> Synopsis </th>
+        <td mat-cell *matCellDef="let element"> {{element.synopsis}} </td>
+      </ng-container>
+
+       <!-- Comment Column -->
+       <ng-container matColumnDef="userComment">
+        <th mat-header-cell *matHeaderCellDef> UserComment </th>
+        <td mat-cell *matCellDef="let element"> {{element.userComment}} </td>
       </ng-container>
 
         <!-- Director Column -->
@@ -96,7 +103,11 @@
       <input name="typeFilm" class="form-control" placeholder="typeFilm" ngModel>
     </div>
     <div class="col-2">
-      <input name="comment" class="form-control" placeholder="comment" ngModel>
+      <input name="synopsis" class="form-control" placeholder="synopsis" ngModel>
+    </div>
+
+    <div class="col-2">
+      <input name="userComment" class="form-control" placeholder="userComment" ngModel>
     </div>
     
     <div class="col-2">
@@ -138,7 +149,11 @@
         <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}" value="{{element.typeFilm}}" ngModel>
       </div>
       <div class="col-2">
-        <input name="comment" class="form-control" placeholder="{{element.comment}}" value="{{element.comment}}" ngModel>
+        <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}" value="{{element.synopsis}}" ngModel>
+      </div>
+
+      <div class="col-2">
+        <input name="userComment" class="form-control" placeholder="{{element.userComment}}" value="{{element.userComment}}" ngModel>
       </div>
       
       <div class="col-2">
@@ -226,4 +241,23 @@
 <button type="submit"  (click)="getAllRooms()">getAllRooms()</button>
 <button type="submit"  (click)="addReservation()">addReservation()</button>
 <button type="submit"  (click)="addRoom()">addRoom()</button>
+
+
+
+<h3> Vertical Bar Chart</h3>
+  <ngx-charts-bar-vertical
+    [view]="[1000,400]"
+    [results]="surveyData"
+    [xAxisLabel]="'Mois'"
+    [legendTitle]="'Mois'"
+    [yAxisLabel]="'Nombre de vues'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+  </ngx-charts-bar-vertical>
+
+</div>
 

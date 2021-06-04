@@ -1,6 +1,15 @@
+.app-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 9px;
+}
+
 button {
-  margin: auto;
+  width: 100px;
+  height: 100px;
   transition: background-color 500ms ease;
+
   &:hover {
     background-color: darkgoldenrod;
   }

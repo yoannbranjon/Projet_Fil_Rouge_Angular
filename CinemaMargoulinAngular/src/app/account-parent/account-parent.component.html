@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="app-wrapper">
 
     <div class="app-wrapper-connexion">
@@ -20,9 +22,6 @@
                 <label for="mdp" class="form-label">Mot de passe</label>
                 <input type="password" class="form-control" id="mdp">
             </div>
-    
-            
-            
 
             <form class="app-form">
                 <mat-form-field class="app-form__item">
@@ -37,26 +36,28 @@
                         Adresse mail <strong>requise</strong>
                     </mat-error>
                 </mat-form-field>
-    
+
                 <mat-form-field class="app-form__item">
                     <mat-label>Mot de passe</mat-label>
                     <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Ex. pat@example.com">
+                        placeholder="Ex. pat@example.com">
                     <mat-hint>Veuillez entrer un mot de passe !</mat-hint>
-                    <mat-error *ngIf="passwordFormControl.hasError('mot de passe') && !passwordFormControl.hasError('requis')">
+                    <mat-error
+                        *ngIf="passwordFormControl.hasError('mot de passe') && !passwordFormControl.hasError('requis')">
                         Veuillez entrer un mot de passe !
                     </mat-error>
                     <mat-error *ngIf="passwordFormControl.hasError('requis')">
-                      Mot de passe <strong>requis</strong>
+                        Mot de passe <strong>requis</strong>
                     </mat-error>
                 </mat-form-field>
 
                 <div class="app-button">
                     <button mat-raised-button color="primary" href="https://www.google.com/">Valider</button>
                 </div>
-    
+
             </form>
         </form>
     </div>
 
 </div>
+<app-footer></app-footer>

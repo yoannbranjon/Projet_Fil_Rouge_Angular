@@ -5,7 +5,8 @@ export class Film {
     filmVersion: String;
     display: String;
     typeFilm: String;
-    comment: String;
+    synopsis: String;
+    userComment: String;
     director: String;
     pegi: number;
    
@@ -17,7 +18,8 @@ export class Film {
         filmVersionParam: String,
         displayParam: String,
         typeFilmParam: String,
-        commentParam: String,
+        synopsisParam: String,
+        userCommentParam: String,
         directorParam: String,
         pegiParam: number
 
@@ -28,13 +30,14 @@ export class Film {
         this.filmVersion = filmVersionParam;
         this.display = displayParam;
         this.typeFilm = typeFilmParam;
-        this.comment = commentParam;
+        this.synopsis = synopsisParam;
+        this.userComment = userCommentParam;
         this.director = directorParam;
         this.pegi = pegiParam;
        
     }
 
     fullName() {
-        return this.name + ' ' + this.duration + ' ' +  this.filmVersion + ' ' + this.display + ' ' + this.typeFilm + ' ' + this.comment + ' ' + this.director+ ' ' + this.pegi;
+        return this.name + ' ' + this.duration + ' ' +  this.filmVersion + ' ' + this.display + ' ' + this.typeFilm + ' ' + this.synopsis + ' ' + this.userComment + this.director+ ' ' + this.pegi;
     }
 }

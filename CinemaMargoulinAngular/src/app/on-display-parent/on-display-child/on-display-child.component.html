@@ -1,11 +1,11 @@
 <div class="app-wrapper">
-    
-    <div class="app-container">
-        
-        <div class="app-container-img">
-            <h3>Mon titre de film</h3>
-            <img src="../../../assets/img/back8.jpg" alt="image film">
-            <app-button-reserve></app-button-reserve>
+
+    <div class="app-container-img">
+        <ng-content select="h3"></ng-content>
+        <ng-content select="img"></ng-content>
+        <div class="app-button">
+            <button mat-mini-fab color="primary" [routerLink]="['/infofilm']">Voir plus</button>
         </div>
     </div>
+
 </div>

@@ -1,21 +1,33 @@
 .app-wrapper {
     background-color: whitesmoke;
     margin : 1%;
+    height: 570px;
     width: auto;
     border-radius: 2px;
-}
-
-.app-container {
     display: flex;
     justify-content: center;
     width: auto;
 }
 
 .app-container-img {
-    width : 50%;
-    
+    width : 70%;
+    height: 400px;
 }
 
-img {
+.app-button {
     width: 100%;
-}
+    display: flex;
+    justify-content: center;
+    padding-bottom: 9px;
+  }
+  
+  button {
+    width: 100px;
+    height: 100px;
+    transition: background-color 500ms ease;
+  
+    &:hover {
+      background-color: darkgoldenrod;
+    }
+  
+  }

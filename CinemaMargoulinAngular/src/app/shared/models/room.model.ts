@@ -1,24 +1,26 @@
 export class Room {
 
-    id: number;
+    id!: number;
     name: string;
     sitNumber: number;
     maxCapacity: number;
     audioSystem: string;
 
     constructor(
-        idParam: number,
         nameParam: string,
         sitNumberParam: number,
         maxCapacityParam: number,
         audioSystemParam: string,
+        idParam?: number,
 
     ) {
-        this.id = idParam;
         this.name = nameParam;
         this.sitNumber =  sitNumberParam;
         this.maxCapacity = maxCapacityParam;
         this.audioSystem = audioSystemParam;
+        if (idParam) {
+            this.id = idParam;
+        }
        
     }
 

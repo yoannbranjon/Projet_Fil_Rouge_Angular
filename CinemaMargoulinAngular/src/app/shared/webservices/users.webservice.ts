@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User } from '../models/user.model';
+import { Users } from '../models/users.model';
 import { catchError, map } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 
@@ -14,11 +14,11 @@ export class UsersWebService {
 
   constructor(private http: HttpClient) {  }
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'REST/recupreservation');
+  getAllUsers(): Observable<Users[]> {
+    return this.http.get<Users[]>(this.baseUrl + 'REST/recupreservation');
   }
 
-  addUser(UserToAdd: User): Observable<any> {
+  addUser(UserToAdd: Users): Observable<any> {
     return this.http.post(this.baseUrl + 'REST/addNewUser', UserToAdd);
   }
 }

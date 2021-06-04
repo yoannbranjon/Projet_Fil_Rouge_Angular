@@ -55,6 +55,7 @@ import { ReservationWebService} from './shared/webservices/reservation.webservic
 
 
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-map.component';
 
 
 
@@ -75,9 +76,13 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     ButtonReserveComponent,
     HeaderComponent,
     FooterComponent,
+<<<<<<< HEAD
     InfoFilmResaComponent,
     InfoFilmCommentComponent
     
+=======
+    ContactsMapComponent,
+>>>>>>> a491afb9cc1f14967aff00acfa291093cec8a179
   ],
   imports: [
     BrowserModule,

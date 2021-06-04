@@ -1,5 +1,6 @@
 export class Film {
 
+    id!: number;
     name: string;
     duration: number;
     filmVersion: String;
@@ -21,7 +22,8 @@ export class Film {
         synopsisParam: String,
         userCommentParam: String,
         directorParam: String,
-        pegiParam: number
+        pegiParam: number,
+        idParam?: number
 
     )
      {
@@ -34,6 +36,9 @@ export class Film {
         this.userComment = userCommentParam;
         this.director = directorParam;
         this.pegi = pegiParam;
+        if (idParam) {
+            this.id = idParam;
+        }
        
     }
 

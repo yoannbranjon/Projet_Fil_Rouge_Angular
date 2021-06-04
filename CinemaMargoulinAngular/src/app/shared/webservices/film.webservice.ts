@@ -34,6 +34,12 @@ export class FilmWebService {
     return this.http.post(this.baseUrl + 'REST/addListFilms', listFilmToAdd);
   }
 
+  getFilmById(id: number): Observable<any> {
+
+    return this.http.get<Film>(this.baseUrl + 'REST/getFilmById?id=' + id);
+  }
+
+
 
 
 }

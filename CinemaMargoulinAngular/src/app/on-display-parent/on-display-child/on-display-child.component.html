@@ -4,8 +4,9 @@
         <ng-content select="h3"></ng-content>
         <ng-content select="img"></ng-content>
         <div class="app-button">
-            <button mat-mini-fab color="primary" [routerLink]="['/infofilm']">Voir plus</button>
+            <button mat-mini-fab color="primary" (click) = "putIdOnLocalStorage()">Voir plus</button>
         </div>
+        <div>{{element.id}}</div>
     </div>
 
 </div>

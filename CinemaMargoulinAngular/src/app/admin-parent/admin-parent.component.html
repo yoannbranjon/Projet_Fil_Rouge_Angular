@@ -141,6 +141,10 @@
 
       <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
         <div class="row">
+
+          <div class="col-2">
+            <input disabled name="id" class="form-control" placeholder="{{element.id}}" value="{{element.id}}" ngModel>
+          </div>
           <div class="col-2">
             <input name="name" class="form-control" placeholder="{{element.name}}" value="{{element.name}}" ngModel>
           </div>
@@ -187,6 +191,7 @@
           </div>
         </div>
         <div class="row">
+
 
         </div>
       </form>

@@ -1,31 +1,37 @@
+import {Session} from './session.model';
+import {Users} from './users.model';
+
+
 export class Reservation {
 
-    id: number;
+    id!: number;
     name: string;
     price: number;
-    idSession: number;
-    idUser: number;
-    idAccount: number;
+    session: Session;
+    user: Users;
+    seatNumber: number;
 
     constructor(
-        idParam: number,
         nameParam: string,
         priceParam: number,
-        idSessionParam: number,
-        idUserParam: number,
-        idAccountParam: number
+        sessionParam: Session,
+        userParam: Users,
+        seatNumberParam: number,
+        idParam?: number,
 
     ) {
-        this.id = idParam;
         this.name = nameParam;
         this.price =  priceParam;
-        this.idSession = idSessionParam;
-        this.idUser = idUserParam;
-        this.idAccount = idAccountParam;
+        this.session = sessionParam;
+        this.user = userParam;
+        this.seatNumber = seatNumberParam;
+        if (idParam) {
+            this.id = idParam;
+        }
        
     }
 
     fullName() {
-        return this.name + ' ' + this.price + ' ' +  this.idSession + ' ' + this.idUser+ ' ' + this.idAccount;
+        return this.name + ' ' + this.price + ' ' +  this.session + ' ' + this.user+ ' ' + this.seatNumber;
     }
 }

@@ -1,19 +1,22 @@
 export class Account {
 
-    id: number;
+    id!: number;
     email: string;
     password: string;
 
     constructor(
-        idParam: number,
         emailParam: string,
         passwordParam: string,
+        idParam?: number
 
 
     ) {
-        this.id = idParam;
+        
         this.email = emailParam;
         this.password = passwordParam;
+        if (idParam) {
+            this.id = idParam;
+        }
        
     }
 

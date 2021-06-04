@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersWebService } from '../shared/webservices/users.webservice';
-import { User } from '../shared/models/user.model';
+import { Users } from '../shared/models/users.model';
+import { Account } from '../shared/models/account.model';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { User } from '../shared/models/user.model';
 export class NewUserComponent implements OnInit {
 
   now = new Date();
+  account = new Account("nezha_b@gmail.com", "biss");
 
   constructor(  private usersWebService: UsersWebService
     ) { }
@@ -22,7 +24,7 @@ export class NewUserComponent implements OnInit {
   }
 
   addUser() {
-    const userToAdd = new User(1, "Bébert", "Fichtre", this.now, "31 Rue du j'me foutre", 3);
+    const userToAdd = new Users("Bébert", "Fichtre", this.account, this.now, "31 Rue du j'me foutre", 5524, "Paris");
     this.usersWebService.addUser(userToAdd).subscribe(
       (data) => {
         // getAccount Next

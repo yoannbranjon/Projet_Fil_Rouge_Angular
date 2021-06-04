@@ -8,8 +8,9 @@ import { RoomWebService } from '../shared/webservices/room.webservice';
 import { ReservationWebService } from '../shared/webservices/reservation.webservice';
 import { Film } from '../shared/models/film.model';
 import { Account } from '../shared/models/account.model';
-import { User } from '../shared/models/user.model';
+import { Users } from '../shared/models/users.model';
 import { Room } from '../shared/models/room.model';
+import { Session } from '../shared/models/session.model';
 import { Reservation } from '../shared/models/reservation.model';
 import { NgForm } from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
@@ -40,9 +41,11 @@ export class AdminParentComponent implements OnInit {
   reservationList: any[] = [];
   usersList: any[] = [];
   sessionList: any[] = [];
+  date = new Date();
 
   //récupération de l'objet film d'une ligne
   element = new Film("", 0, "", "", "", "", "", "", 0);
+
 
   //Autre
   Number1: number = 0;
@@ -70,7 +73,13 @@ export class AdminParentComponent implements OnInit {
 
   ListFilmSample: Film[] = [this.film1, this.film2, this.film3, this.film4, this.film5, this.film6];
 
-  
+
+  //Alimentation réservation
+  roomResa = new Room("Margou", 100, 50, "Dolby");
+  accountResa = new Account("nezha_b@gmail.com", "biss");
+  userResa = new Users("Bébert", "Fichtre", this.accountResa, this.date, "31 Rue du j'me foutre", 5524, "Paris");
+  sessionResa = new Session(this.film1, this.roomResa, this.date);
+  reservation = new Reservation("reservationTest", 15, this.sessionResa, this.userResa, 89);
   
   constructor(
      public dialog: MatDialog,
@@ -222,7 +231,7 @@ export class AdminParentComponent implements OnInit {
 
 
   addRoom() {
-    const roomToAdd = new Room(1, "Margou", 100, 50, "Dolby");
+    const roomToAdd = new Room("Margou", 100, 50, "Dolby");
     this.roomWebService.addRoom(roomToAdd).subscribe(
       (data) => {
 
@@ -234,8 +243,8 @@ export class AdminParentComponent implements OnInit {
   }
 
   addReservation() {
-    const ReservationToAdd = new Reservation(1, "NezhaResa", 8, 2, 12, 13);
-    this.reservationWebService.addReservation(ReservationToAdd).subscribe(
+
+    this.reservationWebService.addReservation(this.reservation).subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent addReservation', data);
@@ -343,7 +352,6 @@ export class UpdateDialogAdminComponent {
     
     //Reservation
     this.getAllReservations(); 
-    this.addReservation(); 
   }
 
   openDialog() {
@@ -466,23 +474,11 @@ export class UpdateDialogAdminComponent {
 
 
   addRoom() {
-    const roomToAdd = new Room(1, "Margou", 100, 50, "Dolby");
+    const roomToAdd = new Room("Margou", 100, 50, "Dolby");
     this.roomWebService.addRoom(roomToAdd).subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent addRoom', data);
-      }, (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  addReservation() {
-    const ReservationToAdd = new Reservation(1, "NezhaResa", 8, 2, 12, 13);
-    this.reservationWebService.addReservation(ReservationToAdd).subscribe(
-      (data) => {
-
-        console.log('TestWebServiceComponent addReservation', data);
       }, (error) => {
         console.error(error);
       }

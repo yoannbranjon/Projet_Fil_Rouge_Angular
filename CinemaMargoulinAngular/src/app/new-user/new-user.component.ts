@@ -24,7 +24,7 @@ export class NewUserComponent implements OnInit {
   }
 
   addUser() {
-    const userToAdd = new Users("Bébert", "Fichtre", this.account, this.now, "31 Rue du j'me foutre", 5524, "Paris");
+    const userToAdd = new Users("Foutre", "Fichtre", this.account, this.now, "31 Rue du j'me foutre", 5524, "Paris");
     this.usersWebService.addUser(userToAdd).subscribe(
       (data) => {
         // getAccount Next

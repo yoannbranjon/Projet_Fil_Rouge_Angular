@@ -8,7 +8,7 @@ export class Reservation {
     name: string;
     price: number;
     session: Session;
-    user: Users;
+    users: Users;
     seatNumber: number;
 
     constructor(
@@ -23,7 +23,7 @@ export class Reservation {
         this.name = nameParam;
         this.price =  priceParam;
         this.session = sessionParam;
-        this.user = userParam;
+        this.users = userParam;
         this.seatNumber = seatNumberParam;
         if (idParam) {
             this.id = idParam;
@@ -32,6 +32,6 @@ export class Reservation {
     }
 
     fullName() {
-        return this.name + ' ' + this.price + ' ' +  this.session + ' ' + this.user+ ' ' + this.seatNumber;
+        return this.name + ' ' + this.price + ' ' +  this.session + ' ' + this.users+ ' ' + this.seatNumber;
     }
 }

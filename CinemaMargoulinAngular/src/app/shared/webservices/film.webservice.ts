@@ -23,7 +23,7 @@ export class FilmWebService {
   }
 
   updateFilm(filmToUpdate: Film): Observable<any> {
-    return this.http.post(this.baseUrl + 'REST/updateFilm', filmToUpdate);
+    return this.http.put(this.baseUrl + 'REST/updateFilm', filmToUpdate);
   }
 
   deleteFilmById(id: number): Observable<any> {

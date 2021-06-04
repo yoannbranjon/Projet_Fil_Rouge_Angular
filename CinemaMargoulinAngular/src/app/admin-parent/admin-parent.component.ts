@@ -93,8 +93,6 @@ export class AdminParentComponent implements OnInit {
 
     //Films
     this.getAllFilms();
-    this.addFilm(this.formAddFilm);
-    this.updateFilm(this.formUpdateFilm);
     this.deleteFilmById(this.Number1);
     this.retrieveFilm(this.element);
     this.addListFilms();

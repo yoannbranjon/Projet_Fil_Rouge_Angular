@@ -22,6 +22,8 @@ import { HomeChildComponent } from './home-parent/home-child/home-child.componen
 import { AdminParentComponent } from './admin-parent/admin-parent.component';
 import { ReservationParentComponent } from './reservation-parent/reservation-parent.component';
 import { InfoFilmComponent } from './info-film/info-film.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
@@ -37,6 +39,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 
 /******* SERVICES *******/
@@ -49,9 +53,6 @@ import { ReservationWebService} from './shared/webservices/reservation.webservic
 
 
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
-
-
-
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     ReservationParentComponent,
     InfoFilmComponent,
     ButtonReserveComponent,
-    
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,9 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     MatListModule,
     MatTableModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

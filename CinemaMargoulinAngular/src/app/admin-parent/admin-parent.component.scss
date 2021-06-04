@@ -1,15 +1,41 @@
-table {
-    width: 75%;
-  }
+.app-wrapper {
+  height: auto;
+  margin: 0;
+  background-color: rgb(204, 195, 195);
+}
 
-  p {
-    font-family: Lato;
-  }
+.app-button-home {
+  position: absolute;
+  z-index: 2;
+  margin: 1%;
+}
 
-  .app-wrapper {
+.mat-tab-group {
+  margin-bottom: 48px;
+  color: black;
+  z-index: 1;
+}
 
-    height: 500vh;
-    background-color: white;
-  }
+.mat-tab {
+  color: darkgoldenrod;
+}
 
+.table {
+  background-color: honeydew;
+}
 
+.app-table-film {
+  width: auto;
+}
+
+.mat-elevation-z8 {
+  margin: 3%;
+}
+
+.mat-elevation-z8 {
+  background-color: grey;
+}
+
+.app-stat {
+  margin-left: 20%;
+}

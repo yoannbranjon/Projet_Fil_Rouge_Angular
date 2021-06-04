@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../shared/models/film.model';
+import { TransfertService } from '../shared/services/transfert.service';
+import { FilmWebService } from '../shared/webservices/film.webservice';
 
 @Component({
   selector: 'app-info-film',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoFilmComponent implements OnInit {
 
-  constructor() { }
+  idToCatch!: number;
+  film = new Film("", 0, "", "", "", "", "", "", 0);
 
-  ngOnInit(): void {
+
+  constructor(
+    private transfertService: TransfertService,
+    private filmWebService: FilmWebService    ) { }
+
+  ngOnInit() {
+
+    this.transfertService.getIdSubject().subscribe(
+      id => this.idToCatch = id
+    );
+    this.getFilmById();
+
   }
+
+  getFilmById() {
+
+    this.filmWebService.getFilmById(this.idToCatch).subscribe(
+      (data) => {
+        this.film = data;
+        console.log('TestWebServiceComponent getFilmById', data);
+      },
+        (error) => {
+          console.error(error);
+        }
+    );
+    
+  }
+
 
 }

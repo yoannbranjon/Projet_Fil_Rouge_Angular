@@ -53,6 +53,7 @@ import { ReservationWebService} from './shared/webservices/reservation.webservic
 
 
 import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-map.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { ButtonReserveComponent } from './shared/components/button-reserve/butto
     ButtonReserveComponent,
     HeaderComponent,
     FooterComponent,
+    ContactsMapComponent,
   ],
   imports: [
     BrowserModule,

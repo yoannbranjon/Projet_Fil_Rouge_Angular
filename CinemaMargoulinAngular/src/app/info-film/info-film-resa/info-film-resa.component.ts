@@ -6,22 +6,21 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-
 @Component({
-  selector: 'app-reservation-parent',
-  templateUrl: './reservation-parent.component.html',
-  styleUrls: ['./reservation-parent.component.scss']
+  selector: 'app-info-film-resa',
+  templateUrl: './info-film-resa.component.html',
+  styleUrls: ['./info-film-resa.component.scss']
 })
-export class ReservationParentComponent implements OnInit {
+export class InfoFilmResaComponent implements OnInit {
 
-  firstFormGroup = this._formBuilder.group({
+  secondFormGroup = this._formBuilder.group({
     firstNameControl: ['', Validators.required],
     lastNameControl: ['', Validators.required],
     emailControl: ['', Validators.required],
 
   });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required]
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required]
   });
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required]

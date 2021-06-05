@@ -139,7 +139,7 @@
       </form>
 
 
-      <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+      <form (ngSubmit)="updateFilmById(formUpdateFilm, element.id)" #formUpdateFilm="ngForm">
         <div class="row">
 
           <div class="col-2">

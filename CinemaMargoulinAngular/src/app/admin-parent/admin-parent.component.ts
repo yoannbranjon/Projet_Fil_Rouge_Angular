@@ -95,7 +95,6 @@ export class AdminParentComponent implements OnInit {
     this.getAllFilms();
     this.deleteFilmById(this.Number1);
     this.retrieveFilm(this.element);
-    this.addListFilms();
 
     //Users
     this.getAllUsers();  
@@ -207,6 +206,22 @@ export class AdminParentComponent implements OnInit {
     // formUpdateFilm.reset();
     console.log('Contenu du film à update : ' + film.display);
     this.filmWebService.updateFilm(film)
+      .subscribe(data => {
+      },
+        error => {
+          console.log(error);
+          alert('Erreur lors de lajout du film');
+        });
+  }
+
+  //update()
+  updateFilmById(formUpdateFilm: NgForm, id: number) {
+
+    const idToSend = id;
+    let film: Film = formUpdateFilm.value;
+    // formUpdateFilm.reset();
+    console.log('Contenu du film à update : ' + film + idToSend);
+    this.filmWebService.updateFilmById(film, idToSend)
       .subscribe(data => {
       },
         error => {

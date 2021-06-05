@@ -47,38 +47,38 @@
 
     <div class="contact-form">
 
-      <form [formGroup]="firstFormGroup">
+      <form (ngSubmit)="addContact(formAddContact)" #formAddContact="ngForm">
 
         <h3 class="title">Nous contacter</h3>
 
         <div class="input-container">
           <mat-form-field class="example-full-width">
             <mat-label>Nom</mat-label>
-            <input matInput placeholder="Nom" value="Ex. Bouhafs">
+            <input matInput placeholder="Nom" name="firstName" ngModel>
           </mat-form-field>
         </div>
 
         <div class="input-container">
           <mat-form-field class="example-full-width">
             <mat-label>Prénom</mat-label>
-            <input matInput placeholder="Prénom" value="Ex. Nezha">
+            <input matInput placeholder="Prénom" name="lastName" ngModel>
           </mat-form-field>
         </div>
 
         <div class="input-container">
           <mat-form-field class="example-full-width">
               <mat-label>Adresse mail</mat-label>
-              <input matInput placeholder="mail" formControlemail="emailControl" required>
+              <input matInput placeholder="mail" name="email" formControlemail="emailControl" required ngModel>
           </mat-form-field>
         </div>
 
         <div class="input-container textarea">
           <mat-form-field class="example-full-width">
             <mat-label>Votre message</mat-label>
-            <textarea matInput placeholder="Ex. Je vous contacte..."></textarea>
+            <textarea matInput placeholder="Ex. Je vous contacte..." name="message" ngModel></textarea>
           </mat-form-field>
         </div>
-        <button mat-raised-button (click)="addContact()" class="btn">Envoyer</button>
+        <button mat-raised-button class="btn">Envoyer</button>
       </form>
     </div>
   </div>

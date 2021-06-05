@@ -2,7 +2,7 @@
 
   <!-- ICONE RETOUR ACCUEIL-->
   <div class="app-button-home">
-    <button mat-fab aria-label="Example icon button with a home icon" [routerLink]="['/home']" color="accent">
+    <button mat-fab aria-label="home" [routerLink]="['/home']" color="accent">
       <mat-icon>home</mat-icon>
     </button>
   </div>
@@ -278,7 +278,7 @@
     <mat-tab label="Gestion des demandes">
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSourceContact" id="app-table-contact">
-      
+
           <!-- Position Column -->
           <ng-container matColumnDef="firstName">
             <th mat-header-cell *matHeaderCellDef> Nom </th>
@@ -301,6 +301,12 @@
           <ng-container matColumnDef="message">
             <th mat-header-cell *matHeaderCellDef> Commentaire </th>
             <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+          </ng-container>
+
+           <!-- Symbol Column -->
+           <ng-container matColumnDef="dateTime">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateTime}} </td>
           </ng-container>
       
           <tr mat-header-row *matHeaderRowDef="displayedColumnsContact"></tr>

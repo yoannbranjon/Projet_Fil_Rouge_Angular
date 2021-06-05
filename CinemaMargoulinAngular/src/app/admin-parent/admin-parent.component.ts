@@ -66,7 +66,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   displayedColumnsReservation: string[] = ['name', 'price', 'idSession', 'idSession', 'idUser', 'idAccount', 'deleteAction', 'updateAction'];
   dataSourceReservation = new MatTableDataSource<Reservation>(this.reservationList);
 
-  displayedColumnsContact: string[] = ['firstName', 'lastName', 'email', 'message'];
+  displayedColumnsContact: string[] = ['firstName', 'lastName', 'email', 'message', 'dateTime'];
   dataSourceContact = new MatTableDataSource<Contact>(this.contactList);
 
   //Liste de films pour échantillon
@@ -206,6 +206,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 
         console.log('TestWebServiceComponent getAllContacts', data);
         this.contactList = data;
+        this.dataSourceContact = new MatTableDataSource<Contact>(data)
       },
       (error) => {
         console.error(error);

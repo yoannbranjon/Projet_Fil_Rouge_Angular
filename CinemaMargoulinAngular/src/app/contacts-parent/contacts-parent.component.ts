@@ -25,7 +25,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ContactsParentComponent implements OnInit {
 
   //Instanciation 
-  contact = new Contact("Anthony","Thual","thualanthony@gmail.com","no comment")
+  formAddContact!: NgForm;
+  date = new Date();
+  contact = new Contact("Jean-Michel","Fichtre","thualanthony@gmail.com","no comment", this.date)
   matcher = new MyErrorStateMatcher();
   stepperOrientation: Observable<StepperOrientation>;
 
@@ -44,17 +46,20 @@ export class ContactsParentComponent implements OnInit {
 
   //OnInit
   ngOnInit(): void {
-    this.addContact();
   }
 
   //ajout d'un objet contact dans la bdd
-  addContact() {
-    this.ContactWebService.addContact(this.contact).subscribe(
+  addContact(formAddContact:NgForm) {
+    let contactToAdd : Contact = formAddContact.value;
+    console.log('Contenu du film à add : ' + contactToAdd.fullName);
+    formAddContact.reset();
+    this.ContactWebService.addContact(contactToAdd).subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent addContact', data);
       }, (error) => {
         console.error(error);
+        alert('Erreur lors de lajout du contact');
       }
     );
   }

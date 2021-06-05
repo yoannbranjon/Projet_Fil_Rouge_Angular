@@ -20,4 +20,8 @@ export class RoomWebService {
   addRoom(roomToAdd: Room): Observable<any> {
     return this.http.post(this.baseUrl + 'REST/addNewRoom', roomToAdd);
   }
+
+  deleteRoomById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteRoomById?id=' + id);
+  }
 }

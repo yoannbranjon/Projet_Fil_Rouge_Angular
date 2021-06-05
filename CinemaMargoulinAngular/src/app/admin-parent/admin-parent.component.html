@@ -105,7 +105,7 @@
 
 
 
-
+       <!-- add Film-->
       <form (ngSubmit)="addFilm(formAddFilm)" #formAddFilm="ngForm">
         <div class="row">
           <div class="col-2">
@@ -151,7 +151,7 @@
         </div>
       </form>
 
-
+       <!-- update Film-->
       <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
         <div class="row">
 
@@ -248,11 +248,11 @@
           <ng-container matColumnDef="deleteAction">
             <th mat-header-cell *matHeaderCellDef>Suppresion</th>
             <td *matCellDef="let row">
-              <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">Supprimer</button>
+              <button mat-raised-button (click)="deleteRoomById(row.id)" class="app-button-delete">Supprimer</button>
             </td>
           </ng-container>
 
-          <!-- Suppression Button column -->
+          <!-- Update Button column -->
           <ng-container matColumnDef="updateAction">
             <th mat-header-cell *matHeaderCellDef>Modification</th>
             <td *matCellDef="let element">
@@ -260,19 +260,102 @@
             </td>
           </ng-container>
 
+          
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsRoom"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsRoom;"></tr>
         </table>
       </div>
-    </mat-tab>
-    <button type="submit" (click)="addListFilms()">addListFilms)</button>
-    <button type="submit" (click)="getAllFilms()">getAllFilm()</button>
-    <button type="submit" (click)="getAllUsers()">getAllUsers()</button>
-    <button type="submit" (click)="getAllReservations()">getAllReservations()</button>
-    <button type="submit" (click)="getAllRooms()">getAllRooms()</button>
-    <button type="submit" (click)="addReservation()">addReservation()</button>
-    <button type="submit" (click)="addRoom()">addRoom()</button>
 
+           <!-- add Room-->
+           <form (ngSubmit)="addRoom(formAddRoom)" #formAddRoom="ngForm">
+            <div class="row">
+              <div class="col-2">
+                <input name="name" class="form-control" placeholder="name" ngModel>
+              </div>
+              <div class="col-2">
+                <input name="sitNumber" class="form-control" placeholder="sitNumber" ngModel>
+              </div>
+              <div class="col-2">
+                <input name="maxCapacity" class="form-control" placeholder="maxCapacity" ngModel>
+              </div>
+              <div class="col-2">
+                <input name="audioSystem" class="form-control" placeholder="audioSystem" ngModel>
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+    
+            </div>
+          </form>
+    
+           <!-- update Room-->
+          <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+            <div class="row">
+    
+              <div class="col-2">
+                <input disabled name="id" class="form-control" placeholder="{{element.id}}" [(ngModel)]="element.id">
+              </div>
+              <div class="col-2">
+                <input name="name" class="form-control" placeholder="{{element.name}}" [(ngModel)]="element.name">
+              </div>
+              <div class="col-2">
+                <input name="duration" class="form-control" placeholder="{{element.duration}}"
+                  [(ngModel)]="element.duration" ngModel>
+              </div>
+              <div class="col-2">
+                <input name="filmVersion" class="form-control" placeholder="{{element.filmVersion}}"
+                  [(ngModel)]="element.duration">
+              </div>
+              <div class="col-2">
+                <input name="display" class="form-control" placeholder="{{element.display}}" [(ngModel)]="element.display"
+                  ngModel>
+              </div>
+    
+              <div class="col-2">
+                <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}"
+                  [(ngModel)]="element.duration" ngModel>
+              </div>
+              <div class="col-2">
+                <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}"
+                  [(ngModel)]="element.synopsis" ngModel>
+              </div>
+    
+              <div class="col-2">
+                <input name="userComment" class="form-control" placeholder="{{element.userComment}}"
+                  [(ngModel)]="element.userComment">
+              </div>
+    
+              <div class="col-2">
+                <input name="director" class="form-control" placeholder="{{element.director}}"
+                  [(ngModel)]="element.director">
+              </div>
+    
+              <div class="col-2">
+                <input name="pegi" class="form-control" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
+              </div>
+    
+              <div class="col-2">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <button type="submit" (click)="addListFilms()">addListFilms)</button>
+          <button type="submit" (click)="getAllFilms()">getAllFilm()</button>
+          <button type="submit" (click)="getAllUsers()">getAllUsers()</button>
+          <button type="submit" (click)="getAllReservations()">getAllReservations()</button>
+          <button type="submit" (click)="getAllRooms()">getAllRooms()</button>
+          <button type="submit" (click)="addReservation()">addReservation()</button>
+    </mat-tab>
+
+    
     <!-- CONTAINER CONTACTS -->
 
     <mat-tab label="Gestion des demandes">
@@ -309,6 +392,17 @@
       
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
+    </mat-tab>
+    <mat-tab label="Gestion des Réservations">
+
+
+
+
+
+
+
+
+
     </mat-tab>
 
     <!-- CONTAINER STATISTIQUES-->

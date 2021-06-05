@@ -39,6 +39,12 @@ export class FilmWebService {
     return this.http.get<Film>(this.baseUrl + 'REST/getFilmById?id=' + id);
   }
 
+  updateFilmById(filmToUpdate: Film, id: number): Observable<any> {
+    console.log({filmToUpdate, id});
+    return this.http.put(this.baseUrl + 'REST/updateFilm', {filmToUpdate, id});
+
+  }
+
 
 
 

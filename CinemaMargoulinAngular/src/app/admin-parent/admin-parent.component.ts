@@ -86,7 +86,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   accountResa = new Account("nezha_b@gmail.com", "biss");
   userResa = new Users("Bébert", "Fichtre", this.accountResa, this.date, "31 Rue du j'me foutre", 5524, "Paris");
   sessionResa = new Session(this.film1, this.roomResa, this.date);
-  reservation = new Reservation("reservationTest", 15, this.sessionResa, this.userResa, 89);
+  reservation = new Reservation("reservation", 15, this.sessionResa, this.userResa, 89);
   
   constructor(
      public dialog: MatDialog,
@@ -103,22 +103,18 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     this.getAllFilms();
     this.deleteFilmById(this.Number1);
     this.retrieveFilm(this.element);
-    this.addListFilms();
 
     //Users
     this.getAllUsers();  
     
     //Rooms
-    this.getAllRooms();
-    this.addRoom(); 
+    this.getAllRooms(); 
     
     //Reservation
     this.getAllReservations(); 
     this.addReservation(); 
 
     //Contact 
-    this.getAllContacts();
-    
   }
 
   //Paginator appliqué sur la table film
@@ -230,6 +226,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
       console.log(error);
       alert('Erreur lors de lajout du film');
     });
+    this.getAllFilms();
       }
 
   //update()
@@ -245,6 +242,24 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
           console.log(error);
           alert('Erreur lors de lajout du film');
         });
+        this.getAllFilms();
+  }
+
+  //update()
+  updateFilmById(formUpdateFilm: NgForm, id: number) {
+
+    const idToSend = id;
+    let film: Film = formUpdateFilm.value;
+    // formUpdateFilm.reset();
+    console.log('Contenu du film à update : ' + film.name + idToSend);
+    this.filmWebService.updateFilmById(film, idToSend)
+      .subscribe(data => {
+      },
+        error => {
+          console.log(error);
+          alert('Erreur lors de lajout du film');
+        });
+        this.getAllFilms();
   }
     
   //addList()
@@ -260,9 +275,11 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
       }
 
 
-  addRoom() {
-    const roomToAdd = new Room("Margou", 100, 50, "Dolby");
-    this.roomWebService.addRoom(roomToAdd).subscribe(
+  addRoom(formAddRoom : NgForm) {
+    let room : Room = formAddRoom.value;
+    console.log('Contenu du room à add : ' + room);
+    formAddRoom.reset();
+    this.roomWebService.addRoom(room).subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent addRoom', data);
@@ -296,6 +313,22 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
         console.error(error);
       }
     );
+    this.getAllFilms();
+  }
+
+  //DeleteRoom()
+  deleteRoomById(Number: number) {
+
+    this.roomWebService.deleteRoomById(Number).subscribe(
+      (data) => {
+
+        console.log('TestWebServiceComponent deleteRoomById()', data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    this.getAllFilms();
   }
 }
 

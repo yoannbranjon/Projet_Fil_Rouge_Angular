@@ -38,14 +38,9 @@ export class AccountParentComponent implements OnInit {
   /*filmList: any[] = [];
   password: string = '';*/
 
-
-  
-
   constructor(
     //private filmWebService: FilmWebService,
-    //private accountWebService: AccountService,
-
-
+    private accountWebService: AccountWebService,
   ) { }
 
   ngOnInit() {
@@ -54,7 +49,7 @@ export class AccountParentComponent implements OnInit {
    // this.getAllFilms(); 
 
     // Posts
-    //this.addAccount();
+    this.addAccount();
   }
 
   
@@ -72,9 +67,9 @@ export class AccountParentComponent implements OnInit {
         }
     );
       }
-
+*/
   addAccount() {
-    const accountToAdd = new Account(1, "branjonyoann@hotmail.fr", "hohilf");
+    const accountToAdd = new Account("branjonyoann@hotmail.fr", "hohilf");
     this.accountWebService.addAccount(accountToAdd).subscribe(
       (data) => {
         // getAccount Next
@@ -84,8 +79,4 @@ export class AccountParentComponent implements OnInit {
           }
         );
       }
-*/
-
-
-
 }

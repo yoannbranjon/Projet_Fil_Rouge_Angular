@@ -24,10 +24,11 @@
   button {
     width: 100px;
     height: 100px;
+    background-color: black;
     transition: background-color 500ms ease;
   
     &:hover {
-      background-color: darkgoldenrod;
+      background-color: black;
     }
   
   }

@@ -1,5 +1,4 @@
-
-   <app-header></app-header>
+<app-header></app-header>
 
 <div class="container">
 
@@ -48,42 +47,38 @@
 
     <div class="contact-form">
 
-      <form action="index.html" autocomplete="off">
+      <form [formGroup]="firstFormGroup">
+
         <h3 class="title">Nous contacter</h3>
+
         <div class="input-container">
           <mat-form-field class="example-full-width">
             <mat-label>Nom</mat-label>
             <input matInput placeholder="Nom" value="Ex. Bouhafs">
           </mat-form-field>
         </div>
+
         <div class="input-container">
           <mat-form-field class="example-full-width">
             <mat-label>Prénom</mat-label>
             <input matInput placeholder="Prénom" value="Ex. Nezha">
           </mat-form-field>
         </div>
+
         <div class="input-container">
           <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-              placeholder="Ex. pat@example.com">
-            <mat-hint>Errors appear instantly!</mat-hint>
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
+              <mat-label>Adresse mail</mat-label>
+              <input matInput placeholder="mail" formControlemail="emailControl" required>
           </mat-form-field>
         </div>
+
         <div class="input-container textarea">
           <mat-form-field class="example-full-width">
             <mat-label>Votre message</mat-label>
             <textarea matInput placeholder="Ex. Je vous contacte..."></textarea>
           </mat-form-field>
         </div>
-        <input type="submit" value="Envoyer" class="btn" />
-
+        <button mat-raised-button (click)="addContact()" class="btn">Envoyer</button>
       </form>
     </div>
   </div>
@@ -91,4 +86,3 @@
 <app-contacts-map></app-contacts-map>
 
 <app-footer></app-footer>
-

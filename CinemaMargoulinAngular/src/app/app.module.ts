@@ -43,7 +43,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -76,13 +77,9 @@ import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-ma
     ButtonReserveComponent,
     HeaderComponent,
     FooterComponent,
-<<<<<<< HEAD
     InfoFilmResaComponent,
-    InfoFilmCommentComponent
-    
-=======
-    ContactsMapComponent,
->>>>>>> a491afb9cc1f14967aff00acfa291093cec8a179
+    InfoFilmCommentComponent,
+    ContactsMapComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +106,9 @@ import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-ma
     MatSnackBarModule,
     MatDialogModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

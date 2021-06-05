@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilmWebService } from '../shared/webservices/film.webservice';
@@ -6,14 +6,17 @@ import { AccountWebService } from '../shared/webservices/account.webservice';
 import { UsersWebService } from '../shared/webservices/users.webservice';
 import { RoomWebService } from '../shared/webservices/room.webservice';
 import { ReservationWebService } from '../shared/webservices/reservation.webservice';
+import {ContactWebService} from '../shared/webservices/contact.webservice';
 import { Film } from '../shared/models/film.model';
 import { Account } from '../shared/models/account.model';
 import { Users } from '../shared/models/users.model';
 import { Room } from '../shared/models/room.model';
 import { Session } from '../shared/models/session.model';
 import { Reservation } from '../shared/models/reservation.model';
+import { Contact } from '../shared/models/contact.model';
 import { NgForm } from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
 
 
 @Component({
@@ -21,8 +24,26 @@ import {MatDialog} from '@angular/material/dialog';
   templateUrl: './admin-parent.component.html',
   styleUrls: ['./admin-parent.component.scss']
 })
-export class AdminParentComponent implements OnInit {
+export class AdminParentComponent implements OnInit, AfterViewInit {
 
+  //initialisation liste de filmms
+  filmList: any[] = [];
+  roomList: any[] = [];
+  reservationList: any[] = [];
+  contactList: any[]=[];
+  usersList: any[] = [];
+  sessionList: any[] = [];
+  date = new Date();
+
+  //récupération de l'objet film d'une ligne
+  element = new Film("", 0, "", "", "", "", "", "", 0);
+
+  //Autre
+  Number1: number = 0;
+  formAddFilm!: NgForm;
+  formUpdateFilm!: NgForm;
+
+  //Tableau Stats
   surveyData = [
     { name: 'Janvier', value: 105 },
     { name: 'Fevrier', value: 10 },
@@ -35,23 +56,6 @@ export class AdminParentComponent implements OnInit {
     domain: ['#5AA454', '#C7B42C', '#AAAAAA']
   };
 
-  //initialisation liste de filmms
-  filmList: any[] = [];
-  roomList: any[] = [];
-  reservationList: any[] = [];
-  usersList: any[] = [];
-  sessionList: any[] = [];
-  date = new Date();
-
-  //récupération de l'objet film d'une ligne
-  element = new Film("", 0, "", "", "", "", "", "", 0);
-
-
-  //Autre
-  Number1: number = 0;
-  formAddFilm!: NgForm;
-  formUpdateFilm!: NgForm;
-
   //Angular material table
   displayedColumnsFilm: string[] = ['id', 'name', 'duration', 'filmVersion', 'display', 'typeFilm', 'synopsis', 'userComment', 'director', 'pegi', 'deleteAction', 'updateAction'];
   dataSourceFilm = new MatTableDataSource<Film>(this.filmList);
@@ -61,6 +65,9 @@ export class AdminParentComponent implements OnInit {
 
   displayedColumnsReservation: string[] = ['name', 'price', 'idSession', 'idSession', 'idUser', 'idAccount', 'deleteAction', 'updateAction'];
   dataSourceReservation = new MatTableDataSource<Reservation>(this.reservationList);
+
+  displayedColumnsContact: string[] = ['firstName', 'lastName', 'email', 'message'];
+  dataSourceContact = new MatTableDataSource<Contact>(this.contactList);
 
   //Liste de films pour échantillon
 
@@ -86,7 +93,8 @@ export class AdminParentComponent implements OnInit {
      private filmWebService: FilmWebService,
      private usersWebService: UsersWebService,
      private roomWebService: RoomWebService,
-     private reservationWebService: ReservationWebService
+     private reservationWebService: ReservationWebService,
+     private ContactWebService : ContactWebService
     ) { }
 
   ngOnInit(): void {
@@ -107,9 +115,21 @@ export class AdminParentComponent implements OnInit {
     //Reservation
     this.getAllReservations(); 
     this.addReservation(); 
+
+    //Contact 
+    this.getAllContacts();
+    
   }
 
-  openDialog() {
+  //Paginator appliqué sur la table film
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSourceFilm.paginator = this.paginator;
+  }
+
+  //récupération de l'objet film d'une ligne d'une liste affichée sous forme de tableau
+  openDialogUpdateFilm() {
     const dialogRef = this.dialog.open(UpdateDialogAdminComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -184,6 +204,19 @@ export class AdminParentComponent implements OnInit {
     );
   }
 
+  getAllContacts(){
+    this.ContactWebService.getAllContacts().subscribe(
+      (data) => {
+
+        console.log('TestWebServiceComponent getAllContacts', data);
+        this.contactList = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
   //add()
   addFilm(formAddFilm : NgForm) {
     
@@ -202,7 +235,6 @@ export class AdminParentComponent implements OnInit {
   //update()
   updateFilm(formUpdateFilm: NgForm) {
 
-
     let film: Film = formUpdateFilm.value;
     // formUpdateFilm.reset();
     console.log('Contenu du film à update : ' + film.display);
@@ -215,7 +247,7 @@ export class AdminParentComponent implements OnInit {
         });
   }
     
-      //addList()
+  //addList()
   addListFilms() {
   
     this.filmWebService.addListFilm(this.ListFilmSample)
@@ -266,6 +298,26 @@ export class AdminParentComponent implements OnInit {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @Component({
   selector: 'app-update-dialog-admin',

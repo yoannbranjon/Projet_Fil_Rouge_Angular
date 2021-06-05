@@ -1,95 +1,108 @@
 <div class="app-wrapper">
 
+  <!-- ICONE RETOUR ACCUEIL-->
   <div class="app-button-home">
     <button mat-fab aria-label="Example icon button with a home icon" [routerLink]="['/home']" color="accent">
       <mat-icon>home</mat-icon>
     </button>
   </div>
 
+  <!-- CONTAINER STATISTIQUES-->
+
   <mat-tab-group mat-align-tabs="end" [backgroundColor]="'primary'" [color]="'warn'">
+    
+    <!-- CONTAINER FILMS-->
+
     <mat-tab label="Gestion des Films">
-      <table mat-table [dataSource]="dataSourceFilm" class="mat-elevation-z8">
 
-        <!-- id Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> Identifiant </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceFilm" id="app-table-film">
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Titre </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
+          <!-- id Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Identifiant </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
 
-        <!-- duration Column -->
-        <ng-container matColumnDef="duration">
-          <th mat-header-cell *matHeaderCellDef> Durée </th>
-          <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
-        </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Titre </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
 
-        <!-- filmVersion Column -->
-        <ng-container matColumnDef="filmVersion">
-          <th mat-header-cell *matHeaderCellDef> Version </th>
-          <td mat-cell *matCellDef="let element"> {{element.filmVersion}} </td>
-        </ng-container>
+          <!-- duration Column -->
+          <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef> Durée </th>
+            <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+          </ng-container>
 
-        <!-- Display Column -->
-        <ng-container matColumnDef="display">
-          <th mat-header-cell *matHeaderCellDef> Affiche </th>
-          <td mat-cell *matCellDef="let element"> {{element.display}} </td>
-        </ng-container>
+          <!-- filmVersion Column -->
+          <ng-container matColumnDef="filmVersion">
+            <th mat-header-cell *matHeaderCellDef> Version </th>
+            <td mat-cell *matCellDef="let element"> {{element.filmVersion}} </td>
+          </ng-container>
 
-        <!-- TypeFilm Column -->
-        <ng-container matColumnDef="typeFilm">
-          <th mat-header-cell *matHeaderCellDef> Type film </th>
-          <td mat-cell *matCellDef="let element"> {{element.typeFilm}} </td>
-        </ng-container>
+          <!-- Display Column -->
+          <ng-container matColumnDef="display">
+            <th mat-header-cell *matHeaderCellDef> Affiche </th>
+            <td mat-cell *matCellDef="let element"> {{element.display}} </td>
+          </ng-container>
 
-        <!-- Comment Column -->
-        <ng-container matColumnDef="synopsis">
-          <th mat-header-cell *matHeaderCellDef> Descriptif </th>
-          <td mat-cell *matCellDef="let element"> {{element.synopsis}} </td>
-        </ng-container>
+          <!-- TypeFilm Column -->
+          <ng-container matColumnDef="typeFilm">
+            <th mat-header-cell *matHeaderCellDef> Type film </th>
+            <td mat-cell *matCellDef="let element"> {{element.typeFilm}} </td>
+          </ng-container>
 
-        <!-- Comment Column -->
-        <ng-container matColumnDef="userComment">
-          <th mat-header-cell *matHeaderCellDef> Commentaires </th>
-          <td mat-cell *matCellDef="let element"> {{element.userComment}} </td>
-        </ng-container>
+          <!-- Comment Column -->
+          <ng-container matColumnDef="synopsis">
+            <th mat-header-cell *matHeaderCellDef> Descriptif </th>
+            <td mat-cell *matCellDef="let element"> {{element.synopsis}} </td>
+          </ng-container>
 
-        <!-- Director Column -->
-        <ng-container matColumnDef="director">
-          <th mat-header-cell *matHeaderCellDef> Réalisateur </th>
-          <td mat-cell *matCellDef="let element"> {{element.director}} </td>
-        </ng-container>
+          <!-- Comment Column -->
+          <ng-container matColumnDef="userComment">
+            <th mat-header-cell *matHeaderCellDef> Commentaires </th>
+            <td mat-cell *matCellDef="let element"> {{element.userComment}} </td>
+          </ng-container>
 
-        <!-- Pegi Column -->
-        <ng-container matColumnDef="pegi">
-          <th mat-header-cell *matHeaderCellDef> Pegi </th>
-          <td mat-cell *matCellDef="let element"> {{element.pegi}} </td>
-        </ng-container>
+          <!-- Director Column -->
+          <ng-container matColumnDef="director">
+            <th mat-header-cell *matHeaderCellDef> Réalisateur </th>
+            <td mat-cell *matCellDef="let element"> {{element.director}} </td>
+          </ng-container>
 
-        <!-- Suppression Button column -->
-        <ng-container matColumnDef="deleteAction">
-          <th mat-header-cell *matHeaderCellDef> Suppression </th>
-          <td *matCellDef="let row">
-            <button (click)="deleteFilmById(row.id)">Delete</button>
-          </td>
-        </ng-container>
+          <!-- Pegi Column -->
+          <ng-container matColumnDef="pegi">
+            <th mat-header-cell *matHeaderCellDef> Pegi </th>
+            <td mat-cell *matCellDef="let element"> {{element.pegi}} </td>
+          </ng-container>
 
-        <!-- Suppression Button column -->
-        <ng-container matColumnDef="updateAction">
-          <th mat-header-cell *matHeaderCellDef> Modification </th>
-          <td *matCellDef="let element">
-            <button (click)="retrieveFilm(element)">Update</button>
-            <button mat-raised-button (click)="openDialog()">Modifier</button>
-          </td>
-        </ng-container>
+          <!-- Suppression Button column -->
+          <ng-container matColumnDef="deleteAction">
+            <th mat-header-cell *matHeaderCellDef> Suppression </th>
+            <td *matCellDef="let row">
+              <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">Supprimer</button>
+            </td>
+          </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumnsFilm"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumnsFilm;"></tr>
-      </table>
+          <!-- Update Button column -->
+          <ng-container matColumnDef="updateAction">
+            <th mat-header-cell *matHeaderCellDef> Modification </th>
+            <td *matCellDef="let element">
+              <button (click)="retrieveFilm(element)">Update</button>
+              <button mat-raised-button (click)="openDialogUpdateFilm()" class="app-button-update">Modifier</button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsFilm"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsFilm;"></tr>
+        </table>
+
+        <!-- paginator-->
+        <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
 
 
 
@@ -146,15 +159,15 @@
             <input disabled name="id" class="form-control" placeholder="{{element.id}}" [(ngModel)]="element.id">
           </div>
           <div class="col-2">
-            <input name="name" class="form-control" placeholder="{{element.name}}"  [(ngModel)]="element.name">
+            <input name="name" class="form-control" placeholder="{{element.name}}" [(ngModel)]="element.name">
           </div>
           <div class="col-2">
-            <input name="duration" class="form-control" placeholder="{{element.duration}}"  [(ngModel)]="element.duration"
-              ngModel>
+            <input name="duration" class="form-control" placeholder="{{element.duration}}"
+              [(ngModel)]="element.duration" ngModel>
           </div>
           <div class="col-2">
             <input name="filmVersion" class="form-control" placeholder="{{element.filmVersion}}"
-            [(ngModel)]="element.duration">
+              [(ngModel)]="element.duration">
           </div>
           <div class="col-2">
             <input name="display" class="form-control" placeholder="{{element.display}}" [(ngModel)]="element.display"
@@ -162,21 +175,22 @@
           </div>
 
           <div class="col-2">
-            <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}" [(ngModel)]="element.duration"
-              ngModel>
+            <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}"
+              [(ngModel)]="element.duration" ngModel>
           </div>
           <div class="col-2">
-            <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}" [(ngModel)]="element.synopsis"
-              ngModel>
+            <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}"
+              [(ngModel)]="element.synopsis" ngModel>
           </div>
 
           <div class="col-2">
             <input name="userComment" class="form-control" placeholder="{{element.userComment}}"
-            [(ngModel)]="element.userComment">
+              [(ngModel)]="element.userComment">
           </div>
 
           <div class="col-2">
-            <input name="director" class="form-control" placeholder="{{element.director}}" [(ngModel)]="element.director">
+            <input name="director" class="form-control" placeholder="{{element.director}}"
+              [(ngModel)]="element.director">
           </div>
 
           <div class="col-2">
@@ -189,16 +203,16 @@
             </button>
           </div>
         </div>
-        <div class="row">
-
-
-        </div>
       </form>
     </mat-tab>
+
+
+    <!-- CONTAINER SALLES -->
+
     <mat-tab label="Gestion des Salles">
       <!-- Affichage Room -->
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSourceRoom">
+        <table mat-table [dataSource]="dataSourceRoom" id="app-table-room">
 
           <!-- id Column -->
           <ng-container matColumnDef="id">
@@ -232,38 +246,76 @@
 
           <!-- Suppression Button column -->
           <ng-container matColumnDef="deleteAction">
-            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <th mat-header-cell *matHeaderCellDef>Suppresion</th>
             <td *matCellDef="let row">
-              <button (click)="deleteFilmById(row.id)">Delete</button>
+              <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">Supprimer</button>
             </td>
           </ng-container>
 
           <!-- Suppression Button column -->
           <ng-container matColumnDef="updateAction">
-            <th mat-header-cell *matHeaderCellDef> Update </th>
+            <th mat-header-cell *matHeaderCellDef>Modification</th>
             <td *matCellDef="let element">
-              <button>Update</button>
+              <button mat-raised-button (click)="openDialogUpdateFilm()" class="app-button-update">Modifier</button>
             </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumnsRoom"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsRoom;"></tr>
         </table>
-        <button type="submit" (click)="addListFilms()">addListFilms)</button>
-        <button type="submit" (click)="getAllFilms()">getAllFilm()</button>
-        <button type="submit" (click)="getAllUsers()">getAllUsers()</button>
-        <button type="submit" (click)="getAllReservations()">getAllReservations()</button>
-        <button type="submit" (click)="getAllRooms()">getAllRooms()</button>
-        <button type="submit" (click)="addReservation()">addReservation()</button>
-        <button type="submit" (click)="addRoom()">addRoom()</button>
+      </div>
+    </mat-tab>
+    <button type="submit" (click)="addListFilms()">addListFilms)</button>
+    <button type="submit" (click)="getAllFilms()">getAllFilm()</button>
+    <button type="submit" (click)="getAllUsers()">getAllUsers()</button>
+    <button type="submit" (click)="getAllReservations()">getAllReservations()</button>
+    <button type="submit" (click)="getAllRooms()">getAllRooms()</button>
+    <button type="submit" (click)="addReservation()">addReservation()</button>
+    <button type="submit" (click)="addRoom()">addRoom()</button>
+
+    <!-- CONTAINER CONTACTS -->
+
+    <mat-tab label="Gestion des demandes">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceContact" id="app-table-contact">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Prénom </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Adresse mail </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="message">
+            <th mat-header-cell *matHeaderCellDef> Commentaire </th>
+            <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsContact"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsContact;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </mat-tab>
 
-
+    <!-- CONTAINER STATISTIQUES-->
 
     <mat-tab label="Statistiques">
       <div class="app-stat">
-        <h3> Vertical Bar Chart</h3>
+        <h3> Graphique Vues/Mois</h3>
         <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyData" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
           [yAxisLabel]="'Nombre de vues'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
           [yAxis]="true" [gradient]="true">

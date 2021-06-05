@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReservationParentComponent } from './reservation-parent.component';
+import { InfoFilmResaComponent } from './info-film-resa.component';
 
-describe('ReservationParentComponent', () => {
-  let component: ReservationParentComponent;
-  let fixture: ComponentFixture<ReservationParentComponent>;
+describe('InfoFilmResaComponent', () => {
+  let component: InfoFilmResaComponent;
+  let fixture: ComponentFixture<InfoFilmResaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReservationParentComponent ]
+      declarations: [ InfoFilmResaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReservationParentComponent);
+    fixture = TestBed.createComponent(InfoFilmResaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

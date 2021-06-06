@@ -25,5 +25,9 @@ export class SessionWebService {
   deleteSessionById(id: number): Observable<any> {
     return this.http.delete(this.baseUrl + 'REST/deleteSessionById?id=' + id);
   }
+
+  updateSession(sessionToUpdate: Session): Observable<any> {
+    return this.http.put(this.baseUrl + 'REST/updateSession', sessionToUpdate);
+  }
 }
 

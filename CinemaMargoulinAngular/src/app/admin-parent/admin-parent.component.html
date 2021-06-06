@@ -635,7 +635,7 @@
 
             <h2 class="film-title">Veuillez modifier les informations de la session sélectionnée :</h2>
 
-            <form (ngSubmit)="updateRoom(formUpdateRoom)" #formUpdateRoom="ngForm">
+            <form (ngSubmit)="updateSession(formUpdateSession)" #formUpdateSession="ngForm">
               <div class="app-form-addFilm">
 
                 <div class="app-container-left-film">
@@ -824,8 +824,16 @@
     <mat-tab label="Statistiques">
       <div class="app-stat">
         <h3> Graphique Vues/Mois</h3>
-        <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyData" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
+        <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataVues" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
           [yAxisLabel]="'Nombre de vues'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
+          [yAxis]="true" [gradient]="true">
+        </ngx-charts-bar-vertical>
+      </div>
+  
+      <div class="app-stat">
+        <h3> Graphique Nbr de réservationsMois</h3>
+        <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataNbrDeReservations" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
+          [yAxisLabel]="'Nombre de réservations'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
           [yAxis]="true" [gradient]="true">
         </ngx-charts-bar-vertical>
       </div>

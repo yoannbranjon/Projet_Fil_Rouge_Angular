@@ -2,20 +2,20 @@ export class Room {
 
     id!: number;
     name: string;
-    sitNumber: number;
+    seatNumber: number;
     maxCapacity: number;
     audioSystem: string;
 
     constructor(
         nameParam: string,
-        sitNumberParam: number,
+        seatNumberParam: number,
         maxCapacityParam: number,
         audioSystemParam: string,
         idParam?: number,
 
     ) {
         this.name = nameParam;
-        this.sitNumber =  sitNumberParam;
+        this.seatNumber =  seatNumberParam;
         this.maxCapacity = maxCapacityParam;
         this.audioSystem = audioSystemParam;
         if (idParam) {
@@ -25,6 +25,6 @@ export class Room {
     }
 
     fullName() {
-        return this.name + ' ' + this.sitNumber + ' ' +  this. maxCapacity + ' ' + this.audioSystem;
+        return this.name + ' ' + this.seatNumber + ' ' +  this. maxCapacity + ' ' + this.audioSystem;
     }
 }

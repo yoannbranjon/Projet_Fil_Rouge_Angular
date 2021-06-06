@@ -40,6 +40,4 @@ export class InfoFilmComponent implements OnInit {
     );
     
   }
-
-
 }

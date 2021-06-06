@@ -284,7 +284,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 
         console.log('TestWebServiceComponent getAllReservation', data);
         this.reservationList = data;
-      },
+        this.dataSourceReservation = new MatTableDataSource<Reservation>(data)
+        },
       (error) => {
         console.error(error);
       }
@@ -342,7 +343,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     let session : Session = formAddSession.value;
     console.log('Contenu de la ngFormSession : ' + formAddSession.value);
     session.dateTime = this.date;
-    console.log('Contenu de la session à add : ' + session.film.name + session.room.name);
+    console.log('Contenu de la session à add : ' + session.film + session.room);
     formAddSession.reset();
     this.sessionWebService.addSession(session)
     .subscribe(data => {
@@ -464,7 +465,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 
     this.reservationWebService.addReservation(this.reservation).subscribe(
       (data) => {
-
+        this.getAllReservations();
+      this.refreshComponent();
         console.log('TestWebServiceComponent addReservation', data);
       }, (error) => {
         console.error(error);
@@ -511,6 +513,22 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     this.roomWebService.deleteRoomById(Number).subscribe(
       (data) => {
         this.getAllRooms();
+      this.refreshComponent();
+
+        console.log('TestWebServiceComponent deleteRoomById()', data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+   //DeleteReservation()
+   deleteReservationById(Number: number) {
+
+    this.reservationWebService.deleteReservationById(Number).subscribe(
+      (data) => {
+        this.getAllReservations();
       this.refreshComponent();
 
         console.log('TestWebServiceComponent deleteRoomById()', data);

@@ -20,4 +20,8 @@ export class ReservationWebService {
   addReservation(reservationToAdd: Reservation): Observable<any> {
     return this.http.post(this.baseUrl + 'REST/addNewReservation', reservationToAdd);
   }
+
+  deleteReservationById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteReservationById?id=' + id);
+  }
 }

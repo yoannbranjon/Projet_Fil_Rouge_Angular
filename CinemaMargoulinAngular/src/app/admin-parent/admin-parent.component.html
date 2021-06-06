@@ -666,51 +666,6 @@
             <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
 
           </mat-tab>
-          <!-- SOUS-CONTAINER SESSIONS/UPDATE SESSION-->
-          <mat-tab label="Modifier une session">
-
-            <!-- update Room-->
-
-            <h2 class="film-title">Veuillez modifier les informations de la session sélectionnée :</h2>
-
-            <form (ngSubmit)="updateSession(formUpdateSession)" #formUpdateSession="ngForm">
-              <div class="app-form-addFilm">
-
-                <div class="app-container-left-film">
-
-
-                    <!-- film -->
-                    <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
-                      <mat-label> {{elementS.film.name}}</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let element of filmList" [value]="element" name="film"  [(ngModel)]="elementS.film">
-                          {{element.name}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-
-                    <!-- room -->
-                    <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
-                      <mat-label>{{elementS.room.name}}</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let element of roomList" [value]="element" name="room"  [(ngModel)]="elementS.room">
-                          {{element.name}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-
-                </div>
-
-              </div>
-              <!-- submit -->
-              <div class="app-button-add-film">
-                <button mat-raised-button class="app-button" id="buttonUpdateFilm">
-                  <i class="fa fa-plus"></i>
-                </button>
-              </div>
-            </form>
-
-          </mat-tab>
         </mat-tab-group>
 
       </div>

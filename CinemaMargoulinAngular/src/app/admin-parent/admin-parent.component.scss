@@ -10,13 +10,31 @@
   margin: 1%;
 }
 
+.app-button {
+  background-color: black;
+  transition: all 500ms ease;
+
+  &:hover {
+    background-color: darkgoldenrod;
+  }
+}
+
 .mat-tab-group {
   z-index: 1;
 }
 
 #app-table-film {
-  width: 300%;
+  width: 100%;
   background-color: rgb(34, 31, 31);
+  table-layout: fixed;
+
+}
+
+td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2px;
 }
 
 #app-table-room {
@@ -32,8 +50,8 @@
 .mat-elevation-z8 {
   margin: 3%;
   overflow: auto;
-  overflow-y: auto;
   max-height: 600px;
+  background-color: rgb(34, 31, 31);
 }
 
 .app-stat {
@@ -47,4 +65,53 @@
 
 .app-button-update{
   background-color: blue;
+}
+
+.app-width-container-button {
+  width: 50%;
+}
+
+.app-form-addFilm {
+  margin: 3%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.app-button-add-film {
+  display: flex;
+  width: 100%;
+}
+
+.app-container-left-film {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container-right-film {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#buttonAddFilm{
+  margin: 3% auto;
+}
+
+.app-field-film {
+  max-width: 400px;
+}
+
+.mat-label {
+  color: black;
+}
+
+textarea {
+  max-height: 200px;
+}
+
+.film-title {
+  margin: 3%;
+  font-size: 2em;
+  color :darkgoldenrod;
 }

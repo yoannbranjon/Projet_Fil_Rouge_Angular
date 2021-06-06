@@ -42,7 +42,7 @@ h2 {
     display: flex;
     justify-content: space-around;
     height: 600px;
-    width: auto;
+    width: 100%;
     margin-bottom: 1%;
 }
 
@@ -56,7 +56,7 @@ button {
 }
 
 button:hover {
-    background-color:darkgoldenrod;
+    background-color:black;
 }
 
 i {

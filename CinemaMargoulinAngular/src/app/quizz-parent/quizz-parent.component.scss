@@ -1,17 +1,11 @@
-body{
-    background-color: black;
-    margin:0;
-    padding:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 *{
     box-sizing: border-box;
 }
 
 .quiz-wrapper{
-    
+    min-height : 60vh;
     width: 50%;
-    background-color: white;
+    background-color: whitesmoke;
     margin: 30px auto;
     border-radius: 8px;
     padding:25px
@@ -23,13 +17,14 @@ body{
     border-radius: 8px;
     color: white;
     padding: 15px;
-    
     width: 100%;
     font-size: 25px;
+    margin-bottom: 5%;
 }
 
 .quiz-wrapper .options{
     width: 100%;
+    margin-bottom: 5%;
 }
 
 .quiz-wrapper .options ul{

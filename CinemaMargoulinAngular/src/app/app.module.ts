@@ -22,9 +22,13 @@ import { QuizzParentComponent } from './quizz-parent/quizz-parent.component';
 import { AccountParentComponent } from './account-parent/account-parent.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { InfoFilmComponent } from './info-film/info-film.component';
+import { AdminParentComponent } from './admin-parent/admin-parent.component';
 import { InfoFilmResaComponent } from './info-film/info-film-resa/info-film-resa.component';
 import { InfoFilmCommentComponent } from './info-film/info-film-comment/info-film-comment.component';
-import { AdminParentComponent } from './admin-parent/admin-parent.component';
+import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
+import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-map.component';
+import { HomeChild2Component } from './home-parent/home-child2/home-child2.component';
+import { HomeChild3Component } from './home-parent/home-child3/home-child3.component';
 
 /******* ANGULAR MATERIAL ********/ 
 import {MatInputModule} from '@angular/material/input';
@@ -45,6 +49,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -53,11 +58,6 @@ import { AccountWebService} from './shared/webservices/account.webservice';
 import { UsersWebService} from './shared/webservices/users.webservice';
 import { RoomWebService} from './shared/webservices/room.webservice';
 import { ReservationWebService} from './shared/webservices/reservation.webservice';
-
-
-import { ButtonReserveComponent } from './shared/components/button-reserve/button-reserve.component';
-import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-map.component';
-
 
 
 @NgModule({
@@ -79,7 +79,9 @@ import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-ma
     FooterComponent,
     InfoFilmResaComponent,
     InfoFilmCommentComponent,
-    ContactsMapComponent
+    ContactsMapComponent,
+    HomeChild2Component,
+    HomeChild3Component
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,9 @@ import { ContactsMapComponent } from './contacts-parent/contacts-map/contacts-ma
     MatIconModule,
     MatExpansionModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,4 +20,8 @@ export class ContactWebService {
   addContact(contactToAdd: Contact): Observable<any> {
     return this.http.post(this.baseUrl + 'REST/addNewContact', contactToAdd);
   }
+
+  deleteContactById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteContactById?id=' + id);
+  }
 }

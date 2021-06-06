@@ -50,6 +50,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCommonModule} from '@angular/material/core';
 
 /******* SERVICES *******/
 import { FilmWebService } from './shared/webservices/film.webservice';
@@ -111,7 +112,8 @@ import { ReservationWebService} from './shared/webservices/reservation.webservic
     MatExpansionModule,
     MatGridListModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCommonModule   
     
   ],
   providers: [],

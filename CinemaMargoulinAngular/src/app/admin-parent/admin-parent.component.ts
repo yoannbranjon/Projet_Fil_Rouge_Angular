@@ -17,6 +17,7 @@ import { Contact } from '../shared/models/contact.model';
 import { NgForm } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface ageLimit {
   value: number;
@@ -103,7 +104,9 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
      private usersWebService: UsersWebService,
      private roomWebService: RoomWebService,
      private reservationWebService: ReservationWebService,
-     private ContactWebService : ContactWebService
+     private ContactWebService : ContactWebService,
+     private router: Router,
+     private activatedRoute: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -132,6 +135,10 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSourceFilm.paginator = this.paginator;
   }
+
+  refreshComponent(){
+    this.router.navigate([this.router.url])
+ }
 
   //récupération de l'objet film d'une ligne d'une liste affichée sous forme de tableau
   openDialogUpdateFilm() {
@@ -231,14 +238,14 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     formAddFilm.reset();
     this.filmWebService.addFilm(film)
     .subscribe(data => {
+      this.getAllFilms();
+      this.refreshComponent();
     },
     error => {
       console.log(error);
       alert('Erreur lors de lajout du film');
     });
-    this.getAllFilms();
       }
-
   //update()
   updateFilm(formUpdateFilm: NgForm) {
 
@@ -247,12 +254,13 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     console.log('Contenu du film à update : ' + film.display);
     this.filmWebService.updateFilm(film)
       .subscribe(data => {
+        this.getAllFilms();
+        this.refreshComponent();
       },
         error => {
           console.log(error);
           alert('Erreur lors de lajout du film');
         });
-        this.getAllFilms();
   }
 
   //update()
@@ -316,6 +324,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 
     this.filmWebService.deleteFilmById(Number).subscribe(
       (data) => {
+        this.getAllFilms();
+        this.refreshComponent();
 
         console.log('TestWebServiceComponent deleteFilmById()', data);
       },
@@ -356,6 +366,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   }
 }
 
+
+
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: './dialog-update-film.html',
@@ -363,7 +375,9 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 export class DialogUpdateFilmComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<DialogUpdateFilmComponent>) {}
+    public dialogRef: MatDialogRef<DialogUpdateFilmComponent>,
+    public dialog: MatDialog,
+    private filmWebService: FilmWebService) {}
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -99,6 +99,7 @@
 
           </mat-tab>
 
+
           <!-- SOUS-CONTAINER FILMS/AJOUT FILM-->
           <mat-tab label="Voir films">
             <table mat-table [dataSource]="dataSourceFilm" id="app-table-film">
@@ -107,9 +108,8 @@
               <ng-container matColumnDef="updateAction">
                 <th mat-header-cell *matHeaderCellDef> Modification </th>
                 <td *matCellDef="let element">
-                  <button (click)="retrieveFilm(element)"></button>
 
-                    <button mat-raised-button (click)="openDialogUpdateFilm()" class="app-button-update">
+                    <button mat-raised-button (click)="retrieveFilm(element)" class="app-button-update">
                       <i class="fa fa-edit"></i>
                     </button>
                 </td>
@@ -189,62 +189,100 @@
 
 
           </mat-tab>
-        </mat-tab-group>
 
-      </div>
-<<<<<<< HEAD
-
-
-
-       <!-- add Film-->
-      <form (ngSubmit)="addFilm(formAddFilm)" #formAddFilm="ngForm">
-        <div class="row">
-          <div class="col-2">
-            <input name="name" class="form-control" placeholder="name" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="duration" class="form-control" placeholder="duration" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="filmVersion" class="form-control" placeholder="filmVersion" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="display" class="form-control" placeholder="display" ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="typeFilm" class="form-control" placeholder="typeFilm" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="synopsis" class="form-control" placeholder="synopsis" ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="userComment" class="form-control" placeholder="userComment" ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="director" class="form-control" placeholder="director" ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="pegi" class="form-control" placeholder="pegi" ngModel>
-          </div>
-
-          <div class="col-2">
-            <button type="submit" class="btn btn-success">
-              <i class="fa fa-plus"></i>
-            </button>
-          </div>
-        </div>
-        <div class="row">
-
-        </div>
-      </form>
-
+          <!-- SOUS-CONTAINER FILMS/UPDATE FILM-->
+          <mat-tab label="Modifier films">
+            
        <!-- update Film-->
-=======
->>>>>>> feature/design
+
+       <h2 class="film-title">Veuillez modifier les informations du film sélectionné :</h2>
+
+       <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+         <div class="app-form-addFilm">
+
+           <div class="app-container-left-film">
+
+
+            <!-- id -->
+            <mat-form-field class="app-field-film" [color]="'accent'">
+              <mat-label>Id</mat-label>
+              <input disabled matInput name="id" placeholder="{{element.id}}" [(ngModel)]="element.id">
+            </mat-form-field>
+             <!-- titre -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Titre</mat-label>
+               <input matInput  name="name" placeholder="{{element.name}}" [(ngModel)]="element.name">
+             </mat-form-field>
+
+             <!-- Réalisateur -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Réalisateur</mat-label>
+               <input matInput  name="director" placeholder="{{element.director}}"
+               [(ngModel)]="element.director">
+             </mat-form-field>
+
+             <!-- affiche -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Affiche du film</mat-label>
+               <input matInput  name="display" placeholder="{{element.display}}" [(ngModel)]="element.display">
+             </mat-form-field>
+
+             <!-- durée -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Durée (en minutes)</mat-label>
+               <input type="number" matInput name="duration" placeholder="{{element.duration}}"
+               [(ngModel)]="element.duration" ngModel>
+             </mat-form-field>
+
+           </div>
+           <div class="app-container-right-film">
+             <!-- typefilm -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Type du film</mat-label>
+               <input matInput name="typeFilm"  placeholder="{{element.typeFilm}}"
+               [(ngModel)]="element.duration" ngModel>
+             </mat-form-field>
+
+             <!-- commentaires -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Commentaires</mat-label>
+               <input matInput name="userComment" placeholder="{{element.userComment}}"
+               [(ngModel)]="element.userComment">
+             </mat-form-field>
+
+             <!-- Version -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Version</mat-label>
+               <input matInput name="filmVersion" placeholder="{{element.filmVersion}}"
+               [(ngModel)]="element.duration">
+             </mat-form-field>
+
+             <!-- pegi -->
+             <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+               <mat-label>Limite d'age</mat-label>
+               <mat-select>
+                <input matInput name="filmVersion" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
+               </mat-select>
+             </mat-form-field>
+
+             <!-- synopsis -->
+             <mat-form-field class="app-field-film" [color]="'accent'">
+               <mat-label>Descriptif</mat-label>
+               <textarea matInput name="synopsis" placeholder="{{element.synopsis}}"
+               [(ngModel)]="element.synopsis" ngModel></textarea>
+             </mat-form-field>
+
+           </div>
+
+         </div>
+         <!-- submit -->
+         <div class="app-button-add-film">
+           <button mat-raised-button class="app-button" id="buttonUpdateFilm">
+             <i class="fa fa-plus"></i>
+           </button>
+         </div>
+       </form>
+
       <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
         <div class="row">
 
@@ -297,6 +335,11 @@
           </div>
         </div>
       </form>
+          
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
     </mat-tab>
 
 
@@ -342,13 +385,10 @@
           <ng-container matColumnDef="deleteAction">
             <th mat-header-cell *matHeaderCellDef>Suppresion</th>
             <td *matCellDef="let row">
-<<<<<<< HEAD
               <button mat-raised-button (click)="deleteRoomById(row.id)" class="app-button-delete">Supprimer</button>
-=======
               <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">
                 <i class="fa fa-trash"></i>
               </button>
->>>>>>> feature/design
             </td>
           </ng-container>
 
@@ -394,67 +434,6 @@
     
             </div>
           </form>
-    
-           <!-- update Room-->
-          <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
-            <div class="row">
-    
-              <div class="col-2">
-                <input disabled name="id" class="form-control" placeholder="{{element.id}}" [(ngModel)]="element.id">
-              </div>
-              <div class="col-2">
-                <input name="name" class="form-control" placeholder="{{element.name}}" [(ngModel)]="element.name">
-              </div>
-              <div class="col-2">
-                <input name="duration" class="form-control" placeholder="{{element.duration}}"
-                  [(ngModel)]="element.duration" ngModel>
-              </div>
-              <div class="col-2">
-                <input name="filmVersion" class="form-control" placeholder="{{element.filmVersion}}"
-                  [(ngModel)]="element.duration">
-              </div>
-              <div class="col-2">
-                <input name="display" class="form-control" placeholder="{{element.display}}" [(ngModel)]="element.display"
-                  ngModel>
-              </div>
-    
-              <div class="col-2">
-                <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}"
-                  [(ngModel)]="element.duration" ngModel>
-              </div>
-              <div class="col-2">
-                <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}"
-                  [(ngModel)]="element.synopsis" ngModel>
-              </div>
-    
-              <div class="col-2">
-                <input name="userComment" class="form-control" placeholder="{{element.userComment}}"
-                  [(ngModel)]="element.userComment">
-              </div>
-    
-              <div class="col-2">
-                <input name="director" class="form-control" placeholder="{{element.director}}"
-                  [(ngModel)]="element.director">
-              </div>
-    
-              <div class="col-2">
-                <input name="pegi" class="form-control" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
-              </div>
-    
-              <div class="col-2">
-                <button type="submit" class="btn btn-success">
-                  <i class="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <button type="submit" (click)="addListFilms()">addListFilms)</button>
-          <button type="submit" (click)="getAllFilms()">getAllFilm()</button>
-          <button type="submit" (click)="getAllUsers()">getAllUsers()</button>
-          <button type="submit" (click)="getAllReservations()">getAllReservations()</button>
-          <button type="submit" (click)="getAllRooms()">getAllRooms()</button>
-          <button type="submit" (click)="addReservation()">addReservation()</button>
     </mat-tab>
 
     

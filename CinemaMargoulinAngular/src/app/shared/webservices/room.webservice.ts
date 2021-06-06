@@ -24,4 +24,9 @@ export class RoomWebService {
   deleteRoomById(id: number): Observable<any> {
     return this.http.delete(this.baseUrl + 'REST/deleteRoomById?id=' + id);
   }
+
+  updateRoom(roomToUpdate: Room): Observable<any> {
+    return this.http.put(this.baseUrl + 'REST/updateRoom', roomToUpdate);
+  }
+
 }

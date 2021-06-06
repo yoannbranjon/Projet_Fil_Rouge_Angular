@@ -14,10 +14,11 @@ import { Room } from '../shared/models/room.model';
 import { Session } from '../shared/models/session.model';
 import { Reservation } from '../shared/models/reservation.model';
 import { Contact } from '../shared/models/contact.model';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionWebService } from '../shared/webservices/session.webservice';
 
 interface ageLimit {
   value: number;
@@ -32,12 +33,13 @@ interface ageLimit {
 export class AdminParentComponent implements OnInit, AfterViewInit {
 
   //initialisation liste de filmms
-  filmList: any[] = [];
-  roomList: any[] = [];
-  reservationList: any[] = [];
-  contactList: any[]=[];
-  usersList: any[] = [];
-  sessionList: any[] = [];
+  filmList: Film[] = [];
+  filmsNameList: any[] = ["coucou"];
+  roomList: Room[] = [];
+  reservationList: Reservation[] = [];
+  contactList: Contact[]=[];
+  usersList: Users[] = [];
+  sessionList: Session[] = [];
   date = new Date();
   ageLimit : ageLimit[] = [
     {value: -10, viewValue: -10},
@@ -45,13 +47,36 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     {value: -16, viewValue: -16}
   ];
 
-  //récupération de l'objet film d'une ligne
+  //récupération de l'objet d'une ligne
   element = new Film("", 0, "", "", "", "", "", "", 0);
+  elementA = new Account("", "", 0);
+  elementR = new Room("", 0, 0, "", 0);
+  elementC = new Contact("", "", "", "", this.date);
+  elementU = new Users("", "", this.elementA, this.date, "", 0, "");
+  elementS = new Session(this.element, this.elementR, this.date, 0);
+  elementResa = new Reservation("", 0, this.elementS, this.elementU, 0);
+
+  filmForSession = new Film("", 0, "", "", "", "", "", "", 0);
+  roomForSession = new Room("", 0, 0, "", 0);
+  sessionToAdd = new Session(this.filmForSession, this.roomForSession, this.date, 0);
 
   //Autre
   Number1: number = 0;
+  name: String = "";
+  price: number = 0;
   formAddFilm!: NgForm;
   formUpdateFilm!: NgForm;
+  formAddRoom!: NgForm;
+  formUpdateRoom!: NgForm;
+  formAddSession!: NgForm;
+  sessionAddFormGroup = new FormGroup({
+
+    Film: new FormControl(''),
+    Room: new FormControl('')
+
+
+  });
+
 
   //Tableau Stats
   surveyData = [
@@ -59,7 +84,14 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     { name: 'Fevrier', value: 10 },
     { name: 'mars', value: 15 },
     { name: 'avril', value: 2 },
-    { name: 'mai', value: 20 }
+    { name: 'mai', value: 20 },
+    { name: 'Juin', value: 10 },
+    { name: 'Juillet', value: 15 },
+    { name: 'Aout', value: 2 },
+    { name: 'Septembre', value: 20 },
+    { name: 'Octobre', value: 10 },
+    { name: 'Novembre', value: 15 },
+    { name: 'Decembre', value: 2 },
   ];
 
   colorScheme = {
@@ -70,14 +102,17 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   displayedColumnsFilm: string[] = ['updateAction','deleteAction', 'name', 'duration', 'filmVersion', 'display', 'typeFilm', 'synopsis', 'userComment', 'director', 'pegi'];
   dataSourceFilm = new MatTableDataSource<Film>(this.filmList);
 
-  displayedColumnsRoom: string[] = ['name', 'sitNumber', 'maxCapacity', 'audioSystem', 'deleteAction', 'updateAction'];
+  displayedColumnsRoom: string[] = ['updateAction','deleteAction', 'name', 'sitNumber', 'maxCapacity', 'audioSystem'];
   dataSourceRoom = new MatTableDataSource<Room>(this.roomList);
 
-  displayedColumnsReservation: string[] = ['name', 'price', 'idSession', 'idSession', 'idUser', 'idAccount', 'deleteAction', 'updateAction'];
+  displayedColumnsReservation: string[] = ['updateAction','deleteAction', 'name', 'price', 'session', 'users', 'seatNumber'];
   dataSourceReservation = new MatTableDataSource<Reservation>(this.reservationList);
 
-  displayedColumnsContact: string[] = ['firstName', 'lastName', 'email', 'message', 'dateTime','deleteAction'];
+  displayedColumnsContact: string[] = ['deleteAction', 'firstName', 'lastName', 'email', 'message'];
   dataSourceContact = new MatTableDataSource<Contact>(this.contactList);
+
+  displayedColumnsSession: string[] = ['updateAction','deleteAction', 'film', 'room'];
+  dataSourceSession = new MatTableDataSource<Session>(this.sessionList);
 
   //Liste de films pour échantillon
 
@@ -97,6 +132,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   userResa = new Users("Bébert", "Fichtre", this.accountResa, this.date, "31 Rue du j'me foutre", 5524, "Paris");
   sessionResa = new Session(this.film1, this.roomResa, this.date);
   reservation = new Reservation("reservation", 15, this.sessionResa, this.userResa, 89);
+  resa = new Reservation("", 0, this.sessionResa, this.userResa, 89);
   
   constructor(
      public dialog: MatDialog,
@@ -104,7 +140,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
      private usersWebService: UsersWebService,
      private roomWebService: RoomWebService,
      private reservationWebService: ReservationWebService,
-     private ContactWebService : ContactWebService,
+     private contactWebService : ContactWebService,
+     private sessionWebService : SessionWebService,
      private router: Router,
      private activatedRoute: ActivatedRoute
     ) { }
@@ -113,7 +150,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
 
     //Films
     this.getAllFilms();
-    this.deleteFilmById(this.Number1);
+    this.getAllFilmsName();
     this.retrieveFilm(this.element);
 
     //Users
@@ -121,12 +158,18 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     
     //Rooms
     this.getAllRooms(); 
+    this.retrieveRoom(this.elementR);
+
+    //Contact
+    this.getAllContacts();
     
     //Reservation
-    this.getAllReservations(); 
-    this.addReservation(); 
+    this.getAllReservations();  
+    this.retrieveReservation(this.elementResa);
 
-    //Contact 
+    //Session
+    this.getAllSessions();
+    this.retrieveSession(this.elementS);
   }
 
   //Paginator appliqué sur la table film
@@ -141,21 +184,37 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
  }
 
   //récupération de l'objet film d'une ligne d'une liste affichée sous forme de tableau
-  openDialogUpdateFilm() {
-    const dialogRef = this.dialog.open(DialogUpdateFilmComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  //récupération de l'objet film d'une ligne d'une liste affichée sous forme de tableau
   retrieveFilm(element: Film) {
 
     this.element = element;
     console.log(this.element, element);
     
   }
+
+  
+  //récupération de l'objet room d'une ligne d'une liste affichée sous forme de tableau
+  retrieveRoom(element: Room) {
+
+    this.elementR = element;
+    console.log(this.element, element);
+    
+  }
+
+    //récupération de l'objet session d'une ligne d'une liste affichée sous forme de tableau
+    retrieveSession(element: Session) {
+
+      this.elementS = element;
+      console.log(this.elementS, element);
+      
+    }
+  
+    //récupération de l'objet réservation d'une ligne d'une liste affichée sous forme de tableau
+    retrieveReservation(element: Reservation) {
+
+      this.elementResa = element;
+      console.log(this.elementResa, element);
+      
+    }
 
   //getAll()
   getAllFilms() {
@@ -166,6 +225,22 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
         console.log('TestWebServiceComponent getAllFilms', data);
         this.filmList = data;
         this.dataSourceFilm = new MatTableDataSource<Film>(data);
+        
+      },
+        (error) => {
+          console.error(error);
+        }
+    );
+      }
+
+      //getAll()
+  getAllFilmsName() {
+
+    this.filmWebService.getAllFilmsName().subscribe(
+      (data) => {
+
+        console.log('TestWebServiceComponent getAllFilms', data);
+        this.filmsNameList = data;
         
       },
         (error) => {
@@ -217,7 +292,7 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   }
 
   getAllContacts(){
-    this.ContactWebService.getAllContacts().subscribe(
+    this.contactWebService.getAllContacts().subscribe(
       (data) => {
 
         console.log('TestWebServiceComponent getAllContacts', data);
@@ -229,6 +304,20 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
       }
     );
   }
+
+  getAllSessions() {
+
+    this.sessionWebService.getAllSessions().subscribe(
+      (data) => {
+
+        console.log('TestWebServiceComponent getAllSessions', data);
+        this.sessionList = data;
+        this.dataSourceSession = new MatTableDataSource<Session>(data);},
+        (error) => {
+          console.error(error);
+        }
+    );
+      }
 
   //add()
   addFilm(formAddFilm : NgForm) {
@@ -246,6 +335,49 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
       alert('Erreur lors de lajout du film');
     });
       }
+
+      //add()
+  addSession(formAddSession : NgForm) {
+    
+    let session : Session = formAddSession.value;
+    console.log('Contenu de la ngFormSession : ' + formAddSession.value);
+    session.dateTime = this.date;
+    console.log('Contenu de la session à add : ' + session.film.name + session.room.name);
+    formAddSession.reset();
+    this.sessionWebService.addSession(session)
+    .subscribe(data => {
+      this.getAllSessions();
+      this.refreshComponent();
+    },
+    error => {
+      console.log(error);
+      alert('Erreur lors de lajout du film');
+    });
+      }
+
+      //add()
+      addSessionFormGroup() {
+
+        
+        this.element = <Film> this.sessionAddFormGroup.value;
+        this.elementR = <Room> this.sessionAddFormGroup.value;
+    
+        let sessionFormGroup = new Session(this.element, this.elementR, this.date);
+        sessionFormGroup.dateTime = this.date;
+        console.log('Contenu de la session à add : ' + this.element.name + this.elementR.name);
+        this.sessionWebService.addSession(sessionFormGroup)
+        .subscribe(data => {
+          this.getAllSessions();
+          this.refreshComponent();
+        },
+        error => {
+          console.log(error);
+          alert('Erreur lors de lajout du film');
+        });
+          }
+
+
+
   //update()
   updateFilm(formUpdateFilm: NgForm) {
 
@@ -264,6 +396,23 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
   }
 
   //update()
+  updateRoom(formUpdateRoom: NgForm) {
+
+    let room: Room = formUpdateRoom.value;
+    // formUpdateFilm.reset();
+    console.log('Contenu de la salle à update : ' + room.name);
+    this.roomWebService.updateRoom(room)
+      .subscribe(data => {
+        this.getAllRooms();
+        this.refreshComponent();
+      },
+        error => {
+          console.log(error);
+          alert('Erreur lors de lajout du film');
+        });
+  }
+
+  //update()
   updateFilmById(formUpdateFilm: NgForm, id: number) {
 
     const idToSend = id;
@@ -272,6 +421,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     console.log('Contenu du film à update : ' + film.name + idToSend);
     this.filmWebService.updateFilmById(film, idToSend)
       .subscribe(data => {
+        this.getAllFilms();
+      this.refreshComponent();
       },
         error => {
           console.log(error);
@@ -299,6 +450,8 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     formAddRoom.reset();
     this.roomWebService.addRoom(room).subscribe(
       (data) => {
+        this.getAllRooms();
+      this.refreshComponent();
 
         console.log('TestWebServiceComponent addRoom', data);
       }, (error) => {
@@ -336,26 +489,13 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
     this.getAllFilms();
   }
 
-  //DeleteRoom()
-  deleteRoomById(Number: number) {
-
-    this.roomWebService.deleteRoomById(Number).subscribe(
-      (data) => {
-
-        console.log('TestWebServiceComponent deleteRoomById()', data);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-    this.getAllFilms();
-  }
-
   //Delete()
-  deleteContactById(Number: number) {
+  deleteSessionById(Number: number) {
 
-    this.ContactWebService.deleteContactById(Number).subscribe(
+    this.sessionWebService.deleteSessionById(Number).subscribe(
       (data) => {
+        this.getAllSessions();
+        this.refreshComponent();
 
         console.log('TestWebServiceComponent deleteFilmById()', data);
       },
@@ -364,23 +504,37 @@ export class AdminParentComponent implements OnInit, AfterViewInit {
       }
     );
   }
-}
 
+  //DeleteRoom()
+  deleteRoomById(Number: number) {
 
+    this.roomWebService.deleteRoomById(Number).subscribe(
+      (data) => {
+        this.getAllRooms();
+      this.refreshComponent();
 
-@Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: './dialog-update-film.html',
-})
-export class DialogUpdateFilmComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogUpdateFilmComponent>,
-    public dialog: MatDialog,
-    private filmWebService: FilmWebService) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
+        console.log('TestWebServiceComponent deleteRoomById()', data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
+  //Delete()
+  deleteContactById(Number: number) {
+
+    this.contactWebService.deleteContactById(Number).subscribe(
+      (data) => {
+
+        this.getAllContacts();
+        this.refreshComponent();
+
+        console.log('TestWebServiceComponent deleteFilmById()', data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

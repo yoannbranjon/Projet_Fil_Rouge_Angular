@@ -109,9 +109,9 @@
                 <th mat-header-cell *matHeaderCellDef> Modification </th>
                 <td *matCellDef="let element">
 
-                    <button mat-raised-button (click)="retrieveFilm(element)" class="app-button-update">
-                      <i class="fa fa-edit"></i>
-                    </button>
+                  <button mat-raised-button (click)="retrieveFilm(element)" class="app-button-update">
+                    <i class="fa fa-edit"></i>
+                  </button>
                 </td>
               </ng-container>
 
@@ -192,150 +192,96 @@
 
           <!-- SOUS-CONTAINER FILMS/UPDATE FILM-->
           <mat-tab label="Modifier films">
-            
-       <!-- update Film-->
 
-       <h2 class="film-title">Veuillez modifier les informations du film sélectionné :</h2>
+            <!-- update Film-->
 
-       <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
-         <div class="app-form-addFilm">
+            <h2 class="film-title">Veuillez modifier les informations du film sélectionné :</h2>
 
-           <div class="app-container-left-film">
+            <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+              <div class="app-form-addFilm">
+
+                <div class="app-container-left-film">
 
 
-            <!-- id -->
-            <mat-form-field class="app-field-film" [color]="'accent'">
-              <mat-label>Id</mat-label>
-              <input disabled matInput name="id" placeholder="{{element.id}}" [(ngModel)]="element.id">
-            </mat-form-field>
-             <!-- titre -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Titre</mat-label>
-               <input matInput  name="name" placeholder="{{element.name}}" [(ngModel)]="element.name">
-             </mat-form-field>
+                  <!-- id -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Id</mat-label>
+                    <input disabled matInput name="id" placeholder="{{element.id}}" [(ngModel)]="element.id">
+                  </mat-form-field>
+                  <!-- titre -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Titre</mat-label>
+                    <input matInput name="name" placeholder="{{element.name}}" [(ngModel)]="element.name">
+                  </mat-form-field>
 
-             <!-- Réalisateur -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Réalisateur</mat-label>
-               <input matInput  name="director" placeholder="{{element.director}}"
-               [(ngModel)]="element.director">
-             </mat-form-field>
+                  <!-- Réalisateur -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Réalisateur</mat-label>
+                    <input matInput name="director" placeholder="{{element.director}}" [(ngModel)]="element.director">
+                  </mat-form-field>
 
-             <!-- affiche -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Affiche du film</mat-label>
-               <input matInput  name="display" placeholder="{{element.display}}" [(ngModel)]="element.display">
-             </mat-form-field>
+                  <!-- affiche -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Affiche du film</mat-label>
+                    <input matInput name="display" placeholder="{{element.display}}" [(ngModel)]="element.display">
+                  </mat-form-field>
 
-             <!-- durée -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Durée (en minutes)</mat-label>
-               <input type="number" matInput name="duration" placeholder="{{element.duration}}"
-               [(ngModel)]="element.duration" ngModel>
-             </mat-form-field>
+                  <!-- durée -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Durée (en minutes)</mat-label>
+                    <input type="number" matInput name="duration" placeholder="{{element.duration}}"
+                      [(ngModel)]="element.duration" ngModel>
+                  </mat-form-field>
 
-           </div>
-           <div class="app-container-right-film">
-             <!-- typefilm -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Type du film</mat-label>
-               <input matInput name="typeFilm"  placeholder="{{element.typeFilm}}"
-               [(ngModel)]="element.duration" ngModel>
-             </mat-form-field>
+                </div>
+                <div class="app-container-right-film">
+                  <!-- typefilm -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Type du film</mat-label>
+                    <input matInput name="typeFilm" placeholder="{{element.typeFilm}}" [(ngModel)]="element.duration"
+                      ngModel>
+                  </mat-form-field>
 
-             <!-- commentaires -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Commentaires</mat-label>
-               <input matInput name="userComment" placeholder="{{element.userComment}}"
-               [(ngModel)]="element.userComment">
-             </mat-form-field>
+                  <!-- commentaires -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Commentaires</mat-label>
+                    <input matInput name="userComment" placeholder="{{element.userComment}}"
+                      [(ngModel)]="element.userComment">
+                  </mat-form-field>
 
-             <!-- Version -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Version</mat-label>
-               <input matInput name="filmVersion" placeholder="{{element.filmVersion}}"
-               [(ngModel)]="element.duration">
-             </mat-form-field>
+                  <!-- Version -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Version</mat-label>
+                    <input matInput name="filmVersion" placeholder="{{element.filmVersion}}"
+                      [(ngModel)]="element.duration">
+                  </mat-form-field>
 
-             <!-- pegi -->
-             <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
-               <mat-label>Limite d'age</mat-label>
-               <mat-select>
-                <input matInput name="filmVersion" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
-               </mat-select>
-             </mat-form-field>
+                  <!-- pegi -->
+                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                    <mat-label>Limite d'age</mat-label>
+                    <mat-select>
+                      <input matInput name="filmVersion" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
+                    </mat-select>
+                  </mat-form-field>
 
-             <!-- synopsis -->
-             <mat-form-field class="app-field-film" [color]="'accent'">
-               <mat-label>Descriptif</mat-label>
-               <textarea matInput name="synopsis" placeholder="{{element.synopsis}}"
-               [(ngModel)]="element.synopsis" ngModel></textarea>
-             </mat-form-field>
+                  <!-- synopsis -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Descriptif</mat-label>
+                    <textarea matInput name="synopsis" placeholder="{{element.synopsis}}" [(ngModel)]="element.synopsis"
+                      ngModel></textarea>
+                  </mat-form-field>
 
-           </div>
+                </div>
 
-         </div>
-         <!-- submit -->
-         <div class="app-button-add-film">
-           <button mat-raised-button class="app-button" id="buttonUpdateFilm">
-             <i class="fa fa-plus"></i>
-           </button>
-         </div>
-       </form>
+              </div>
+              <!-- submit -->
+              <div class="app-button-add-film">
+                <button mat-raised-button class="app-button" id="buttonUpdateFilm">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </form>
 
-      <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
-        <div class="row">
-
-          <div class="col-2">
-            <input disabled name="id" class="form-control" placeholder="{{element.id}}" [(ngModel)]="element.id">
-          </div>
-          <div class="col-2">
-            <input name="name" class="form-control" placeholder="{{element.name}}" [(ngModel)]="element.name">
-          </div>
-          <div class="col-2">
-            <input name="duration" class="form-control" placeholder="{{element.duration}}"
-              [(ngModel)]="element.duration" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="filmVersion" class="form-control" placeholder="{{element.filmVersion}}"
-              [(ngModel)]="element.duration">
-          </div>
-          <div class="col-2">
-            <input name="display" class="form-control" placeholder="{{element.display}}" [(ngModel)]="element.display"
-              ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}"
-              [(ngModel)]="element.duration" ngModel>
-          </div>
-          <div class="col-2">
-            <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}"
-              [(ngModel)]="element.synopsis" ngModel>
-          </div>
-
-          <div class="col-2">
-            <input name="userComment" class="form-control" placeholder="{{element.userComment}}"
-              [(ngModel)]="element.userComment">
-          </div>
-
-          <div class="col-2">
-            <input name="director" class="form-control" placeholder="{{element.director}}"
-              [(ngModel)]="element.director">
-          </div>
-
-          <div class="col-2">
-            <input name="pegi" class="form-control" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
-          </div>
-
-          <div class="col-2">
-            <button type="submit" class="btn btn-success">
-              <i class="fa fa-plus"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-          
           </mat-tab>
         </mat-tab-group>
 
@@ -349,161 +295,586 @@
 
       <div class="mat-elevation-z8">
 
-        <table mat-table [dataSource]="dataSourceRoom" id="app-table-room">
+        <!-- SOUS-CONTAINER SALLES/TABLE ROOM-->
+        <mat-tab-group mat-align-tabs="start" [backgroundColor]="'primary'" [color]="'warn'">
+          <mat-tab label="Ajouter une salle">
 
-          <!-- id Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> Id. </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
+            <h2 class="film-title">Veuillez entrez les informations de la salle à ajouter :</h2>
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          </ng-container>
+            <form (ngSubmit)="addRoom(formAddRoom)" #formAddRoom="ngForm">
+              <div class="app-form-addFilm">
 
-          <!-- sitNumber Column -->
-          <ng-container matColumnDef="sitNumber">
-            <th mat-header-cell *matHeaderCellDef> sitNumber </th>
-            <td mat-cell *matCellDef="let element"> {{element.sitNumber}} </td>
-          </ng-container>
+                <div class="app-container-left-film">
+                  <!-- nom de la salle -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Nom de la salle</mat-label>
+                    <input matInput placeholder="ex : Saint Paulin" name="name" ngModel>
+                  </mat-form-field>
 
-          <!-- maxCapacity Column -->
-          <ng-container matColumnDef="maxCapacity">
-            <th mat-header-cell *matHeaderCellDef> maxCapacity </th>
-            <td mat-cell *matCellDef="let element"> {{element.maxCapacity}} </td>
-          </ng-container>
+                  <!-- Numéro de siège -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Nombre de sièges disponibles</mat-label>
+                    <input type="number" matInput placeholder="ex : 25" name="sitNumber" ngModel>
+                  </mat-form-field>
 
-          <!-- audioSystem Column -->
-          <ng-container matColumnDef="audioSystem">
-            <th mat-header-cell *matHeaderCellDef> audioSystem </th>
-            <td mat-cell *matCellDef="let element"> {{element.audioSystem}} </td>
-          </ng-container>
+                  <!-- maxCapacity -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Capacité maximale de la salle</mat-label>
+                    <input matInput placeholder="ex : 50" name="maxCapacity" ngModel>
+                  </mat-form-field>
 
-          <!-- Suppression Button column -->
-          <ng-container matColumnDef="deleteAction">
-            <th mat-header-cell *matHeaderCellDef>Suppresion</th>
-            <td *matCellDef="let row">
-              <button mat-raised-button (click)="deleteRoomById(row.id)" class="app-button-delete">Supprimer</button>
-              <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </ng-container>
+                  <!-- durée -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Système audio</mat-label>
+                    <input matInput placeholder="ex : VO" name="audioSystem" ngModel>
+                  </mat-form-field>
+                </div>
 
-          <!-- Update Button column -->
-          <ng-container matColumnDef="updateAction">
-            <th mat-header-cell *matHeaderCellDef>Modification</th>
-            <td *matCellDef="let element">
-              <button mat-raised-button (click)="openDialogUpdateFilm()" class="app-button-update">
-                <i class="fa fa-edit"></i>
-              </button>
-            </td>
-          </ng-container>
-
-          
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsRoom"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumnsRoom;"></tr>
-        </table>
-      </div>
-
-           <!-- add Room-->
-           <form (ngSubmit)="addRoom(formAddRoom)" #formAddRoom="ngForm">
-            <div class="row">
-              <div class="col-2">
-                <input name="name" class="form-control" placeholder="name" ngModel>
               </div>
-              <div class="col-2">
-                <input name="sitNumber" class="form-control" placeholder="sitNumber" ngModel>
-              </div>
-              <div class="col-2">
-                <input name="maxCapacity" class="form-control" placeholder="maxCapacity" ngModel>
-              </div>
-              <div class="col-2">
-                <input name="audioSystem" class="form-control" placeholder="audioSystem" ngModel>
-              </div>
-              <div class="col-2">
-                <button type="submit" class="btn btn-success">
+              <!-- submit -->
+              <div class="app-button-add-film">
+                <button mat-raised-button class="app-button" id="buttonAddRoom">
                   <i class="fa fa-plus"></i>
                 </button>
               </div>
-            </div>
-            <div class="row">
-    
-            </div>
-          </form>
+            </form>
+
+          </mat-tab>
+
+
+          <!-- SOUS-CONTAINER ROOMS/VOIR ROOM-->
+          <mat-tab label="Voir salles">
+            <table mat-table [dataSource]="dataSourceRoom" id="app-table-room">
+
+              <!-- Update Button column -->
+              <ng-container matColumnDef="updateAction">
+                <th mat-header-cell *matHeaderCellDef> Modification </th>
+                <td *matCellDef="let element">
+
+                  <button mat-raised-button (click)="retrieveRoom(element)" class="app-button-update">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Suppression Button column -->
+              <ng-container matColumnDef="deleteAction">
+                <th mat-header-cell *matHeaderCellDef> Suppression </th>
+                <td *matCellDef="let row">
+                  <button mat-raised-button (click)="deleteRoomById(row.id)" class="app-button-delete">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nom de la salle </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <!-- duration Column -->
+              <ng-container matColumnDef="sitNumber">
+                <th mat-header-cell *matHeaderCellDef> Nombre de sièges disponibles</th>
+                <td mat-cell *matCellDef="let element"> {{element.sitNumber}} </td>
+              </ng-container>
+
+              <!-- filmVersion Column -->
+              <ng-container matColumnDef="maxCapacity">
+                <th mat-header-cell *matHeaderCellDef> Capacité maximale </th>
+                <td mat-cell *matCellDef="let element"> {{element.maxCapacity}} </td>
+              </ng-container>
+
+              <!-- Display Column -->
+              <ng-container matColumnDef="audioSystem">
+                <th mat-header-cell *matHeaderCellDef> Système audio </th>
+                <td mat-cell *matCellDef="let element"> {{element.audioSystem}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsRoom"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsRoom;"></tr>
+            </table>
+
+            <!-- paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+
+
+
+          </mat-tab>
+
+          <!-- SOUS-CONTAINER ROOMS/UPDATE ROOM-->
+          <mat-tab label="Modifier rooms">
+
+            <!-- update Room-->
+
+            <h2 class="film-title">Veuillez modifier les informations de la salle sélectionnée :</h2>
+
+            <form (ngSubmit)="updateRoom(formUpdateRoom)" #formUpdateRoom="ngForm">
+              <div class="app-form-addFilm">
+
+                <div class="app-container-left-film">
+
+
+                  <!-- id -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Id</mat-label>
+                    <input disabled matInput name="id" placeholder="{{elementR.id}}" [(ngModel)]="elementR.id">
+                  </mat-form-field>
+                  <!-- Nom -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Nom de la salle</mat-label>
+                    <input matInput name="name" placeholder="{{elementR.name}}" [(ngModel)]="elementR.name">
+                  </mat-form-field>
+
+                  <!-- Numéro de siège -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Numéro de siège</mat-label>
+                    <input matInput name="sitNumber" placeholder="{{elementR.sitNumber}}"
+                      [(ngModel)]="elementR.sitNumber">
+                  </mat-form-field>
+
+                  <!-- Capacité maximale -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Capacité maximale</mat-label>
+                    <input matInput name="maxCapacity" placeholder="{{elementR.maxCapacity}}"
+                      [(ngModel)]="elementR.maxCapacity">
+                  </mat-form-field>
+
+                  <!-- durée -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Système Audio</mat-label>
+                    <input matInput name="audioSystem" placeholder="{{elementR.audioSystem}}"
+                      [(ngModel)]="elementR.audioSystem" ngModel>
+                  </mat-form-field>
+
+                </div>
+
+              </div>
+              <!-- submit -->
+              <div class="app-button-add-film">
+                <button mat-raised-button class="app-button" id="buttonUpdateFilm">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </form>
+
+          </mat-tab>
+        </mat-tab-group>
+
+
+
+
+      </div>
     </mat-tab>
 
-    
+
+
+
     <!-- CONTAINER CONTACTS -->
 
     <mat-tab label="Gestion des demandes">
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSourceContact" id="app-table-contact">
 
+        <!-- SOUS-CONTAINER CONTACTS/TABLE CONTACTS-->
+        <mat-tab-group mat-align-tabs="start" [backgroundColor]="'primary'" [color]="'warn'">
 
+          <!-- SOUS-CONTAINER CONTACTS/VOIR CONTACT-->
+          <mat-tab label="Voir demandes">
+            <table mat-table [dataSource]="dataSourceContact" id="app-table-film">
 
-          <!-- Position Column -->
-          <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef> Nom </th>
-            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-          </ng-container>
+              <!-- Suppression Button column -->
+              <ng-container matColumnDef="deleteAction">
+                <th mat-header-cell *matHeaderCellDef> Suppression </th>
+                <td *matCellDef="let row">
+                  <button mat-raised-button (click)="deleteContactById(row.id)" class="app-button-delete">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </ng-container>
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="lastName">
-            <th mat-header-cell *matHeaderCellDef> Prénom </th>
-            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-          </ng-container>
+              <!-- firstName Column -->
+              <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef> Prénom </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+              </ng-container>
 
-          <!-- Weight Column -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Adresse mail </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-          </ng-container>
+              <!-- lastName Column -->
+              <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef> Nom </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+              </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="message">
-            <th mat-header-cell *matHeaderCellDef> Commentaire </th>
-            <td mat-cell *matCellDef="let element"> {{element.message}} </td>
-          </ng-container>
+              <!-- email Column -->
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
 
-          <!-- Symbol Column -->
+              <!-- message Column -->
+              <ng-container matColumnDef="message">
+                <th mat-header-cell *matHeaderCellDef> Message </th>
+                <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+              </ng-container>
 
-          <ng-container matColumnDef="dateTime">
-            <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.dateTime}} </td>
-          </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsContact"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsContact;"></tr>
+            </table>
 
-          <!-- Suppression Button column -->
-          <ng-container matColumnDef="deleteAction">
-            <th mat-header-cell *matHeaderCellDef>Suppresion</th>
-            <td *matCellDef="let row">
-              <button mat-raised-button (click)="deleteContactById(row.id)" class="app-button-delete">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </ng-container>
+            <!-- paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsContact"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumnsContact;"></tr>
-        </table>
+          </mat-tab>
+        </mat-tab-group>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </mat-tab>
-    <mat-tab label="Gestion des Réservations">
+
+
+    <!-- CONTAINER Sessions -->
+
+    <mat-tab label="Gestion des Sessions">
+      <div class="mat-elevation-z8">
+
+        <!-- SOUS-CONTAINER SESSIONS/TABLE Sessions-->
+        <mat-tab-group mat-align-tabs="start" [backgroundColor]="'primary'" [color]="'warn'">
+
+          <!-- SOUS-CONTAINER SESSIONS/VOIR SESSIONS-->
+          <mat-tab label="Voir sessions">
+            <table mat-table [dataSource]="dataSourceSession" id="app-table-film">
+
+              <!-- Update Button column -->
+              <ng-container matColumnDef="updateAction">
+                <th mat-header-cell *matHeaderCellDef> Modification </th>
+                <td *matCellDef="let element">
+
+                  <button mat-raised-button (click)="retrieveSession(element)" class="app-button-update">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Suppression Button column -->
+              <ng-container matColumnDef="deleteAction">
+                <th mat-header-cell *matHeaderCellDef> Suppression </th>
+                <td *matCellDef="let row">
+                  <button mat-raised-button (click)="deleteSessionById(row.id)" class="app-button-delete">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- firstName Column -->
+              <ng-container matColumnDef="film">
+                <th mat-header-cell *matHeaderCellDef> Film </th>
+                <td mat-cell *matCellDef="let element"> {{element.film.name}}</td>
+              </ng-container>
+
+              <!-- lastName Column -->
+              <ng-container matColumnDef="room">
+                <th mat-header-cell *matHeaderCellDef> Room </th>
+                <td mat-cell *matCellDef="let element"> {{element.room.name}} </td>
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsSession"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsSession;"></tr>
+            </table>
+
+            <!-- paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+
+          </mat-tab>
+          <mat-tab label="Ajouter une session">
+
+            <h2 class="film-title">Veuillez entrez les informations de la session à ajouter :</h2>
+
+              <div class="app-form-addFilm">
+
+                <form (ngSubmit)="addSession(formAddSession)" #formAddSession="ngForm">
+                  <div class="app-form-addFilm">
+
+                    <!-- film -->
+                    <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                      <mat-label>Film</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let element of filmList" [value]="element" name="film" ngForm>
+                          {{element.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <!-- room -->
+                    <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                      <mat-label>Room</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let element of roomList" [value]="element" name="room" ngForm>
+                          {{element.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+
+                  </div>
+
+
+                  <!-- submit -->
+                  <div class="app-button-add-film">
+                    <button mat-raised-button class="app-button" id="buttonAddRoom">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                </form>
 
 
 
 
 
 
+              </div>
 
+          </mat-tab>
+        </mat-tab-group>
 
-
+      </div>
     </mat-tab>
+
+
+
+
+
+
+    <mat-tab label="Gestion des Réservations">
+      <div class="mat-elevation-z8">
+
+
+        <!-- SOUS-CONTAINER RESERVATIONS/TABLE RESERVATION-->
+        <mat-tab-group mat-align-tabs="start" [backgroundColor]="'primary'" [color]="'warn'">
+
+
+          <!-- SOUS-CONTAINER RESERVATIONS/VOIR RESERVATIONS-->
+          <mat-tab label="Voir réservations">
+            <table mat-table [dataSource]="dataSourceReservation" id="app-table-film">
+
+              <!-- Update Button column -->
+              <ng-container matColumnDef="updateAction">
+                <th mat-header-cell *matHeaderCellDef> Modification </th>
+                <td *matCellDef="let element">
+
+                  <button mat-raised-button (click)="retrieveReservation(element)" class="app-button-update">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Suppression Button column -->
+              <ng-container matColumnDef="deleteAction">
+                <th mat-header-cell *matHeaderCellDef> Suppression </th>
+                <td *matCellDef="let row">
+                  <button mat-raised-button (click)="deleteFilmById(row.id)" class="app-button-delete">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{elementResa.name}} </td>
+              </ng-container>
+
+              <!-- duration Column -->
+              <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let element"> {{elementResa.price}} </td>
+              </ng-container>
+
+              <!-- filmVersion Column -->
+              <ng-container matColumnDef="session">
+                <th mat-header-cell *matHeaderCellDef> Session </th>
+                <td mat-cell *matCellDef="let element"> {{elementResa.session}} </td>
+              </ng-container>
+
+              <!-- Display Column -->
+              <ng-container matColumnDef="users">
+                <th mat-header-cell *matHeaderCellDef> User </th>
+                <td mat-cell *matCellDef="let element"> {{elementResa.users}} </td>
+              </ng-container>
+
+              <!-- TypeFilm Column -->
+              <ng-container matColumnDef="seatNumber">
+                <th mat-header-cell *matHeaderCellDef> Numéro de siège </th>
+                <td mat-cell *matCellDef="let element"> {{elementResa.seatNumber}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsReservation"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsReservation;"></tr>
+            </table>
+
+            <!-- paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+
+
+            <!-- submit -->
+            <div class="app-button-add-film">
+              <button mat-raised-button (click)="addReservation()" class="app-button" id="buttonAddRoom">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+
+          </mat-tab>
+
+
+
+          <!-- SOUS-CONTAINER FILMS/UPDATE FILM-->
+          <mat-tab label="Modifier films">
+
+            <!-- update Film-->
+
+            <h2 class="film-title">Veuillez modifier les informations du film sélectionné :</h2>
+
+            <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+              <div class="app-form-addFilm">
+
+                <div class="app-container-left-film">
+
+
+                  <!-- id -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Id</mat-label>
+                    <input disabled matInput name="id" placeholder="{{element.id}}" [(ngModel)]="element.id">
+                  </mat-form-field>
+                  <!-- titre -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Titre</mat-label>
+                    <input matInput name="name" placeholder="{{element.name}}" [(ngModel)]="element.name">
+                  </mat-form-field>
+
+                  <!-- Réalisateur -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Réalisateur</mat-label>
+                    <input matInput name="director" placeholder="{{element.director}}" [(ngModel)]="element.director">
+                  </mat-form-field>
+
+                  <!-- affiche -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Affiche du film</mat-label>
+                    <input matInput name="display" placeholder="{{element.display}}" [(ngModel)]="element.display">
+                  </mat-form-field>
+
+                  <!-- durée -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Durée (en minutes)</mat-label>
+                    <input type="number" matInput name="duration" placeholder="{{element.duration}}"
+                      [(ngModel)]="element.duration" ngModel>
+                  </mat-form-field>
+
+                </div>
+                <div class="app-container-right-film">
+                  <!-- typefilm -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Type du film</mat-label>
+                    <input matInput name="typeFilm" placeholder="{{element.typeFilm}}" [(ngModel)]="element.duration"
+                      ngModel>
+                  </mat-form-field>
+
+                  <!-- commentaires -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Commentaires</mat-label>
+                    <input matInput name="userComment" placeholder="{{element.userComment}}"
+                      [(ngModel)]="element.userComment">
+                  </mat-form-field>
+
+                  <!-- Version -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Version</mat-label>
+                    <input matInput name="filmVersion" placeholder="{{element.filmVersion}}"
+                      [(ngModel)]="element.duration">
+                  </mat-form-field>
+
+                  <!-- pegi -->
+                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                    <mat-label>Limite d'age</mat-label>
+                    <mat-select>
+                      <input matInput name="filmVersion" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!-- synopsis -->
+                  <mat-form-field class="app-field-film" [color]="'accent'">
+                    <mat-label>Descriptif</mat-label>
+                    <textarea matInput name="synopsis" placeholder="{{element.synopsis}}" [(ngModel)]="element.synopsis"
+                      ngModel></textarea>
+                  </mat-form-field>
+
+                </div>
+
+              </div>
+              <!-- submit -->
+              <div class="app-button-add-film">
+                <button mat-raised-button class="app-button" id="buttonUpdateFilm">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </form>
+
+            <form (ngSubmit)="updateFilm(formUpdateFilm)" #formUpdateFilm="ngForm">
+              <div class="row">
+
+                <div class="col-2">
+                  <input disabled name="id" class="form-control" placeholder="{{element.id}}" [(ngModel)]="element.id">
+                </div>
+                <div class="col-2">
+                  <input name="name" class="form-control" placeholder="{{element.name}}" [(ngModel)]="element.name">
+                </div>
+                <div class="col-2">
+                  <input name="duration" class="form-control" placeholder="{{element.duration}}"
+                    [(ngModel)]="element.duration" ngModel>
+                </div>
+                <div class="col-2">
+                  <input name="filmVersion" class="form-control" placeholder="{{element.filmVersion}}"
+                    [(ngModel)]="element.duration">
+                </div>
+                <div class="col-2">
+                  <input name="display" class="form-control" placeholder="{{element.display}}"
+                    [(ngModel)]="element.display" ngModel>
+                </div>
+
+                <div class="col-2">
+                  <input name="typeFilm" class="form-control" placeholder="{{element.typeFilm}}"
+                    [(ngModel)]="element.duration" ngModel>
+                </div>
+                <div class="col-2">
+                  <input name="synopsis" class="form-control" placeholder="{{element.synopsis}}"
+                    [(ngModel)]="element.synopsis" ngModel>
+                </div>
+
+                <div class="col-2">
+                  <input name="userComment" class="form-control" placeholder="{{element.userComment}}"
+                    [(ngModel)]="element.userComment">
+                </div>
+
+                <div class="col-2">
+                  <input name="director" class="form-control" placeholder="{{element.director}}"
+                    [(ngModel)]="element.director">
+                </div>
+
+                <div class="col-2">
+                  <input name="pegi" class="form-control" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
+                </div>
+
+                <div class="col-2">
+                  <button type="submit" class="btn btn-success">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-tab>
+
 
     <!-- CONTAINER STATISTIQUES-->
 

@@ -12,7 +12,18 @@ export class SessionWebService {
   baseUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {
-
-
    }
+   
+   getAllSessions(): Observable<Session[]> {
+    return this.http.get<Session[]>(this.baseUrl + 'REST/recupsession');
+  }
+
+  addSession(sessionToAdd: Session): Observable<any> {
+    return this.http.post(this.baseUrl + 'REST/addNewSession', sessionToAdd);
+  }
+
+  deleteSessionById(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'REST/deleteSessionById?id=' + id);
+  }
 }
+

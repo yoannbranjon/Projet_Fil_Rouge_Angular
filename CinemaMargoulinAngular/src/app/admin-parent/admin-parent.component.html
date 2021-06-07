@@ -28,25 +28,25 @@
 
                 <div class="app-container-left-film">
                   <!-- titre -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Titre</mat-label>
                     <input matInput placeholder="ex : Avatar" name="name" ngModel>
                   </mat-form-field>
 
                   <!-- Réalisateur -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Réalisateur</mat-label>
                     <input matInput placeholder="ex : Steven Spieldberg" name="director" ngModel>
                   </mat-form-field>
 
                   <!-- affiche -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Affiche du film</mat-label>
                     <input matInput placeholder="ex : http://monfilm.fr" name="display" ngModel>
                   </mat-form-field>
 
                   <!-- durée -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film" >
                     <mat-label>Durée (en minutes)</mat-label>
                     <input type="number" matInput placeholder="ex : 120" name="duration" ngModel>
                   </mat-form-field>
@@ -54,25 +54,25 @@
                 </div>
                 <div class="app-container-right-film">
                   <!-- typefilm -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Type du film</mat-label>
                     <input matInput placeholder="ex: Science-Fiction" name="typeFilm" ngModel>
                   </mat-form-field>
 
                   <!-- commentaires -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Commentaires</mat-label>
                     <input matInput placeholder="ex : blabla" name="userComment" ngModel>
                   </mat-form-field>
 
                   <!-- Version -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Version</mat-label>
                     <input matInput placeholder="Version (ex : VO)" name="filmVersion" ngModel>
                   </mat-form-field>
 
                   <!-- pegi -->
-                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                  <mat-form-field appearance="fill" class="app-field-film">
                     <mat-label>Limite d'age</mat-label>
                     <mat-select>
                       <mat-option *ngFor="let element of ageLimit" [value]="element.value" name="pegi" ngModel>
@@ -82,7 +82,7 @@
                   </mat-form-field>
 
                   <!-- synopsis -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Descriptif</mat-label>
                     <textarea matInput placeholder="Ex. Il était une fois..." name="synopsis" ngModel></textarea>
                   </mat-form-field>
@@ -113,30 +113,30 @@
                 <div class="app-container-left-film">
 
                   <!-- id -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Id</mat-label>
                     <input disabled matInput name="id" placeholder="{{element.id}}" [(ngModel)]="element.id">
                   </mat-form-field>
                   <!-- titre -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Titre</mat-label>
                     <input matInput name="name" placeholder="{{element.name}}" [(ngModel)]="element.name">
                   </mat-form-field>
 
                   <!-- Réalisateur -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Réalisateur</mat-label>
                     <input matInput name="director" placeholder="{{element.director}}" [(ngModel)]="element.director">
                   </mat-form-field>
 
                   <!-- affiche -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Affiche du film</mat-label>
                     <input matInput name="display" placeholder="{{element.display}}" [(ngModel)]="element.display">
                   </mat-form-field>
 
                   <!-- durée -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Durée (en minutes)</mat-label>
                     <input type="number" matInput name="duration" placeholder="{{element.duration}}"
                       [(ngModel)]="element.duration" ngModel>
@@ -145,28 +145,28 @@
                 </div>
                 <div class="app-container-right-film">
                   <!-- typefilm -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Type du film</mat-label>
                     <input matInput name="typeFilm" placeholder="{{element.typeFilm}}" [(ngModel)]="element.duration"
                       ngModel>
                   </mat-form-field>
 
                   <!-- commentaires -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Commentaires</mat-label>
                     <input matInput name="userComment" placeholder="{{element.userComment}}"
                       [(ngModel)]="element.userComment">
                   </mat-form-field>
 
                   <!-- Version -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Version</mat-label>
                     <input matInput name="filmVersion" placeholder="{{element.filmVersion}}"
                       [(ngModel)]="element.duration">
                   </mat-form-field>
 
                   <!-- pegi -->
-                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                  <mat-form-field appearance="fill" class="app-field-film">
                     <mat-label>Limite d'age</mat-label>
                     <mat-select>
                       <input matInput name="filmVersion" placeholder="{{element.pegi}}" [(ngModel)]="element.pegi">
@@ -174,7 +174,7 @@
                   </mat-form-field>
 
                   <!-- synopsis -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Descriptif</mat-label>
                     <textarea matInput name="synopsis" placeholder="{{element.synopsis}}" [(ngModel)]="element.synopsis"
                       ngModel></textarea>
@@ -305,25 +305,25 @@
 
                 <div class="app-container-left-film">
                   <!-- nom de la salle -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Nom de la salle</mat-label>
                     <input matInput placeholder="ex : Saint Paulin" name="name" ngModel>
                   </mat-form-field>
 
                   <!-- Numéro de siège -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film" >
                     <mat-label>Nombre de sièges disponibles</mat-label>
                     <input type="number" matInput placeholder="ex : 25" name="seatNumber" ngModel>
                   </mat-form-field>
 
                   <!-- maxCapacity -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Capacité maximale de la salle</mat-label>
                     <input matInput placeholder="ex : 50" name="maxCapacity" ngModel>
                   </mat-form-field>
 
                   <!-- durée -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Système audio</mat-label>
                     <input matInput placeholder="ex : VO" name="audioSystem" ngModel>
                   </mat-form-field>
@@ -353,33 +353,33 @@
                 <div class="app-container-left-film">
 
                   <!-- id -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Id</mat-label>
                     <input disabled matInput name="id" placeholder="{{elementR.id}}" [(ngModel)]="elementR.id">
                   </mat-form-field>
 
                   <!-- Nom -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Nom de la salle</mat-label>
                     <input matInput name="name" placeholder="{{elementR.name}}" [(ngModel)]="elementR.name">
                   </mat-form-field>
 
                   <!-- Numéro de siège -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Numéro de siège</mat-label>
                     <input matInput name="seatNumber" placeholder="{{elementR.seatNumber}}"
                       [(ngModel)]="elementR.seatNumber">
                   </mat-form-field>
 
                   <!-- Capacité maximale -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Capacité maximale</mat-label>
                     <input matInput name="maxCapacity" placeholder="{{elementR.maxCapacity}}"
                       [(ngModel)]="elementR.maxCapacity">
                   </mat-form-field>
 
                   <!-- durée -->
-                  <mat-form-field class="app-field-film" [color]="'accent'">
+                  <mat-form-field class="app-field-film">
                     <mat-label>Système Audio</mat-label>
                     <input matInput name="audioSystem" placeholder="{{elementR.audioSystem}}"
                       [(ngModel)]="elementR.audioSystem">
@@ -541,7 +541,7 @@
                 <div class="app-form-addFilm">
 
                   <!-- film -->
-                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                  <mat-form-field appearance="fill" class="app-field-film">
                     <mat-label>Film</mat-label>
                     <mat-select>
                       <mat-option *ngFor="let element of filmList" [value]="element" name="film"
@@ -552,7 +552,7 @@
                   </mat-form-field>
 
                   <!-- room -->
-                  <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                  <mat-form-field appearance="fill" class="app-field-film">
                     <mat-label>Room</mat-label>
                     <mat-select>
                       <mat-option *ngFor="let element of roomList" [value]="element" name="room"
@@ -587,7 +587,7 @@
               <div class="app-form-addFilm">
 
                 <!-- film -->
-                <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                <mat-form-field appearance="fill" class="app-field-film">
                   <mat-label> {{elementS.film.name}}</mat-label>
                   <mat-select>
                     <mat-option *ngFor="let element of filmList" [value]="element" name="film"
@@ -598,7 +598,7 @@
                 </mat-form-field>
 
                 <!-- room -->
-                <mat-form-field appearance="fill" class="app-field-film" [color]="'accent'">
+                <mat-form-field appearance="fill" class="app-field-film">
                   <mat-label>{{elementS.room.name}}</mat-label>
                   <mat-select>
                     <mat-option *ngFor="let element of roomList" [value]="element" name="room"
@@ -759,27 +759,27 @@
               <div class="app-form-addFilm">
 
                 <!-- Nom -->
-                <mat-form-field class="app-field-film" [color]="'accent'">
+                <mat-form-field class="app-field-film">
                   <mat-label>Nom de la réservation</mat-label>
                   <input matInput placeholder="{{elementResa.name}}" [(ngModel)]="elementResa.name" name="name">
                 </mat-form-field>
 
                 <!-- Prix -->
-                <mat-form-field class="app-field-film" [color]="'accent'">
+                <mat-form-field class="app-field-film">
                   <mat-label>Price</mat-label>
                   <input type=number matInput placeholder="{{elementResa.price}}" [(ngModel)]="elementResa.price"
                     name="price">
                 </mat-form-field>
 
                 <!-- Session -->
-                <mat-form-field class="app-field-film" [color]="'accent'">
+                <mat-form-field class="app-field-film">
                   <mat-label>Session</mat-label>
                   <input disabled type=number matInput pmatInput placeholder="{{elementResa.session.id}}"
                     [(ngModel)]="elementResa.session.id" name="session" ngModel>
                 </mat-form-field>
 
                 <!-- Numéro du siege -->
-                <mat-form-field class="app-field-film" [color]="'accent'">
+                <mat-form-field class="app-field-film">
                   <mat-label>User</mat-label>
                   <input disabled type=number matInput placeholder="{{elementResa.users.id}}"
                     [(ngModel)]="elementResa.users.id" name="user">
@@ -787,7 +787,7 @@
 
 
                 <!-- Numéro du siege -->
-                <mat-form-field class="app-field-film" [color]="'accent'">
+                <mat-form-field class="app-field-film" >
                   <mat-label>Numéro du siège</mat-label>
                   <input type=number matInput placeholder="{{elementResa.seatNumber}}"
                     [(ngModel)]="elementResa.seatNumber" name="seatNumber">
@@ -811,20 +811,24 @@
     <!-- CONTAINER STATISTIQUES-->
 
     <mat-tab label="Statistiques">
-      <div class="app-stat">
-        <h3> Graphique Vues/Mois</h3>
-        <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataVues" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
-          [yAxisLabel]="'Nombre de vues'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
-          [yAxis]="true" [gradient]="true">
-        </ngx-charts-bar-vertical>
-      </div>
-  
-      <div class="app-stat">
-        <h3> Graphique Nbr de réservationsMois</h3>
-        <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataNbrDeReservations" [xAxisLabel]="'Mois'" [legendTitle]="'Mois'"
-          [yAxisLabel]="'Nombre de réservations'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
-          [yAxis]="true" [gradient]="true">
-        </ngx-charts-bar-vertical>
+
+      <div class="app-wrapper-stat">
+
+        <div class="app-stat">
+          <h3> Graphique Vues/Mois</h3>
+          <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataVues" [xAxisLabel]="'Mois'"
+            [legendTitle]="'Mois'" [yAxisLabel]="'Nombre de vues'" [legend]="true" [showXAxisLabel]="true"
+            [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+          </ngx-charts-bar-vertical>
+        </div>
+
+        <div class="app-stat">
+          <h3> Graphique Nbr de réservations/Mois</h3>
+          <ngx-charts-bar-vertical [view]="[1000,400]" [results]="surveyDataNbrDeReservations" [xAxisLabel]="'Mois'"
+            [legendTitle]="'Mois'" [yAxisLabel]="'Nombre de réservations'" [legend]="true" [showXAxisLabel]="true"
+            [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+          </ngx-charts-bar-vertical>
+        </div>
       </div>
     </mat-tab>
   </mat-tab-group>

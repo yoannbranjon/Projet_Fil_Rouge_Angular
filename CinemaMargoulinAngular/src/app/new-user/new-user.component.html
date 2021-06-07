@@ -1,52 +1,65 @@
 <app-header></app-header>
 <div class="app-wrapper">
+    <label id="inscription">Inscription :</label>
 
-    <form>
-        <label id="inscription">Inscription :</label>
-        <div class="form-group">
-            <div class="mb-3">
-                <label for="firstName" class="form-label" id="firstname">Nom :</label>
-                <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
-            </div>
+    <form (ngSubmit)="addUser()" #formAddUser="ngForm">
 
-            <div class="mb-3">
-                <label for="lastName" class="form-label" id="lastname">Prénom :</label>
-                <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
-            </div>
+        <div class="app-form">
+
+            <mat-form-field class="app-field-user" [color]="'accent'">
+                <mat-label>Nom</mat-label>
+                <input matInput placeholder="Branjon" formControlFirstName="firstName" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-field-user" [color]="'accent'">
+                <mat-label>Prénom</mat-label>
+                <input matInput placeholder="Nezha" formControlLastName="lastName" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-field-user" [color]="'accent'">
+                <mat-label>Adresse mail</mat-label>
+                <input matInput placeholder="mail@mail.com" formControlLastName="email" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-field-user" [color]="'accent'">
+                <mat-label>Mot de passe</mat-label>
+                <input matInput type="password" formControlLastName="email" required>
+            </mat-form-field>
+
+            <mat-form-field class="app-field-user" [color]="'accent'">
+                <mat-label>Valider mot de passe</mat-label>
+                <input matInput type="password">
+            </mat-form-field>
+
+            <table class="example-full-width" cellspacing="1">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width" [color]="'accent'">
+                            <mat-label>Adresse</mat-label>
+                            <input matInput placeholder="Ex. 2 rue de Nantes" formControlLastName="address" required>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width" [color]="'accent'">
+                            <mat-label>City</mat-label>
+                            <input matInput placeholder="Ex. Nantes" formControlLastName="city" required>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width" [color]="'accent'">
+                            <mat-label color="accent">Code postal</mat-label>
+                            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105"
+                                formControlLastName="postalCode" required>
+                            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
         </div>
-
-        <div class="form-group">
-
-            <div class="mb-3">
-                <label for="email" class="form-label" id="email">Adresse mail :</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            </div>
-
-            <div class="mb-3">
-                <label for="birthday" class="form-label" id="birthday">Date de naissance :</label>
-                <input type="date" class="form-control" id="birthday">
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="mb-3">
-                <label for="password" class="form-label">Mot de passe :</label>
-                <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
-            </div>
-
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirmer le mot de passe :</label>
-                <input type="password" class="form-control" id="confirmPassword" aria-describedby="confirmPasswordHelp">
-            </div>
-        </div>
-
         <div class="app-button">
-            <button type="submit" class="btn btn-dark" (click)="addUser()">Valider</button>
+            <button mat-raised-button>Valider</button>
         </div>
-
         <p>* Tous les champs sont obligatoires</p>
-
     </form>
 </div>
 <app-footer></app-footer>

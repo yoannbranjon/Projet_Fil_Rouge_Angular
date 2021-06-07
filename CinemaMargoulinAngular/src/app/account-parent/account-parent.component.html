@@ -5,6 +5,7 @@
     <div class="app-wrapper-connexion">
         <div class="welcome-back">
             <label id="bienvenue">Bienvenue !</label>
+            
             <p>Pour ouvrir votre compte utilisateur, veuillez rentrer vos informations personnelles</p>
         </div>
         <div class="new-user">
@@ -13,17 +14,8 @@
     </div>
 
     <div class="app-wrapper-form">
-        <form>
-            <div class="mb-3">
-                <label for="email" class="form-label">Adresse email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="mdp" class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" id="mdp">
-            </div>
 
-            <form class="app-form">
+            <form (ngSubmit)="addAccount()" #formAddReservation="ngForm">
                 <mat-form-field class="app-form__item">
                     <mat-label>Adresse mail</mat-label>
                     <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
@@ -52,11 +44,10 @@
                 </mat-form-field>
 
                 <div class="app-button">
-                    <button mat-raised-button color="primary" href="https://www.google.com/">Valider</button>
+                    <button mat-stroked-button (click)="openSnackBar()">Valider</button>
                 </div>
 
             </form>
-        </form>
     </div>
 
 </div>

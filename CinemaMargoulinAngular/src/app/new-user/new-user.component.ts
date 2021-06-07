@@ -19,12 +19,10 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //Films
-    this.addUser(); 
   }
 
   addUser() {
-    const userToAdd = new Users("Foutre", "Fichtre", this.account, this.now, "31 Rue du j'me foutre", 5524, "Paris");
+    const userToAdd = new Users("Yoann", "bon", this.account, this.now, "31 Rue de nantes", 5524, "nantes");
     this.usersWebService.addUser(userToAdd).subscribe(
       (data) => {
         // getAccount Next
@@ -33,6 +31,6 @@ export class NewUserComponent implements OnInit {
             console.error(error);
           }
         );
-      }
 
+  }
 }

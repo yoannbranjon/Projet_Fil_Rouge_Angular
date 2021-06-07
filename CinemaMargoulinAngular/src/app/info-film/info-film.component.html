@@ -1,7 +1,9 @@
 <app-header></app-header>
-<app-info-film-resa></app-info-film-resa>
+<app-info-film-resa [title]=film.name [director]=film.director [display]=film.display [synopsis]=film.synopsis>
+
+
+</app-info-film-resa>
 <app-info-film-comment></app-info-film-comment>
-<p>salut les copains
     <p> {{idToCatch}}</p>
     <p>{{film.name}}</p>
 <app-footer></app-footer>

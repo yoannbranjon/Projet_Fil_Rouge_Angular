@@ -5,6 +5,7 @@ import { Film } from '../shared/models/film.model';
 import { Account } from '../shared/models/account.model';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -22,6 +23,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class AccountParentComponent implements OnInit {
   
+  formAddReservation! :NgForm;
+  durationInSeconds = 5;
 
   emailFormControl = new FormControl('', [
       Validators.required,
@@ -39,7 +42,7 @@ export class AccountParentComponent implements OnInit {
   password: string = '';*/
 
   constructor(
-    //private filmWebService: FilmWebService,
+    private _snackBar: MatSnackBar,
     private accountWebService: AccountWebService,
   ) { }
 
@@ -52,22 +55,11 @@ export class AccountParentComponent implements OnInit {
     this.addAccount();
   }
 
-  
+  openSnackBar() {
+    this.durationInSeconds;
+  }
 
-  /*getAllFilms() {
 
-    this.filmWebService.getAllFilms().subscribe(
-      (data) => {
-
-        //getAllFilms Next
-        console.log('TestWebServiceComponent getAllFilms', data);
-        this.filmList = data;},
-        (error) => {
-          console.error(error);
-        }
-    );
-      }
-*/
   addAccount() {
     const accountToAdd = new Account("branjonyoann@hotmail.fr", "hohilf");
     this.accountWebService.addAccount(accountToAdd).subscribe(

@@ -1,4 +1,4 @@
-p {
+.welcome-back {
     color: black;
     font-family: 'Roboto', sans-serif;
     margin-top: 15%;
@@ -16,7 +16,7 @@ p {
 .app-wrapper-connexion {
     display: flex;
     width: 50%;
-    background-color: darkgoldenrod;
+    background-color: whitesmoke;
     align-items: center;
     flex-direction: column;
 
@@ -41,20 +41,20 @@ p {
     & a{
         
         font-family: 'Roboto', sans-serif;
-        color: whitesmoke;
+        color: black;
         text-decoration: none;
         font-weight: 700;
         transition: color 500ms ease;
     }
     & a:hover {
-        color: black;
+        color: darkgoldenrod;
     }
     
 }
 
 .app-wrapper-form{
     width: 50%;
-    background-color: whitesmoke;
+    background-color: darkgoldenrod;
         
     & .mb-3 {
         width: 80%;
@@ -71,15 +71,9 @@ p {
     }
 }
 
-.app-button {
-    display: flex;
-
-    & .btn {
-        margin: 2% auto;
-    }
-    & .btn:hover {
-        background-color: darkgoldenrod;
-    }
+button {
+    background-color: black;
+    color: whitesmoke;
 }
 
 .example-form {
@@ -90,4 +84,17 @@ p {
   
   .example-full-width {
     width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.app-form__item {
+    width: 400px;
+    margin-bottom: 15%;
 }

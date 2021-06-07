@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {StepperOrientation} from '@angular/material/stepper';
@@ -13,19 +13,23 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class InfoFilmResaComponent implements OnInit {
 
-  secondFormGroup = this._formBuilder.group({
+  //input 
+  @Input() title = '';
+  @Input() display : String = '';
+  @Input() director : String = '';
+  @Input() synopsis  : String = '';
+  
+  firstFormGroup = this._formBuilder.group({
     firstNameControl: ['', Validators.required],
     lastNameControl: ['', Validators.required],
     emailControl: ['', Validators.required],
-
+    passwordControl:  ['', Validators.required],
   });
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required]
-  });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required]
-  });
+ 
   stepperOrientation: Observable<StepperOrientation>;
+
+  //instanciation des objets récupérés du parent
+   
 
   constructor(
     private _snackBar: MatSnackBar,

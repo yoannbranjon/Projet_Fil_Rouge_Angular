@@ -12,11 +12,14 @@ export class InfoFilmComponent implements OnInit {
 
   idToCatch!: number;
   film = new Film("", 0, "", "", "", "", "", "", 0);
-
+  title ='';
+  display : String ='';
+  synopsis : String ='';
+  director : String='';
 
   constructor(
     private transfertService: TransfertService,
-    private filmWebService: FilmWebService    ) { }
+    private filmWebService: FilmWebService) { }
 
   ngOnInit() {
 
@@ -33,6 +36,10 @@ export class InfoFilmComponent implements OnInit {
       (data) => {
         this.film = data;
         console.log('TestWebServiceComponent getFilmById', data);
+        this.title = this.film.name;
+        this.display = this.film.display;
+        this.synopsis = this.film.synopsis;
+        this.director = this.film.director;
       },
         (error) => {
           console.error(error);
